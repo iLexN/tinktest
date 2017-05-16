@@ -31,7 +31,7 @@ class Open
         }
 
         $ac = $accountModule->create($validator->data(), $this->container['owner']);
-        $this->haveDeposit($validator->data(), $ac);
+        //$this->haveDeposit($validator->data(), $ac);
         
         return $response->write(\json_encode(['data'=>$ac->toArray(), 'status'=>'success']));
     }
