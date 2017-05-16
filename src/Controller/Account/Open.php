@@ -38,7 +38,7 @@ class Open
     
     private function haveDeposit($data, $ac)
     {
-        if (isset($data['balance'])) {
+        if (isset($data['amount'])) {
             /* @var $history \Tink\Module\HistoryModule */
             $history = $this->container['historyModule'];
             $history->create($data, 'deposit', $ac);
