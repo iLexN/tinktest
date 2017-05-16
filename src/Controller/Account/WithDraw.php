@@ -30,7 +30,7 @@ class WithDraw
             return $response->write(\json_encode($validator->errors()));
         }
 
-        if ($args['action'] === 'withdraw' && !$acInfo->checkWithDraw($validator->data()['data'])) {
+        if ($args['action'] === 'withdraw' && !$acInfo->checkWithDraw($validator->data()['amount'])) {
             return $response->write(\json_encode(['status'=>'draw money more than balance']));
         }
 
