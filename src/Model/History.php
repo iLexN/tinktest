@@ -21,9 +21,4 @@ class History extends Model
     protected $casts = [
         'amount' => 'float',
     ];
-
-    public function checkWithDraw($money)
-    {
-        return $this->attributes['balance'] >= $money;
-    }
 }
