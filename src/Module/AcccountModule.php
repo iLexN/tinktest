@@ -71,7 +71,7 @@ class AcccountModule
      */
     private function getValidatorField()
     {
-        return ['name', 'balance', 'status'];
+        return ['name', 'amount', 'status'];
     }
 
     /**
