@@ -6,13 +6,12 @@ use Slim\Http\Request;
 use Slim\Http\Response;
 
 /**
- * Description of CheckOwner
+ * Description of CheckOwner.
  *
  * @author user
  */
 class CheckAccount
 {
-
     /**
      * @var \Slim\Container
      */

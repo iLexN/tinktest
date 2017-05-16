@@ -16,24 +16,24 @@ class Account extends Model
     protected $table = 'account';
     protected $primaryKey = 'id';
 
-    protected $hidden = ['status','created_at', 'updated_at'];
+    protected $hidden = ['status', 'created_at', 'updated_at'];
 
     protected $casts = [
         'balance' => 'float',
     ];
 
-    
     /**
      * @param float $money
+     *
      * @return bool
      */
     public function checkWithDraw($money)
     {
-        return (float)$this->attributes['balance'] >= (float) $money;
+        return (float) $this->attributes['balance'] >= (float) $money;
     }
 
     /**
-     * @param float $money
+     * @param float  $money
      * @param string $status
      */
     public function calBalance($money, $status)

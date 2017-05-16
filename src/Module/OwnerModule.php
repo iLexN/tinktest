@@ -2,8 +2,7 @@
 
 namespace Tink\Module;
 
-use \Tink\Model\Owner;
-use \Valitron\Validator;
+use Tink\Model\Owner;
 
 /**
  * Description of UserModule.

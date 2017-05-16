@@ -13,5 +13,5 @@ class Owner extends Model
     protected $table = 'ower';
     protected $primaryKey = 'id';
 
-    protected $hidden = ['status','created_at', 'updated_at'];
+    protected $hidden = ['status', 'created_at', 'updated_at'];
 }

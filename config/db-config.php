@@ -1,10 +1,11 @@
 <?php
+
 return [
     'dbConfig' => [
-        'host' => 'localhost', //dev
+        'host'     => 'localhost', //dev
         'database' => 'tinktest',
-        'user' => 'root',
+        'user'     => 'root',
         'password' => '',
-        'logging' => true,
-    ]
+        'logging'  => true,
+    ],
 ];

@@ -21,6 +21,6 @@ class Info
     {
         $acInfo = $this->container['ac'];
 
-        return $response->write(\json_encode(['data'=>$acInfo->toArray(),'status'=>'success']));
+        return $response->write(\json_encode(['data'=>$acInfo->toArray(), 'status'=>'success']));
     }
 }

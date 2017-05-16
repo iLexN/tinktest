@@ -1,8 +1,6 @@
 <?php
 
 
-
-
 //ac open
 $app->post('/{owner:\d+}/account', 'Tink\Controller\Account\Open')
         ->add($checkOwner);

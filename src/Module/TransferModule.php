@@ -2,9 +2,8 @@
 
 namespace Tink\Module;
 
-use \Tink\Model\Account;
-use Tink\Module\HistoryModule;
-use \Valitron\Validator;
+use Tink\Model\Account;
+
 
 /**
  * Description of UserModule.
@@ -59,11 +58,11 @@ class TransferModule
     public function canTransfer()
     {
         if (!$this->checkWithDrawAmount()) {
-            return ['status'=>false,'msg'=>'not enough money to transfer'];
+            return ['status'=>false, 'msg'=>'not enough money to transfer'];
         }
 
         if (!$this->checkdailyLimit()) {
-            return ['status'=>false,'msg'=>'over daily limit'];
+            return ['status'=>false, 'msg'=>'over daily limit'];
         }
 
         if ($this->isSameOwer()) {
@@ -71,7 +70,7 @@ class TransferModule
         }
 
         if (!$this->getApiApprove()) {
-            return ['status'=>false,'msg'=>'not approve'];
+            return ['status'=>false, 'msg'=>'not approve'];
         }
 
         return true;
@@ -83,7 +82,7 @@ class TransferModule
             return true;
         }
 
-        if (!$this->isSameOwer() && $this->from->checkWithDraw($this->data['amount']+100)) {
+        if (!$this->isSameOwer() && $this->from->checkWithDraw($this->data['amount'] + 100)) {
             return true;
         }
 
@@ -97,9 +96,10 @@ class TransferModule
 
     private function checkdailyLimit()
     {
-        $sum = $this->from->history()->where('created_at', 'like', date("Y-m-d").'%')
+        $sum = $this->from->history()->where('created_at', 'like', date('Y-m-d').'%')
                 ->where('action', 'transferTo')->sum('amount');
-        return ($sum + $this->data['amount'] ) <= 10000;
+
+        return ($sum + $this->data['amount']) <= 10000;
     }
 
     private function getApiApprove()
@@ -111,7 +111,7 @@ class TransferModule
             return false;
         }
 
-        $body = \json_decode((string) $response->getBody(), true) ;
+        $body = \json_decode((string) $response->getBody(), true);
         if (isset($body['status']) && $body['status'] !== success) {
             return false;
         }

@@ -51,6 +51,6 @@ class Transfer
         //do transfer
         $transferModule->transfer($history);
 
-        return $response->write(\json_encode(['data'=>$fromAcc->toArray(),'status'=>'success']));
+        return $response->write(\json_encode(['data'=>$fromAcc->toArray(), 'status'=>'success']));
     }
 }

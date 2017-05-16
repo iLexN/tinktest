@@ -2,9 +2,9 @@
 
 namespace Tink\Module;
 
-use \Tink\Model\Account;
+use Tink\Model\Account;
 use Tink\Model\Owner;
-use \Valitron\Validator;
+use Valitron\Validator;
 
 /**
  * Description of UserModule.
@@ -33,10 +33,11 @@ class AcccountModule
     {
         $ac = new Account();
         $ac->name = $data['name'];
-        $ac->balance = isset($data['balance'])? $data['balance']:0.00;
+        $ac->balance = isset($data['balance']) ? $data['balance'] : 0.00;
         $ac->status = 'Active';
         $ac->ower = $owner->id;
         $ac->save();
+
         return $ac;
     }
 
@@ -70,7 +71,7 @@ class AcccountModule
      */
     private function getValidatorField()
     {
-        return ['name','balance','status'];
+        return ['name', 'balance', 'status'];
     }
 
     /**
