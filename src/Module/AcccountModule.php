@@ -24,7 +24,7 @@ class AcccountModule
     }
 
     /**
-     * @param array $ar
+     * @param array $data
      * @param Owner $owner
      *
      * @return Account
@@ -41,7 +41,7 @@ class AcccountModule
     }
 
     /**
-     * @param Account $ar
+     * @param Account $ac
      *
      * @return Account
      */
