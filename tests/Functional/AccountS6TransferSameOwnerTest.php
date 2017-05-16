@@ -10,7 +10,7 @@ class AccountS6TransferSameOwnerTest extends BaseTestCase
     public function testTransfer()
     {
         $ar = ['name'   => 'account name1',
-               'balance'=> '11000',
+               'amount'=> '11000',
             ];
         $response = $this->runApp('POST', '/1/account', $ar);
         $result = \json_decode((string) $response->getBody(), 1);
