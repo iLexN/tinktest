@@ -24,9 +24,11 @@ class HistoryModule
     }
 
     /**
-     * @param array $ar
      *
-     * @return bool
+     * @param array $data
+     * @param string $status
+     * @param Account $ac
+     * @param int|null $acTo
      */
     public function create($data, $status, Account $ac, $acTo = null)
     {

@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model as Model;
  * @property int $account_id
  * @property string $action
  * @property float $amount
+ * @property int $related_ac
  */
 class History extends Model
 {

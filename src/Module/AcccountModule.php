@@ -26,7 +26,7 @@ class AcccountModule
     /**
      * @param array $ar
      *
-     * @return bool
+     * @return Account
      */
     public function create($data, Owner $owner)
     {
