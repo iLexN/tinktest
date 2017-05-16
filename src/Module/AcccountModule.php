@@ -33,7 +33,7 @@ class AcccountModule
     {
         $ac = new Account();
         $ac->name = $data['name'];
-        $ac->balance = isset($data['balance']) ? $data['balance'] : 0.00;
+        $ac->balance = 0.00;
         $ac->status = 'Active';
         $ac->ower = $owner->id;
         $ac->save();
