@@ -22,11 +22,6 @@ class OwnerModule
         $this->container = $container;
     }
 
-    /**
-     * @param int $id
-     *
-     * @return Owner
-     */
     public function getOwnerInfo($id)
     {
         return Owner::where('id', $id)

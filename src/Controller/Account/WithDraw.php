@@ -24,7 +24,7 @@ class WithDraw
 
         /* @var $history \Tink\Module\HistoryModule */
         $history = $this->container['historyModule'];
-        $validator = $history->validator((array)$request->getParsedBody());
+        $validator = $history->validator($data = $request->getParsedBody());
 
         if (!$validator->validate()) {
             return $response->write(\json_encode($validator->errors()));

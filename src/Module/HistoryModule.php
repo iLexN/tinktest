@@ -42,11 +42,6 @@ class HistoryModule
         $ac->save();
     }
 
-    /**
-     * @param array $data
-     *
-     * @return Validator
-     */
     public function validator($data)
     {
         $validator = new Validator($data, $this->getValidatorField());
@@ -56,9 +51,6 @@ class HistoryModule
         return $validator;
     }
 
-    /**
-     * @return array
-     */
     private function getValidatorField()
     {
         return ['account_id','action','amount'];

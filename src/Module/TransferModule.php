@@ -38,12 +38,6 @@ class TransferModule
         $this->container = $container;
     }
 
-    /**
-     *
-     * @param Account $from
-     * @param Account $to
-     * @param array $data
-     */
     public function setAcc(Account $from, Account $to, $data)
     {
         $this->from = $from;
@@ -51,10 +45,6 @@ class TransferModule
         $this->data = $data;
     }
 
-    /**
-     *
-     * @param HistoryModule $history
-     */
     public function transfer(HistoryModule $history)
     {
         $history->create($this->data, 'transferFrom', $this->to, $this->from->id);
@@ -66,11 +56,6 @@ class TransferModule
         $history->create($this->data, 'transferTo', $this->from, $this->to->id);
     }
 
-    
-    /**
-     *
-     * @return bool
-     */
     public function canTransfer()
     {
         if (!$this->checkWithDrawAmount()) {
@@ -92,10 +77,6 @@ class TransferModule
         return true;
     }
 
-    /**
-     *
-     * @return bool
-     */
     private function checkWithDrawAmount()
     {
         if ($this->isSameOwer() && $this->from->checkWithDraw($this->data['amount'])) {
@@ -109,19 +90,11 @@ class TransferModule
         return false;
     }
 
-    /**
-     *
-     * @return bool
-     */
     private function isSameOwer()
     {
         return $this->from->ower === $this->to->ower;
     }
 
-    /**
-     *
-     * @return bool
-     */
     private function checkdailyLimit()
     {
         $sum = $this->from->history()->where('created_at', 'like', date("Y-m-d").'%')
@@ -129,10 +102,6 @@ class TransferModule
         return ($sum + $this->data['amount'] ) <= 10000;
     }
 
-    /**
-     *
-     * @return bool
-     */
     private function getApiApprove()
     {
         $httpClient = $this->container['httpClient'];
