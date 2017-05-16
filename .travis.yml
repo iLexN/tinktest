@@ -12,7 +12,7 @@ before_script:
   - composer self-update
   - composer install --prefer-source --no-interaction --dev
   - if [[ "$TRAVIS_PHP_VERSION" == '5.6' ]]; then composer require satooshi/php-coveralls:dev-master squizlabs/php_codesniffer:2.* -n ; fi
-  - mysql -e 'create database member;'
+  - mysql -e 'create database tinktest;'
   - mysql tinktest < DB/tinktest.sql
  
 script:
