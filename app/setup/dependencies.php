@@ -7,6 +7,7 @@ $container['logger'] = function (\Slim\Container $c) {
     $settings = $c->get('logConfig');
     $logger = new \Monolog\Logger($settings['name']);
     $logger->pushHandler(new \Monolog\Handler\StreamHandler($settings['path'], \Monolog\Logger::DEBUG));
+    $logger->pushHandler(new Monolog\Handler\NativeMailerHandler('ilex.job+tt@gmail.com', 'ilex Test ci', 'ilex.job@gmail.com'));
 
     return $logger;
 };

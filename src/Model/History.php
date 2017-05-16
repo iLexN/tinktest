@@ -22,11 +22,6 @@ class History extends Model
         'amount' => 'float',
     ];
 
-    public function address()
-    {
-        return $this->hasMany(__NAMESPACE__.'\Address', 'ppmid');
-    }
-
     public function checkWithDraw($money)
     {
         return $this->attributes['balance'] >= $money;

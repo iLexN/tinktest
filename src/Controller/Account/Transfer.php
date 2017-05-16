@@ -48,6 +48,7 @@ class Transfer
             return $response->write(\json_encode(['status'=>$result['msg']]));
         }
 
+        //do transfer
         $transferModule->transfer($history);
 
         return $response->write(\json_encode(['data'=>$fromAcc->toArray(),'status'=>'success']));

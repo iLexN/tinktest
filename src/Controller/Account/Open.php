@@ -24,7 +24,7 @@ class Open
 
         $validator = $accountModule->validator($request->getParsedBody());
 
-        //todo : add name check
+        //todo : add name check , add history
 
         if (!$validator->validate()) {
             return $response->write(\json_encode($validator->errors()));

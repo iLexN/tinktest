@@ -25,6 +25,7 @@ class AcccountModule
 
     /**
      * @param array $ar
+     * @param Owner $owner
      *
      * @return Account
      */
@@ -39,12 +40,22 @@ class AcccountModule
         return $ac;
     }
 
+    /**
+     * @param Account $ar
+     *
+     * @return Account
+     */
     public function close(Account $ac)
     {
         $ac->status = 'inActive';
         $ac->save();
     }
 
+    /**
+     * @param array $data
+     *
+     * @return Validator
+     */
     public function validator($data)
     {
         $validator = new Validator($data, $this->getValidatorField());
@@ -54,11 +65,19 @@ class AcccountModule
         return $validator;
     }
 
+    /**
+     * @return array
+     */
     private function getValidatorField()
     {
         return ['name','balance','status'];
     }
 
+    /**
+     * @param int $id
+     *
+     * @return Account
+     */
     public function getAcInfo($id)
     {
         return Account::where('id', $id)
