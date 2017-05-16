@@ -15,12 +15,13 @@ class AccountS7TransferOtherOwnerTest extends BaseTestCase
         $response = $this->runApp('POST', '/1/account',$ar);
         $result = \json_decode((string)$response->getBody(),1);
         $this->ac1Id = $result['data']['id'];
+        $this->assertEquals(5, $this->ac1Id);
 
         $ar = ['name'=>'account name2'];
         $response = $this->runApp('POST', '/2/account',$ar);
         $result = \json_decode((string)$response->getBody(),1);
         $this->ac2Id = $result['data']['id'];
-
+        $this->assertEquals(6, $this->ac2Id);
 
         $response = $this->runApp('POST', '/account/'.$this->ac1Id.'/transfer/'.$this->ac2Id,['amount'=>1000]);
 
