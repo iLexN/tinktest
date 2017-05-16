@@ -22,11 +22,20 @@ class Account extends Model
         'balance' => 'float',
     ];
 
+    
+    /**
+     * @param float $money
+     * @return bool
+     */
     public function checkWithDraw($money)
     {
         return (float)$this->attributes['balance'] >= (float) $money;
     }
 
+    /**
+     * @param float $money
+     * @param string $status
+     */
     public function calBalance($money, $status)
     {
         switch ($status) {
