@@ -36,6 +36,6 @@ class WithDraw
 
         $history->create($validator->data(), $args['action'], $acInfo);
 
-        return $response->write(\json_encode(['data'=>$acInfo->toArray(),'status'=>'success']));
+        return $response->write(\json_encode(['data'=>$acInfo->toArray(), 'status'=>'success']));
     }
 }

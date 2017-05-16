@@ -8,5 +8,4 @@ class CheckOwnerTest extends \PHPUnit\Framework\TestCase
     {
         $this->assertEquals(6010, 6010);
     }
-
 }

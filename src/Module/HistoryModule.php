@@ -2,9 +2,9 @@
 
 namespace Tink\Module;
 
-use \Tink\Model\Account;
-use \Tink\Model\History;
-use \Valitron\Validator;
+use Tink\Model\Account;
+use Tink\Model\History;
+use Valitron\Validator;
 
 /**
  * Description of UserModule.
@@ -24,10 +24,9 @@ class HistoryModule
     }
 
     /**
-     *
-     * @param array $data
-     * @param string $status
-     * @param Account $ac
+     * @param array    $data
+     * @param string   $status
+     * @param Account  $ac
      * @param int|null $acTo
      */
     public function create($data, $status, Account $ac, $acTo = null)
@@ -53,6 +52,6 @@ class HistoryModule
 
     private function getValidatorField()
     {
-        return ['account_id','action','amount'];
+        return ['account_id', 'action', 'amount'];
     }
 }

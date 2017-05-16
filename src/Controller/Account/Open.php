@@ -22,7 +22,7 @@ class Open
         /* @var $accountModule \Tink\Module\AcccountModule */
         $accountModule = $this->container['acccountModule'];
 
-        $validator = $accountModule->validator((array)$request->getParsedBody());
+        $validator = $accountModule->validator((array) $request->getParsedBody());
 
         //todo : add name check , add history
 
@@ -32,6 +32,6 @@ class Open
 
         $ac = $accountModule->create($validator->data(), $this->container['owner']);
 
-        return $response->write(\json_encode(['data'=>$ac->toArray(),'status'=>'success']));
+        return $response->write(\json_encode(['data'=>$ac->toArray(), 'status'=>'success']));
     }
 }

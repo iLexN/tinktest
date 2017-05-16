@@ -30,7 +30,6 @@ $container['httpClient'] = function (\Slim\Container $c) {
         ]);
 };
 
-
 // rount handloer
 $container['notFoundHandler'] = function (\Slim\Container $c) {
     return function (\Slim\Http\Request $request, \Slim\Http\Response  $response) use ($c) {
@@ -38,7 +37,7 @@ $container['notFoundHandler'] = function (\Slim\Container $c) {
             'method' => $request->getMethod(),
             'uri'    => (string) $request->getUri(),
         ];
-         $c['logger']->info('404', $logInfo);
+        $c['logger']->info('404', $logInfo);
 
         return $response->write('404')->withStatus(404);
     };
@@ -48,7 +47,8 @@ if (!$container['settings']['displayErrorDetails']) {
     $container['errorHandler'] = function (\Slim\Container $c) {
         return function (\Slim\Http\Request $request, \Slim\Http\Response $response, \Exception $exception) use ($c) {
             $c['logger']->error('e', (array) $exception);
-            return $response->write(\json_encode(array($exception)))->withStatus(500);
+
+            return $response->write(\json_encode([$exception]))->withStatus(500);
         };
     };
 }

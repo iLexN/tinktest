@@ -4,13 +4,12 @@ namespace Tests\Functional;
 
 class AccountS2CloseTest extends BaseTestCase
 {
-
     public function testCloseAccount()
     {
         $response = $this->runApp('DELETE', '/account/1');
 
         $this->assertEquals(200, $response->getStatusCode());
-        $result = \json_decode((string)$response->getBody(),1);
+        $result = \json_decode((string) $response->getBody(), 1);
         $this->assertEquals('success', $result['status']);
     }
 
@@ -19,7 +18,7 @@ class AccountS2CloseTest extends BaseTestCase
         $response = $this->runApp('DELETE', '/account/1');
 
         $this->assertEquals(200, $response->getStatusCode());
-        $result = \json_decode((string)$response->getBody(),1);
+        $result = \json_decode((string) $response->getBody(), 1);
         $this->assertEquals('account not exists', $result['status']);
     }
 
@@ -28,8 +27,7 @@ class AccountS2CloseTest extends BaseTestCase
         $response = $this->runApp('DELETE', '/account/1000000');
 
         $this->assertEquals(200, $response->getStatusCode());
-        $result = \json_decode((string)$response->getBody(),1);
+        $result = \json_decode((string) $response->getBody(), 1);
         $this->assertEquals('account not exists', $result['status']);
     }
-
 }
