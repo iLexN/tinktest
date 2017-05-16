@@ -61,7 +61,7 @@ class AcccountModule
     {
         $validator = new Validator($data, $this->getValidatorField());
         $validator->rule('required', ['name']);
-        $validator->rule('numeric', ['balance']);
+        $validator->rule('numeric', ['amount']);
 
         return $validator;
     }
