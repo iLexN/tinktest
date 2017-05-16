@@ -37,7 +37,6 @@ class Account extends Model
             case 'deposit':
             case 'transferFrom':
                 $this->attributes['balance'] = $this->attributes['balance'] + $money;
-            default:
                 break;
         }
     }
