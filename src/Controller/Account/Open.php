@@ -22,7 +22,7 @@ class Open
         /* @var $accountModule \Tink\Module\AcccountModule */
         $accountModule = $this->container['acccountModule'];
 
-        $validator = $accountModule->validator((array())$request->getParsedBody());
+        $validator = $accountModule->validator((array)$request->getParsedBody());
 
         //todo : add name check , add history
 
