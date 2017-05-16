@@ -31,14 +31,14 @@ class Open
         }
 
         $ac = $accountModule->create($validator->data(), $this->container['owner']);
-        //$this->haveDeposit($validator->data(), $ac);
+        $this->haveDeposit($validator->data(), $ac);
         
         return $response->write(\json_encode(['data'=>$ac->toArray(), 'status'=>'success']));
     }
     
     private function haveDeposit($data, $ac)
     {
-        if ( isset($data['balance']) ) {
+        if (isset($data['balance'])) {
             /* @var $history \Tink\Module\HistoryModule */
             $history = $this->container['historyModule'];
             $history->create($data, 'deposit', $ac);
