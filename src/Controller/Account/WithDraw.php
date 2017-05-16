@@ -24,13 +24,13 @@ class WithDraw
 
         /* @var $history \Tink\Module\HistoryModule */
         $history = $this->container['historyModule'];
-        $validator = $history->validator($data = $request->getParsedBody());
+        $validator = $history->validator($request->getParsedBody());
 
         if (!$validator->validate()) {
             return $response->write(\json_encode($validator->errors()));
         }
 
-        if ($args['action'] === 'withdraw' && !$acInfo->checkWithDraw($data['amount'])) {
+        if ($args['action'] === 'withdraw' && !$acInfo->checkWithDraw($validator->data()['data'])) {
             return $response->write(\json_encode(['status'=>'draw money more than balance']));
         }
 
