@@ -7,17 +7,8 @@ $container['logger'] = function (\Slim\Container $c) {
     $settings = $c->get('logConfig');
     $logger = new \Monolog\Logger($settings['name']);
     $logger->pushHandler(new \Monolog\Handler\StreamHandler($settings['path'], \Monolog\Logger::DEBUG));
-    $logger->pushHandler(new Monolog\Handler\NativeMailerHandler('ilex.job+tt@gmail.com', 'ilex Test ci', 'ilex.job@gmail.com'));
 
     return $logger;
-};
-
-//data cache
-$container['pool'] = function (\Slim\Container $c) {
-    $settings = $c->get('dataCacheConfig');
-    $driver = new \Stash\Driver\FileSystem($settings);
-
-    return new \Stash\Pool($driver);
 };
 
 $container['httpClient'] = function (\Slim\Container $c) {
@@ -43,15 +34,13 @@ $container['notFoundHandler'] = function (\Slim\Container $c) {
     };
 };
 
-if (!$container['settings']['displayErrorDetails']) {
-    $container['errorHandler'] = function (\Slim\Container $c) {
-        return function (\Slim\Http\Request $request, \Slim\Http\Response $response, \Exception $exception) use ($c) {
-            $c['logger']->error('e', (array) $exception);
+$container['errorHandler'] = function (\Slim\Container $c) {
+    return function (\Slim\Http\Request $request, \Slim\Http\Response $response, \Exception $exception) use ($c) {
+        $c['logger']->error('e', (array) $exception);
 
-            return $response->write(\json_encode([$exception]))->withStatus(500);
-        };
+        return $response->write(\json_encode([$exception]))->withStatus(500);
     };
-}
+};
 
 $container['ownerModule'] = function (\Slim\Container $c) {
     return new \Tink\Module\OwnerModule($c);

@@ -3,6 +3,8 @@
 namespace Tink\Module;
 
 use Tink\Model\Account;
+use Tink\Module\Transfer\TransferOtherOwer;
+use Tink\Module\Transfer\TransferSameOwer;
 
 
 /**
@@ -32,6 +34,11 @@ class TransferModule
      */
     public $data;
 
+    /**
+     * @var \Tink\Module\Transfer\TransferOwerInterface
+     */
+    private $transfer;
+
     public function __construct(\Slim\Container $container)
     {
         $this->container = $container;
@@ -41,52 +48,23 @@ class TransferModule
     {
         $this->from = $from;
         $this->to = $to;
-        $this->data = $data;
+
+        if ( $this->isSameOwer()){
+            $this->transfer = new TransferSameOwer($this->container, $from, $to, $data);
+        } else {
+            $this->transfer = new TransferOtherOwer($this->container, $from, $to, $data);
+        }
+
     }
 
     public function transfer(HistoryModule $history)
     {
-        $history->create($this->data, 'transferFrom', $this->to, $this->from->id);
-
-        if (!$this->isSameOwer()) {
-            $this->data['amount'] = $this->data['amount'] + 100;
-        }
-
-        $history->create($this->data, 'transferTo', $this->from, $this->to->id);
+        $this->transfer->transfer($history);
     }
 
     public function canTransfer()
     {
-        if (!$this->checkWithDrawAmount()) {
-            return ['status'=>false, 'msg'=>'not enough money to transfer'];
-        }
-
-        if (!$this->checkdailyLimit()) {
-            return ['status'=>false, 'msg'=>'over daily limit'];
-        }
-
-        if ($this->isSameOwer()) {
-            return true;
-        }
-
-        if (!$this->getApiApprove()) {
-            return ['status'=>false, 'msg'=>'not approve'];
-        }
-
-        return true;
-    }
-
-    private function checkWithDrawAmount()
-    {
-        if ($this->isSameOwer() && $this->from->checkWithDraw($this->data['amount'])) {
-            return true;
-        }
-
-        if (!$this->isSameOwer() && $this->from->checkWithDraw($this->data['amount'] + 100)) {
-            return true;
-        }
-
-        return false;
+        return $this->transfer->canTransfer();
     }
 
     private function isSameOwer()
@@ -94,28 +72,4 @@ class TransferModule
         return $this->from->ower === $this->to->ower;
     }
 
-    private function checkdailyLimit()
-    {
-        $sum = $this->from->history()->where('created_at', 'like', date('Y-m-d').'%')
-                ->where('action', 'transferTo')->sum('amount');
-
-        return ($sum + $this->data['amount']) <= 10000;
-    }
-
-    private function getApiApprove()
-    {
-        $httpClient = $this->container['httpClient'];
-        $response = $httpClient->request('GET', '/test/success.json');
-
-        if ($response->getStatusCode() !== 200) {
-            return false;
-        }
-
-        $body = \json_decode((string) $response->getBody(), true);
-        if (isset($body['status']) && $body['status'] !== success) {
-            return false;
-        }
-
-        return true;
-    }
 }

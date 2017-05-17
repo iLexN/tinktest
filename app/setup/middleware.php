@@ -7,5 +7,5 @@ $checkAccount = new \Tink\Middleware\CheckAccount($container);
 $app->add(new \Tink\Middleware\AddJsonHeader($container));
 
 if ($dbSetting['logging']) {
-    //$app->add(new \Tink\Middleware\DBLog($container, $capsule));
+    $app->add(new \Tink\Middleware\DBLog($container, $capsule));
 }
