@@ -14,7 +14,7 @@ class TransferOtherOwer extends Transfer implements TransferOwerInterface{
     public function transfer(HistoryModule $history)
     {
         $history->create($this->data, 'transferFrom', $this->to, $this->from->id);
-        
+
         $history->create(['amount'=>$this->charge], 'charge', $this->from);
         $history->create($this->data, 'transferTo', $this->from, $this->to->id);
     }
@@ -55,7 +55,7 @@ class TransferOtherOwer extends Transfer implements TransferOwerInterface{
         }
 
         $body = \json_decode((string) $response->getBody(), true);
-        if (isset($body['status']) && $body['status'] !== success) {
+        if (isset($body['status']) && $body['status'] !== 'success') {
             return false;
         }
 

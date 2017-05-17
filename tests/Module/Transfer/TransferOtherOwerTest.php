@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Functional;
+namespace Tests\Module;
 
 class TransferOtherOwerTest extends \PHPUnit\Framework\TestCase
 {
