@@ -2,13 +2,10 @@
 
 namespace Tink\Module\Transfer;
 
-use Tink\Model\Account;
-use Tink\Module\Transfer\TransferOwerInterface;
-use Tink\Module\Transfer\Transfer;
 use Tink\Module\HistoryModule;
 
-class TransferOtherOwer extends Transfer implements TransferOwerInterface{
-
+class TransferOtherOwer extends Transfer implements TransferOwerInterface
+{
     private $charge = 100;
 
     public function transfer(HistoryModule $history)
