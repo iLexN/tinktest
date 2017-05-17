@@ -2,7 +2,7 @@
 
 namespace Tests\Module;
 
-class TransferOtherOwerTest extends \PHPUnit\Framework\TestCase
+class TransferModuleTest extends \PHPUnit\Framework\TestCase
 {
     protected $container;
     protected $ac1;
