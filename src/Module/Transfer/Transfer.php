@@ -4,7 +4,8 @@ namespace Tink\Module\Transfer;
 
 use Tink\Model\Account;
 
-class Transfer {
+class Transfer
+{
     /**
      * @var \Slim\Container
      */
@@ -25,7 +26,7 @@ class Transfer {
      */
     public $data;
 
-    public function __construct(\Slim\Container $container,Account $from, Account $to, $data)
+    public function __construct(\Slim\Container $container, Account $from, Account $to, $data)
     {
         $this->container = $container;
         $this->from = $from;

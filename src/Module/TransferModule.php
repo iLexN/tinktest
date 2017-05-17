@@ -6,7 +6,6 @@ use Tink\Model\Account;
 use Tink\Module\Transfer\TransferOtherOwer;
 use Tink\Module\Transfer\TransferSameOwer;
 
-
 /**
  * Description of UserModule.
  *
@@ -49,12 +48,11 @@ class TransferModule
         $this->from = $from;
         $this->to = $to;
 
-        if ( $this->isSameOwer()){
+        if ($this->isSameOwer()) {
             $this->transfer = new TransferSameOwer($this->container, $from, $to, $data);
         } else {
             $this->transfer = new TransferOtherOwer($this->container, $from, $to, $data);
         }
-
     }
 
     public function transfer(HistoryModule $history)
@@ -71,5 +69,4 @@ class TransferModule
     {
         return $this->from->ower === $this->to->ower;
     }
-
 }

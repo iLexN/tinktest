@@ -27,7 +27,7 @@ class TransferModuleTest extends \PHPUnit\Framework\TestCase
             return new \Tink\Module\HistoryModule($c);
         };
 
-        $container['httpClient']  = function (\Slim\Container $c) {
+        $container['httpClient'] = function (\Slim\Container $c) {
             $stub = $this->createMock(\Psr\Http\Message\ResponseInterface::class);
             $stub->method('getStatusCode')
                 ->willReturn(200);
@@ -62,7 +62,6 @@ class TransferModuleTest extends \PHPUnit\Framework\TestCase
 
         $transfer->setAcc($this->ac1, $this->ac2, ['amount'=>1000]);
 
-        $this->assertAttributeInstanceOf('Tink\Module\Transfer\TransferOtherOwer','transfer',$transfer);
+        $this->assertAttributeInstanceOf('Tink\Module\Transfer\TransferOtherOwer', 'transfer', $transfer);
     }
-
 }

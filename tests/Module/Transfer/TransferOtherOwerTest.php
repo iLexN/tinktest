@@ -27,7 +27,7 @@ class TransferOtherOwerTest extends \PHPUnit\Framework\TestCase
             return new \Tink\Module\HistoryModule($c);
         };
 
-        $container['httpClient']  = function (\Slim\Container $c) {
+        $container['httpClient'] = function (\Slim\Container $c) {
             $stub = $this->createMock(\Psr\Http\Message\ResponseInterface::class);
             $stub->method('getStatusCode')
                 ->willReturn(200);
@@ -107,7 +107,7 @@ class TransferOtherOwerTest extends \PHPUnit\Framework\TestCase
 
     public function testCanTransferE3()
     {
-        $this->container['httpClient']  = function (\Slim\Container $c) {
+        $this->container['httpClient'] = function (\Slim\Container $c) {
             $stub = $this->createMock(\Psr\Http\Message\ResponseInterface::class);
             $stub->method('getStatusCode')
                 ->willReturn(404);
@@ -121,7 +121,6 @@ class TransferOtherOwerTest extends \PHPUnit\Framework\TestCase
             return $stub2;
         };
 
-
         $transfer = new \Tink\Module\Transfer\TransferOtherOwer(
                 $this->container,
                 $this->ac1,
@@ -134,7 +133,7 @@ class TransferOtherOwerTest extends \PHPUnit\Framework\TestCase
 
     public function testCanTransferE4()
     {
-        $this->container['httpClient']  = function (\Slim\Container $c) {
+        $this->container['httpClient'] = function (\Slim\Container $c) {
             $stub = $this->createMock(\Psr\Http\Message\ResponseInterface::class);
             $stub->method('getStatusCode')
                 ->willReturn(200);
@@ -147,7 +146,6 @@ class TransferOtherOwerTest extends \PHPUnit\Framework\TestCase
 
             return $stub2;
         };
-
 
         $transfer = new \Tink\Module\Transfer\TransferOtherOwer(
                 $this->container,
