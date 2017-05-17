@@ -42,7 +42,7 @@ class TransferOtherOwerTest extends \PHPUnit\Framework\TestCase
         };
 
         $owner1 = $container['ownerModule']->getOwnerInfo(1);
-        $owner2 = $container['ownerModule']->getOwnerInfo(1);
+        $owner2 = $container['ownerModule']->getOwnerInfo(2);
 
         $accountModule = $container['acccountModule'];
         $ac1 = $accountModule->create(['name'=>'owner 1'], $owner1);
