@@ -6,35 +6,7 @@ use Tink\Model\Account;
 use Tink\Module\Transfer\TransferOwerInterface;
 use Tink\Module\HistoryModule;
 
-class TransferSameOwer implements TransferOwerInterface{
-
-    /**
-     * @var \Slim\Container
-     */
-    public $container;
-
-    /**
-     * @var Account
-     */
-    public $from;
-
-    /**
-     * @var Account
-     */
-    public $to;
-
-    /**
-     * @var array
-     */
-    public $data;
-
-    public function __construct(\Slim\Container $container,Account $from, Account $to, $data)
-    {
-        $this->container = $container;
-        $this->from = $from;
-        $this->to = $to;
-        $this->data = $data;
-    }
+class TransferSameOwer extends Transfer implements TransferOwerInterface{
 
     public function transfer(HistoryModule $history)
     {
@@ -52,7 +24,7 @@ class TransferSameOwer implements TransferOwerInterface{
             return ['status'=>false, 'msg'=>'over daily limit'];
         }
 
-        return true;
+        return ['status'=>true, 'msg'=>'can transfer'];
     }
 
     private function checkWithDrawAmount()
@@ -64,11 +36,4 @@ class TransferSameOwer implements TransferOwerInterface{
         return false;
     }
 
-    private function checkdailyLimit()
-    {
-        $sum = $this->from->history()->where('created_at', 'like', date('Y-m-d').'%')
-                ->where('action', 'transferTo')->sum('amount');
-
-        return ($sum + $this->data['amount']) <= 10000;
-    }
 }

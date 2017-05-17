@@ -4,46 +4,18 @@ namespace Tink\Module\Transfer;
 
 use Tink\Model\Account;
 use Tink\Module\Transfer\TransferOwerInterface;
+use Tink\Module\Transfer\Transfer;
 use Tink\Module\HistoryModule;
 
-class TransferOtherOwer implements TransferOwerInterface{
-
-    /**
-     * @var \Slim\Container
-     */
-    public $container;
-
-    /**
-     * @var Account
-     */
-    public $from;
-
-    /**
-     * @var Account
-     */
-    public $to;
-
-    /**
-     * @var array
-     */
-    public $data;
+class TransferOtherOwer extends Transfer implements TransferOwerInterface{
 
     private $charge = 100;
-
-    public function __construct(\Slim\Container $container,Account $from, Account $to, $data)
-    {
-        $this->container = $container;
-        $this->from = $from;
-        $this->to = $to;
-        $this->data = $data;
-    }
 
     public function transfer(HistoryModule $history)
     {
         $history->create($this->data, 'transferFrom', $this->to, $this->from->id);
-
-        $this->data['amount'] = $this->data['amount'] + $this->charge;
-
+        
+        $history->create(['amount'=>$this->charge], 'charge', $this->from);
         $history->create($this->data, 'transferTo', $this->from, $this->to->id);
     }
 
@@ -61,7 +33,7 @@ class TransferOtherOwer implements TransferOwerInterface{
             return ['status'=>false, 'msg'=>'not approve'];
         }
 
-        return true;
+        return ['status'=>true, 'msg'=>'can transfer'];
     }
 
     private function checkWithDrawAmount()
@@ -71,14 +43,6 @@ class TransferOtherOwer implements TransferOwerInterface{
         }
 
         return false;
-    }
-
-    private function checkdailyLimit()
-    {
-        $sum = $this->from->history()->where('created_at', 'like', date('Y-m-d').'%')
-                ->where('action', 'transferTo')->sum('amount');
-
-        return ($sum + $this->data['amount']) <= 10000;
     }
 
     private function getApiApprove()

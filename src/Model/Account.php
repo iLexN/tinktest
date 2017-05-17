@@ -41,6 +41,7 @@ class Account extends Model
         switch ($status) {
             case 'withdraw':
             case 'transferTo':
+            case 'charge':
                 $this->attributes['balance'] = $this->attributes['balance'] - $money;
                 break;
             case 'deposit':
