@@ -7,5 +7,8 @@
 * code quality result : https://scrutinizer-ci.com/g/iLexN/tinktest/
 
 # file structure
-DB - mysql database ( please import)
-config - 
+* please read file-structure.txt
+
+# api
+* please read api.txt
+

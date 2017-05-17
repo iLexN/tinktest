@@ -1,0 +1,125 @@
+# API
+Account Open 
+
+url : /[ownerID]/account
+method : POST
+required parameter : 
+* name
+
+optional parameter : 
+* amount - float
+
+Return 
+success example : 
+    {
+      "data": {
+        "name": "account named",
+        "balance": 32.2,
+        "ower": 2,
+        "id": 51
+      },
+      "status": "success"
+    }
+fail example :
+    {
+      "name": [
+        "Name is required"
+      ]
+    }
+--------------------------------------------------------------------------------
+Account Close 
+url: /account/[accountID]
+method : DELETE
+Return
+success example :
+    {
+      "status": "success"
+    }
+--------------------------------------------------------------------------------
+Account Info:
+url :/account/[accountID]
+method : GET
+Return : 
+success example : 
+    {
+        "data": {
+            "id": 10,
+            "name": "owner 2",
+            "balance": 0,
+            "ower": 1
+        },
+        "status": "success"
+    }
+fail example:
+    {
+      "status": "account not exists"
+    }
+    
+--------------------------------------------------------------------------------    
+Account Deposit
+url :/account/[accountID]/deposit
+method : POST
+required parameter : 
+amount - float
+Return:
+success example : 
+{
+  "data": {
+    "id": 2,
+    "name": "account name2",
+    "balance": 11000,
+    "ower": 1
+  },
+  "status": "success"
+}
+fail example:
+{
+  "amount": [
+    "Amount is required",
+    "Amount must be numeric"
+  ]
+}
+--------------------------------------------------------------------------------  
+Account withdraw
+url :/account/[accountID]/withdraw
+method : POST
+required parameter : 
+amount - float
+Return:
+success example : 
+{
+  "data": {
+    "id": 2,
+    "name": "account name2",
+    "balance": 10989,
+    "ower": 1
+  },
+  "status": "success"
+}
+fail example:
+{
+  "amount": [
+    "Amount must be numeric"
+  ]
+}
+--------------------------------------------------------------------------------  
+account transfer
+url : /account/[fromAccountID]/transfer/[toAccountID]
+method : POST
+required parameter : 
+amount - float
+Return:
+success example : 
+{
+  "data": {
+    "id": 2,
+    "name": "account name2",
+    "balance": 9989,
+    "ower": 1
+  },
+  "status": "success"
+}
+fail example:
+{
+  "status": "not enough money to transfer"
+}

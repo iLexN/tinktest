@@ -1,0 +1,10 @@
+# file structure
+
+DB - mysql database ( please import)
+config - config files
+config/db-config.php - mysql connect info
+httpdocs - webroot
+log - log file ( need write permission )
+src - code source
+tests - phpunit test file
+postman - json file import to postman (download : https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop)

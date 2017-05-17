@@ -1,0 +1,163 @@
+{
+	"id": "8d0eff8c-0b71-b9c5-97f2-b3680f209a29",
+	"name": "tink",
+	"description": "",
+	"order": [
+		"9ac716f9-3eab-103e-224b-fcfb4c349814",
+		"86a2400a-a68d-7350-7b42-ead9d3e39d66",
+		"4d64cac7-91bb-adf8-a47e-07fa537fc91f",
+		"26504289-3f8e-9a18-c092-295f96e43db7",
+		"9b0b8506-7ccd-7a90-9eca-c503a8a41e06",
+		"1aecc919-663f-d318-8f25-2fd61bc8ccc7"
+	],
+	"folders": [],
+	"timestamp": 1494823208027,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "1aecc919-663f-d318-8f25-2fd61bc8ccc7",
+			"headers": "",
+			"url": "{{url}}/account/5/transfer/4",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "amount",
+					"value": "1000",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1494984101463,
+			"name": "account transfer",
+			"description": "",
+			"collectionId": "8d0eff8c-0b71-b9c5-97f2-b3680f209a29",
+			"responses": []
+		},
+		{
+			"id": "26504289-3f8e-9a18-c092-295f96e43db7",
+			"headers": "",
+			"url": "{{url}}/account/5/withdraw",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "amount",
+					"value": "100",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1495001619523,
+			"name": "account withdraw",
+			"description": "",
+			"collectionId": "8d0eff8c-0b71-b9c5-97f2-b3680f209a29",
+			"responses": []
+		},
+		{
+			"id": "4d64cac7-91bb-adf8-a47e-07fa537fc91f",
+			"headers": "",
+			"url": "{{url}}/account/5",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1495001612166,
+			"name": "account info",
+			"description": "",
+			"collectionId": "8d0eff8c-0b71-b9c5-97f2-b3680f209a29",
+			"responses": []
+		},
+		{
+			"id": "86a2400a-a68d-7350-7b42-ead9d3e39d66",
+			"headers": "",
+			"url": "{{url}}/account/2",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "DELETE",
+			"data": [],
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1494901273990,
+			"name": "account close",
+			"description": "",
+			"collectionId": "8d0eff8c-0b71-b9c5-97f2-b3680f209a29",
+			"responses": []
+		},
+		{
+			"id": "9ac716f9-3eab-103e-224b-fcfb4c349814",
+			"headers": "",
+			"url": "{{url}}/2/account",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "name",
+					"value": "account name",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "32.2",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1495001596017,
+			"name": "account open",
+			"description": "",
+			"collectionId": "8d0eff8c-0b71-b9c5-97f2-b3680f209a29",
+			"responses": []
+		},
+		{
+			"id": "9b0b8506-7ccd-7a90-9eca-c503a8a41e06",
+			"headers": "",
+			"url": "{{url}}/account/5/deposit",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "amount",
+					"value": "100",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1495001628028,
+			"name": "account add money",
+			"description": "",
+			"collectionId": "8d0eff8c-0b71-b9c5-97f2-b3680f209a29",
+			"responses": []
+		}
+	]
+}
