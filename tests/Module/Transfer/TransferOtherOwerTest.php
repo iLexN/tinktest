@@ -104,4 +104,58 @@ class TransferOtherOwerTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(false, $ar['status']);
         $this->assertEquals('over daily limit', $ar['msg']);
     }
+
+    public function testCanTransferE3()
+    {
+        $this->container['httpClient']  = function (\Slim\Container $c) {
+            $stub = $this->createMock(\Psr\Http\Message\ResponseInterface::class);
+            $stub->method('getStatusCode')
+                ->willReturn(404);
+            $stub->method('getBody')
+                ->willReturn('{"status": "success"}');
+
+            $stub2 = $this->createMock(\GuzzleHttp\Client::class);
+            $stub2->method('request')
+             ->willReturn($stub);
+
+            return $stub2;
+        };
+
+
+        $transfer = new \Tink\Module\Transfer\TransferOtherOwer(
+                $this->container,
+                $this->ac1,
+                $this->ac2, ['amount'=>500]);
+        $ar = $transfer->canTransfer();
+
+        $this->assertEquals(false, $ar['status']);
+        $this->assertEquals('not approve', $ar['msg']);
+    }
+
+    public function testCanTransferE4()
+    {
+        $this->container['httpClient']  = function (\Slim\Container $c) {
+            $stub = $this->createMock(\Psr\Http\Message\ResponseInterface::class);
+            $stub->method('getStatusCode')
+                ->willReturn(200);
+            $stub->method('getBody')
+                ->willReturn('{"status": "fail"}');
+
+            $stub2 = $this->createMock(\GuzzleHttp\Client::class);
+            $stub2->method('request')
+             ->willReturn($stub);
+
+            return $stub2;
+        };
+
+
+        $transfer = new \Tink\Module\Transfer\TransferOtherOwer(
+                $this->container,
+                $this->ac1,
+                $this->ac2, ['amount'=>500]);
+        $ar = $transfer->canTransfer();
+
+        $this->assertEquals(false, $ar['status']);
+        $this->assertEquals('not approve', $ar['msg']);
+    }
 }
