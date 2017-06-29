@@ -21,9 +21,11 @@ class RuleDailyLimit implements RuleInterface
     const DAILY_LIMIT = 10000;
 
     private $from;
+    private $data;
 
-    public function __construct($from) {
+    public function __construct($from,$data) {
         $this->from = $from;
+        $this->data = $data;
     }
 
     public function validate(){
