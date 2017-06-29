@@ -95,6 +95,20 @@ class TransferOtherOwerTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('not enough money to transfer', $ar['msg']);
     }
 
+    public function testCanTransferWithDrawSuccess()
+    {
+        $transfer = new \Tink\Module\Transfer\TransferOtherOwer(
+                $this->container,
+                $this->ac1,
+                $this->ac2, ['amount'=>500], [
+                new \Tink\Module\Transfer\Rule\RuleWithDrawAmountExtraCharge($this->ac1, ['amount'=>500]),
+            ]);
+        $ar = $transfer->canTransfer();
+
+        $this->assertEquals(true, $ar['status']);
+        $this->assertEquals('can transfer', $ar['msg']);
+    }
+
     public function testCanTransferE2()
     {
         $transfer = new \Tink\Module\Transfer\TransferOtherOwer(
@@ -163,5 +177,33 @@ class TransferOtherOwerTest extends \PHPUnit\Framework\TestCase
 
         $this->assertEquals(false, $ar['status']);
         $this->assertEquals('not approve', $ar['msg']);
+    }
+
+    public function testCanTransferApiSuccess()
+    {
+        $this->container['httpClient'] = function (\Slim\Container $c) {
+            $stub = $this->createMock(\Psr\Http\Message\ResponseInterface::class);
+            $stub->method('getStatusCode')
+                ->willReturn(200);
+            $stub->method('getBody')
+                ->willReturn('{"status": "success"}');
+
+            $stub2 = $this->createMock(\GuzzleHttp\Client::class);
+            $stub2->method('request')
+             ->willReturn($stub);
+
+            return $stub2;
+        };
+
+        $transfer = new \Tink\Module\Transfer\TransferOtherOwer(
+                $this->container,
+                $this->ac1,
+                $this->ac2, ['amount'=>1000], [
+                new \Tink\Module\Transfer\Rule\RuleApiApprove($this->container),
+            ]);
+        $ar = $transfer->canTransfer();
+
+        $this->assertEquals(true, $ar['status']);
+        $this->assertEquals('can transfer', $ar['msg']);
     }
 }
