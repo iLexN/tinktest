@@ -86,7 +86,9 @@ class TransferOtherOwerTest extends \PHPUnit\Framework\TestCase
         $transfer = new \Tink\Module\Transfer\TransferOtherOwer(
                 $this->container,
                 $this->ac1,
-                $this->ac2, ['amount'=>20000],[]);
+                $this->ac2, ['amount'=>20000],[
+                new \Tink\Module\Transfer\Rule\RuleWithDrawAmountExtraCharge($this->ac1 , ['amount'=>20000]),
+            ]);
         $ar = $transfer->canTransfer();
 
         $this->assertEquals(false, $ar['status']);
@@ -98,7 +100,9 @@ class TransferOtherOwerTest extends \PHPUnit\Framework\TestCase
         $transfer = new \Tink\Module\Transfer\TransferOtherOwer(
                 $this->container,
                 $this->ac1,
-                $this->ac2, ['amount'=>10001],[]);
+                $this->ac2, ['amount'=>10001],[
+                new \Tink\Module\Transfer\Rule\RuleDailyLimit($this->ac1,['amount'=>10001]),
+            ]);
         $ar = $transfer->canTransfer();
 
         $this->assertEquals(false, $ar['status']);
@@ -124,7 +128,9 @@ class TransferOtherOwerTest extends \PHPUnit\Framework\TestCase
         $transfer = new \Tink\Module\Transfer\TransferOtherOwer(
                 $this->container,
                 $this->ac1,
-                $this->ac2, ['amount'=>500],[]);
+                $this->ac2, ['amount'=>500],[
+                new \Tink\Module\Transfer\Rule\RuleApiApprove($this->container),
+            ]);
         $ar = $transfer->canTransfer();
 
         $this->assertEquals(false, $ar['status']);
@@ -150,7 +156,9 @@ class TransferOtherOwerTest extends \PHPUnit\Framework\TestCase
         $transfer = new \Tink\Module\Transfer\TransferOtherOwer(
                 $this->container,
                 $this->ac1,
-                $this->ac2, ['amount'=>500],[]);
+                $this->ac2, ['amount'=>500],[
+                new \Tink\Module\Transfer\Rule\RuleApiApprove($this->container),
+            ]);
         $ar = $transfer->canTransfer();
 
         $this->assertEquals(false, $ar['status']);

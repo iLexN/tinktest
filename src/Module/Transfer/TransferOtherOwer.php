@@ -18,16 +18,10 @@ class TransferOtherOwer extends Transfer implements TransferOwerInterface
 
     public function canTransfer()
     {
-        if (!$this->checkWithDrawAmount()) {
-            return ['status'=>false, 'msg'=>'not enough money to transfer'];
-        }
-
-        if (!$this->checkdailyLimit()) {
-            return ['status'=>false, 'msg'=>'over daily limit'];
-        }
-
-        if (!$this->getApiApprove()) {
-            return ['status'=>false, 'msg'=>'not approve'];
+        foreach ($this->rules as $rule) {
+            if (!$rule->validate()) {
+                return ['status'=>false, 'msg'=>$rule->getErrorMsg()];
+            }
         }
 
         return ['status'=>true, 'msg'=>'can transfer'];
