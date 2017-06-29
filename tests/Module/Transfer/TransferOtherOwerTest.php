@@ -61,7 +61,7 @@ class TransferOtherOwerTest extends \PHPUnit\Framework\TestCase
         $transfer = new \Tink\Module\Transfer\TransferOtherOwer(
                 $this->container,
                 $this->ac1,
-                $this->ac2, ['amount'=>1000]);
+                $this->ac2, ['amount'=>1000],[]);
 
         $transfer->transfer($this->container['historyModule']);
 
@@ -74,7 +74,7 @@ class TransferOtherOwerTest extends \PHPUnit\Framework\TestCase
         $transfer = new \Tink\Module\Transfer\TransferOtherOwer(
                 $this->container,
                 $this->ac1,
-                $this->ac2, ['amount'=>1000]);
+                $this->ac2, ['amount'=>1000],[]);
         $ar = $transfer->canTransfer();
 
         $this->assertEquals(true, $ar['status']);
@@ -86,7 +86,7 @@ class TransferOtherOwerTest extends \PHPUnit\Framework\TestCase
         $transfer = new \Tink\Module\Transfer\TransferOtherOwer(
                 $this->container,
                 $this->ac1,
-                $this->ac2, ['amount'=>20000]);
+                $this->ac2, ['amount'=>20000],[]);
         $ar = $transfer->canTransfer();
 
         $this->assertEquals(false, $ar['status']);
@@ -98,7 +98,7 @@ class TransferOtherOwerTest extends \PHPUnit\Framework\TestCase
         $transfer = new \Tink\Module\Transfer\TransferOtherOwer(
                 $this->container,
                 $this->ac1,
-                $this->ac2, ['amount'=>10001]);
+                $this->ac2, ['amount'=>10001],[]);
         $ar = $transfer->canTransfer();
 
         $this->assertEquals(false, $ar['status']);
@@ -124,7 +124,7 @@ class TransferOtherOwerTest extends \PHPUnit\Framework\TestCase
         $transfer = new \Tink\Module\Transfer\TransferOtherOwer(
                 $this->container,
                 $this->ac1,
-                $this->ac2, ['amount'=>500]);
+                $this->ac2, ['amount'=>500],[]);
         $ar = $transfer->canTransfer();
 
         $this->assertEquals(false, $ar['status']);
@@ -150,7 +150,7 @@ class TransferOtherOwerTest extends \PHPUnit\Framework\TestCase
         $transfer = new \Tink\Module\Transfer\TransferOtherOwer(
                 $this->container,
                 $this->ac1,
-                $this->ac2, ['amount'=>500]);
+                $this->ac2, ['amount'=>500],[]);
         $ar = $transfer->canTransfer();
 
         $this->assertEquals(false, $ar['status']);

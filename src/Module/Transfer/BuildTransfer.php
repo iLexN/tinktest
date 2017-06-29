@@ -31,7 +31,11 @@ class BuildTransfer
                 new \Tink\Module\Transfer\Rule\RuleWithDrawAmount($from , $data),
             ]);
         } else {
-            return new TransferOtherOwer($this->container, $from, $to, $data);
+            return new TransferOtherOwer($this->container, $from, $to, $data,[
+                new \Tink\Module\Transfer\Rule\RuleWithDrawAmountExtraCharge($from , $data),
+                new \Tink\Module\Transfer\Rule\RuleDailyLimit($from),
+                new \Tink\Module\Transfer\Rule\RuleApiApprove($this->container),
+            ]);
         }
     }
 

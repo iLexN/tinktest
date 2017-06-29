@@ -30,7 +30,7 @@ class RuleDailyLimit implements RuleInterface
         $sum = $this->from->history()->where('created_at', 'like', date('Y-m-d').'%')
                 ->where('action', 'transferTo')->sum('amount');
 
-        return ($sum + $this->data['amount']) <= DAILY_LIMIT;
+        return ($sum + $this->data['amount']) <= self::DAILY_LIMIT;
     }
 
     public function getErrorMsg() {
