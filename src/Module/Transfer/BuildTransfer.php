@@ -25,7 +25,7 @@ class BuildTransfer
 
     public function create(Account $from, Account $to, $data)
     {
-        if ($this->isSameOwer()) {
+        if ($this->isSameOwer($from , $to)) {
             return new TransferSameOwer($this->container, $from, $to, $data);
         } else {
             return new TransferOtherOwer($this->container, $from, $to, $data);
