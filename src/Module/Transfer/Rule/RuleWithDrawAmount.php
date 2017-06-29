@@ -19,8 +19,8 @@ class RuleWithDrawAmount implements RuleInterface
 {
     //put your code here
 
-    private $from;
-    private $data;
+    protected $from;
+    protected $data;
 
     public function __construct($from, $data)
     {

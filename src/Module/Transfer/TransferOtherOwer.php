@@ -16,7 +16,8 @@ class TransferOtherOwer extends Transfer implements TransferOwerInterface
         $history->create($this->data, 'transferTo', $this->from, $this->to->id);
     }
 
-    public function canTransfer(){
+    public function canTransfer()
+    {
         return parent::canTransfer();
     }
 }

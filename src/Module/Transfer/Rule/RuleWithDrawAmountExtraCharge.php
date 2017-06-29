@@ -9,39 +9,28 @@
 namespace Tink\Module\Transfer\Rule;
 
 use Tink\Module\Transfer\Rule\RuleInterface;
+use Tink\Module\Transfer\Rule\RuleWithDrawAmount;
 
 /**
  * Description of RuleWithDrawAmount
  *
  * @author user
  */
-class RuleWithDrawAmountExtraCharge implements RuleInterface
+class RuleWithDrawAmountExtraCharge extends RuleWithDrawAmount implements RuleInterface
 {
     //put your code here
 
     const CHARGE = 100;
 
-
-    private $from;
-    private $data;
-
-    public function __construct($from, $data)
-    {
-        $this->from = $from;
-        $this->data = $data;
-    }
-
     public function validate()
     {
-        if ($this->from->checkWithDraw($this->data['amount'] + self::CHARGE)) {
-            return true;
-        }
+        $this->data['amount'] += self::CHARGE;
 
-        return false;
+        return parent::validate();
     }
 
     public function getErrorMsg()
     {
-        return 'not enough money to transfer';
+        return parent::getErrorMsg();
     }
 }
