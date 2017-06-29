@@ -27,8 +27,8 @@ class BuildTransfer
     {
         if ($this->isSameOwer($from , $to)) {
             return new TransferSameOwer($this->container, $from, $to, $data, [
-                new \Tink\Module\Transfer\Rule\RuleDailyLimit($from),
                 new \Tink\Module\Transfer\Rule\RuleWithDrawAmount($from , $data),
+                new \Tink\Module\Transfer\Rule\RuleDailyLimit($from),
             ]);
         } else {
             return new TransferOtherOwer($this->container, $from, $to, $data,[

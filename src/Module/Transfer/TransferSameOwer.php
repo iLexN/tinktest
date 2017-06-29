@@ -14,8 +14,8 @@ class TransferSameOwer extends Transfer implements TransferOwerInterface
 
     public function canTransfer()
     {
-        foreach ( $this->rules as $rule){
-            if ( !$rule->validate()){
+        foreach ($this->rules as $rule) {
+            if (!$rule->validate()) {
                 return ['status'=>false, 'msg'=>$rule->getErrorMsg()];
             }
         }
