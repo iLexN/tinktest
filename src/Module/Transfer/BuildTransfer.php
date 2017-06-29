@@ -26,7 +26,10 @@ class BuildTransfer
     public function create(Account $from, Account $to, $data)
     {
         if ($this->isSameOwer($from , $to)) {
-            return new TransferSameOwer($this->container, $from, $to, $data);
+            return new TransferSameOwer($this->container, $from, $to, $data, [
+                new \Tink\Module\Transfer\Rule\RuleDailyLimit($from),
+                new \Tink\Module\Transfer\Rule\RuleWithDrawAmount($from , $data),
+            ]);
         } else {
             return new TransferOtherOwer($this->container, $from, $to, $data);
         }
@@ -36,4 +39,5 @@ class BuildTransfer
     {
         return $from->ower === $to->ower;
     }
+
 }

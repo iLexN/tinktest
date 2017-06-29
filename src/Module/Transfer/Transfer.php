@@ -26,12 +26,15 @@ class Transfer
      */
     public $data;
 
-    public function __construct(\Slim\Container $container, Account $from, Account $to, $data)
+    protected $rules = [];
+
+    public function __construct(\Slim\Container $container, Account $from, Account $to, $data , $rules)
     {
         $this->container = $container;
         $this->from = $from;
         $this->to = $to;
         $this->data = $data;
+        $this->rules = $rules;
     }
 
     protected function checkdailyLimit()
