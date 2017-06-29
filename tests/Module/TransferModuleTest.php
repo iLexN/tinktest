@@ -60,8 +60,8 @@ class TransferModuleTest extends \PHPUnit\Framework\TestCase
     {
         $transfer = new \Tink\Module\TransferModule($this->container);
 
-        $transferModule = new \Tink\Module\Transfer\BuildTransfer($container);
-        $t = $transferModule->create($this->ac1, $this->ac2, ['amount'=>1000])
+        $transferModule = new \Tink\Module\Transfer\BuildTransfer($this->container);
+        $t = $transferModule->create($this->ac1, $this->ac2, ['amount'=>1000]);
 
         $transfer->setTransfer($t);
 
