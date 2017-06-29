@@ -12,14 +12,7 @@ class TransferSameOwer extends Transfer implements TransferOwerInterface
         $history->create($this->data, 'transferTo', $this->from, $this->to->id);
     }
 
-    public function canTransfer()
-    {
-        foreach ($this->rules as $rule) {
-            if (!$rule->validate()) {
-                return ['status'=>false, 'msg'=>$rule->getErrorMsg()];
-            }
-        }
-
-        return ['status'=>true, 'msg'=>'can transfer'];
+    public function canTransfer(){
+        return parent::canTransfer();
     }
 }

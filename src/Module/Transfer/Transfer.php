@@ -36,4 +36,15 @@ class Transfer
         $this->data = $data;
         $this->rules = $rules;
     }
+
+    public function canTransfer()
+    {
+        foreach ($this->rules as $rule) {
+            if (!$rule->validate()) {
+                return ['status'=>false, 'msg'=>$rule->getErrorMsg()];
+            }
+        }
+
+        return ['status'=>true, 'msg'=>'can transfer'];
+    }
 }
