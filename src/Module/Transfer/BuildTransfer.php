@@ -25,15 +25,15 @@ class BuildTransfer
 
     public function create(Account $from, Account $to, $data)
     {
-        if ($this->isSameOwer($from , $to)) {
+        if ($this->isSameOwer($from, $to)) {
             return new TransferSameOwer($this->container, $from, $to, $data, [
-                new \Tink\Module\Transfer\Rule\RuleWithDrawAmount($from , $data),
-                new \Tink\Module\Transfer\Rule\RuleDailyLimit($from,$data),
+                new \Tink\Module\Transfer\Rule\RuleWithDrawAmount($from, $data),
+                new \Tink\Module\Transfer\Rule\RuleDailyLimit($from, $data),
             ]);
         } else {
-            return new TransferOtherOwer($this->container, $from, $to, $data,[
-                new \Tink\Module\Transfer\Rule\RuleWithDrawAmountExtraCharge($from , $data),
-                new \Tink\Module\Transfer\Rule\RuleDailyLimit($from,$data),
+            return new TransferOtherOwer($this->container, $from, $to, $data, [
+                new \Tink\Module\Transfer\Rule\RuleWithDrawAmountExtraCharge($from, $data),
+                new \Tink\Module\Transfer\Rule\RuleDailyLimit($from, $data),
                 new \Tink\Module\Transfer\Rule\RuleApiApprove($this->container),
             ]);
         }
@@ -43,5 +43,4 @@ class BuildTransfer
     {
         return $from->ower === $to->ower;
     }
-
 }

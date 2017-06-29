@@ -26,30 +26,4 @@ class TransferOtherOwer extends Transfer implements TransferOwerInterface
 
         return ['status'=>true, 'msg'=>'can transfer'];
     }
-
-    private function checkWithDrawAmount()
-    {
-        if ($this->from->checkWithDraw($this->data['amount'] + $this->charge)) {
-            return true;
-        }
-
-        return false;
-    }
-
-    private function getApiApprove()
-    {
-        $httpClient = $this->container['httpClient'];
-        $response = $httpClient->request('GET', '/test/success.json');
-
-        if ($response->getStatusCode() !== 200) {
-            return false;
-        }
-
-        $body = \json_decode((string) $response->getBody(), true);
-        if (isset($body['status']) && $body['status'] !== 'success') {
-            return false;
-        }
-
-        return true;
-    }
 }

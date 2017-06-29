@@ -59,8 +59,4 @@ class TransferModule
         return $this->transfer->canTransfer();
     }
 
-    private function isSameOwer()
-    {
-        return $this->from->ower === $this->to->ower;
-    }
 }

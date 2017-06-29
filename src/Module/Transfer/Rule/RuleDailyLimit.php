@@ -17,26 +17,27 @@ use Tink\Module\Transfer\Rule\RuleInterface;
  */
 class RuleDailyLimit implements RuleInterface
 {
-
     const DAILY_LIMIT = 10000;
 
     private $from;
     private $data;
 
-    public function __construct($from,$data) {
+    public function __construct($from, $data)
+    {
         $this->from = $from;
         $this->data = $data;
     }
 
-    public function validate(){
+    public function validate()
+    {
         $sum = $this->from->history()->where('created_at', 'like', date('Y-m-d').'%')
                 ->where('action', 'transferTo')->sum('amount');
 
         return  ($sum + $this->data['amount']) <= self::DAILY_LIMIT;
     }
 
-    public function getErrorMsg() {
+    public function getErrorMsg()
+    {
         return 'over daily limit';
     }
-
 }

@@ -61,7 +61,7 @@ class TransferOtherOwerTest extends \PHPUnit\Framework\TestCase
         $transfer = new \Tink\Module\Transfer\TransferOtherOwer(
                 $this->container,
                 $this->ac1,
-                $this->ac2, ['amount'=>1000],[]);
+                $this->ac2, ['amount'=>1000], []);
 
         $transfer->transfer($this->container['historyModule']);
 
@@ -74,7 +74,7 @@ class TransferOtherOwerTest extends \PHPUnit\Framework\TestCase
         $transfer = new \Tink\Module\Transfer\TransferOtherOwer(
                 $this->container,
                 $this->ac1,
-                $this->ac2, ['amount'=>1000],[]);
+                $this->ac2, ['amount'=>1000], []);
         $ar = $transfer->canTransfer();
 
         $this->assertEquals(true, $ar['status']);
@@ -86,8 +86,8 @@ class TransferOtherOwerTest extends \PHPUnit\Framework\TestCase
         $transfer = new \Tink\Module\Transfer\TransferOtherOwer(
                 $this->container,
                 $this->ac1,
-                $this->ac2, ['amount'=>20000],[
-                new \Tink\Module\Transfer\Rule\RuleWithDrawAmountExtraCharge($this->ac1 , ['amount'=>20000]),
+                $this->ac2, ['amount'=>20000], [
+                new \Tink\Module\Transfer\Rule\RuleWithDrawAmountExtraCharge($this->ac1, ['amount'=>20000]),
             ]);
         $ar = $transfer->canTransfer();
 
@@ -100,8 +100,8 @@ class TransferOtherOwerTest extends \PHPUnit\Framework\TestCase
         $transfer = new \Tink\Module\Transfer\TransferOtherOwer(
                 $this->container,
                 $this->ac1,
-                $this->ac2, ['amount'=>10001],[
-                new \Tink\Module\Transfer\Rule\RuleDailyLimit($this->ac1,['amount'=>10001]),
+                $this->ac2, ['amount'=>10001], [
+                new \Tink\Module\Transfer\Rule\RuleDailyLimit($this->ac1, ['amount'=>10001]),
             ]);
         $ar = $transfer->canTransfer();
 
@@ -128,7 +128,7 @@ class TransferOtherOwerTest extends \PHPUnit\Framework\TestCase
         $transfer = new \Tink\Module\Transfer\TransferOtherOwer(
                 $this->container,
                 $this->ac1,
-                $this->ac2, ['amount'=>500],[
+                $this->ac2, ['amount'=>500], [
                 new \Tink\Module\Transfer\Rule\RuleApiApprove($this->container),
             ]);
         $ar = $transfer->canTransfer();
@@ -156,7 +156,7 @@ class TransferOtherOwerTest extends \PHPUnit\Framework\TestCase
         $transfer = new \Tink\Module\Transfer\TransferOtherOwer(
                 $this->container,
                 $this->ac1,
-                $this->ac2, ['amount'=>500],[
+                $this->ac2, ['amount'=>500], [
                 new \Tink\Module\Transfer\Rule\RuleApiApprove($this->container),
             ]);
         $ar = $transfer->canTransfer();

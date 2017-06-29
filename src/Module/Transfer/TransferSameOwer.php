@@ -22,13 +22,4 @@ class TransferSameOwer extends Transfer implements TransferOwerInterface
 
         return ['status'=>true, 'msg'=>'can transfer'];
     }
-
-    private function checkWithDrawAmount()
-    {
-        if ($this->from->checkWithDraw($this->data['amount'])) {
-            return true;
-        }
-
-        return false;
-    }
 }

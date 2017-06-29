@@ -2,10 +2,9 @@
 
 namespace Tink\Module\Transfer\Rule;
 
-interface RuleInterface {
-
+interface RuleInterface
+{
     public function validate();
 
     public function getErrorMsg();
-
 }

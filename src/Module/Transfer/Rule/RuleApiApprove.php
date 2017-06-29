@@ -9,12 +9,14 @@
 namespace Tink\Module\Transfer\Rule;
 
 use Tink\Module\Transfer\Rule\RuleInterface;
+
 /**
  * Description of RuleWithDrawAmount
  *
  * @author user
  */
-class RuleApiApprove implements RuleInterface {
+class RuleApiApprove implements RuleInterface
+{
     //put your code here
 
     /**
@@ -23,11 +25,13 @@ class RuleApiApprove implements RuleInterface {
     public $container;
 
 
-    public function __construct($container) {
+    public function __construct($container)
+    {
         $this->container = $container;
     }
 
-    public function validate() {
+    public function validate()
+    {
         $httpClient = $this->container['httpClient'];
         $response = $httpClient->request('GET', '/test/success.json');
 
@@ -43,7 +47,8 @@ class RuleApiApprove implements RuleInterface {
         return true;
     }
 
-    public function getErrorMsg() {
+    public function getErrorMsg()
+    {
         return 'not approve';
     }
 }
