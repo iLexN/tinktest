@@ -5,6 +5,7 @@ namespace Tink\Module;
 use Tink\Model\Account;
 use Tink\Module\Transfer\TransferOtherOwer;
 use Tink\Module\Transfer\TransferSameOwer;
+use Tink\Module\Transfer\TransferOwerInterface;
 
 /**
  * Description of UserModule.
@@ -43,16 +44,9 @@ class TransferModule
         $this->container = $container;
     }
 
-    public function setAcc(Account $from, Account $to, $data)
+    public function setTransfer(TransferOwerInterface $transfer)
     {
-        $this->from = $from;
-        $this->to = $to;
-
-        if ($this->isSameOwer()) {
-            $this->transfer = new TransferSameOwer($this->container, $from, $to, $data);
-        } else {
-            $this->transfer = new TransferOtherOwer($this->container, $from, $to, $data);
-        }
+        $this->transfer = $transfer;
     }
 
     public function transfer(HistoryModule $history)

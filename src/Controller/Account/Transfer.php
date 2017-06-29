@@ -40,7 +40,10 @@ class Transfer
 
         /* @var $transferModule \Tink\Module\TransferModule */
         $transferModule = $this->container['transferModule'];
-        $transferModule->setAcc($fromAcc, $toAcc, $validator->data());
+
+        /* @var $buildTransfer \Tink\Module\Transfer\BuildTransfer */
+        $buildTransfer = $this->container['buildTransfer'];
+        $transferModule->setTransfer($buildTransfer->create($fromAcc, $toAcc, $validator->data()));
 
         $result = $transferModule->canTransfer();
 
