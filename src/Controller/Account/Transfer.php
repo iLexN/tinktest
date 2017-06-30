@@ -40,7 +40,7 @@ class Transfer
 
         /* @var $buildTransfer \Tink\Module\Transfer\BuildTransfer */
         $buildTransfer = $this->container['buildTransfer'];
-        
+
         /* @var $transfer \Tink\Module\Transfer\TransferOwerInterface */
         $transfer = $buildTransfer->create($fromAcc, $toAcc, $validator->data());
 

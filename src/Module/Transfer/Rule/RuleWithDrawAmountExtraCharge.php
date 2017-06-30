@@ -8,18 +8,15 @@
 
 namespace Tink\Module\Transfer\Rule;
 
-use Tink\Module\Transfer\Rule\RuleInterface;
-use Tink\Module\Transfer\Rule\RuleWithDrawAmount;
 use Tink\Module\Transfer\TransferOtherOwer;
 
 /**
- * Description of RuleWithDrawAmount
+ * Description of RuleWithDrawAmount.
  *
  * @author user
  */
 class RuleWithDrawAmountExtraCharge extends RuleWithDrawAmount implements RuleInterface
 {
-
     public function validate()
     {
         $this->data['amount'] += TransferOtherOwer::CHARGE;

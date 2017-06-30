@@ -3,11 +3,9 @@
 namespace Tink\Module\Transfer;
 
 use Tink\Model\Account;
-use Tink\Module\Transfer\TransferOtherOwer;
-use Tink\Module\Transfer\TransferSameOwer;
 
 /**
- * Description of BuildTransfer
+ * Description of BuildTransfer.
  *
  * @author user
  */
