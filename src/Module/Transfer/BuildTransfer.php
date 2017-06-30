@@ -3,6 +3,7 @@
 namespace Tink\Module\Transfer;
 
 use Tink\Model\Account;
+use Tink\Module\Transfer\Rule\BuildRulesArray as BuildRule;
 
 /**
  * Description of BuildTransfer.
@@ -23,17 +24,12 @@ class BuildTransfer
 
     public function create(Account $from, Account $to, $data)
     {
+        $buildRule = new BuildRule($from, $data, $this->container);
+
         if ($this->isSameOwer($from, $to)) {
-            return new TransferSameOwer($this->container, $from, $to, $data, [
-                new \Tink\Module\Transfer\Rule\RuleWithDrawAmount($from, $data),
-                new \Tink\Module\Transfer\Rule\RuleDailyLimit($from, $data),
-            ]);
+            return new TransferSameOwer($this->container, $from, $to, $data, $buildRule->buildSameOwnerRule());
         } else {
-            return new TransferOtherOwer($this->container, $from, $to, $data, [
-                new \Tink\Module\Transfer\Rule\RuleWithDrawAmountExtraCharge($from, $data),
-                new \Tink\Module\Transfer\Rule\RuleDailyLimit($from, $data),
-                new \Tink\Module\Transfer\Rule\RuleApiApprove($this->container),
-            ]);
+            return new TransferOtherOwer($this->container, $from, $to, $data, $buildRule->buildOtherOwnerRule());
         }
     }
 

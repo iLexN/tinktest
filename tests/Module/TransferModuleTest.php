@@ -64,6 +64,6 @@ class TransferModuleTest extends \PHPUnit\Framework\TestCase
         $history = $this->container['historyModule'];
         $t->transfer($history);
 
-        $this->assertInstanceOf('Tink\Module\Transfer\TransferOtherOwer',  $t);
+        $this->assertInstanceOf('Tink\Module\Transfer\TransferOtherOwer', $t);
     }
 }
