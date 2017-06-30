@@ -10,6 +10,7 @@ namespace Tink\Module\Transfer\Rule;
 
 use Tink\Module\Transfer\Rule\RuleInterface;
 use Tink\Module\Transfer\Rule\RuleWithDrawAmount;
+use Tink\Module\Transfer\TransferOtherOwer;
 
 /**
  * Description of RuleWithDrawAmount
@@ -18,13 +19,10 @@ use Tink\Module\Transfer\Rule\RuleWithDrawAmount;
  */
 class RuleWithDrawAmountExtraCharge extends RuleWithDrawAmount implements RuleInterface
 {
-    //put your code here
-
-    const CHARGE = 100;
 
     public function validate()
     {
-        $this->data['amount'] += self::CHARGE;
+        $this->data['amount'] += TransferOtherOwer::CHARGE;
 
         return parent::validate();
     }

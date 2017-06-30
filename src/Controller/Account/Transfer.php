@@ -38,21 +38,20 @@ class Transfer
             return $response->write(\json_encode($validator->errors()));
         }
 
-        /* @var $transferModule \Tink\Module\TransferModule */
-        $transferModule = $this->container['transferModule'];
-
         /* @var $buildTransfer \Tink\Module\Transfer\BuildTransfer */
         $buildTransfer = $this->container['buildTransfer'];
-        $transferModule->setTransfer($buildTransfer->create($fromAcc, $toAcc, $validator->data()));
+        
+        /* @var $transfer \Tink\Module\Transfer\TransferOwerInterface */
+        $transfer = $buildTransfer->create($fromAcc, $toAcc, $validator->data());
 
-        $result = $transferModule->canTransfer();
+        $result = $transfer->canTransfer();
 
         if ($result['status'] === false) {
             return $response->write(\json_encode(['status'=>$result['msg']]));
         }
 
         //do transfer
-        $transferModule->transfer($history);
+        $transfer->transfer($history);
 
         return $response->write(\json_encode(['data'=>$fromAcc->toArray(), 'status'=>'success']));
     }

@@ -54,9 +54,6 @@ $container['historyModule'] = function (\Slim\Container $c) {
     return new \Tink\Module\HistoryModule($c);
 };
 
-$container['transferModule'] = function (\Slim\Container $c) {
-    return new \Tink\Module\TransferModule($c);
-};
 $container['buildTransfer'] = function (\Slim\Container $c) {
     return new \Tink\Module\Transfer\BuildTransfer($c);
 };
