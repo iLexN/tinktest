@@ -4,11 +4,6 @@ namespace Tink\Module\Transfer\Rule;
 
 use Tink\Model\Account;
 
-/**
- * Description of BuildRulesArray
- *
- * @author user
- */
 class BuildRulesArray
 {
     //put your code here
