@@ -8,10 +8,8 @@
 
 namespace Tink\Module\Transfer\Rule;
 
-use Tink\Module\Transfer\Rule\RuleInterface;
-
 /**
- * Description of RuleDailyLimit
+ * Description of RuleDailyLimit.
  *
  * @author user
  */

@@ -8,10 +8,8 @@
 
 namespace Tink\Module\Transfer\Rule;
 
-use Tink\Module\Transfer\Rule\RuleInterface;
-
 /**
- * Description of RuleWithDrawAmount
+ * Description of RuleWithDrawAmount.
  *
  * @author user
  */

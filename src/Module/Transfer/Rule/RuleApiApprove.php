@@ -8,10 +8,8 @@
 
 namespace Tink\Module\Transfer\Rule;
 
-use Tink\Module\Transfer\Rule\RuleInterface;
-
 /**
- * Description of RuleWithDrawAmount
+ * Description of RuleWithDrawAmount.
  *
  * @author user
  */
@@ -23,7 +21,6 @@ class RuleApiApprove implements RuleInterface
      * @var \Slim\Container
      */
     public $container;
-
 
     public function __construct($container)
     {
