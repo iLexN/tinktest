@@ -3,7 +3,7 @@
 return [
     'dbConfig' => [
         'host'     => 'localhost', //dev
-        'database' => 'tinktest',
+        'database' => 'tink',
         'user'     => 'root',
         'password' => '',
         'logging'  => true,
