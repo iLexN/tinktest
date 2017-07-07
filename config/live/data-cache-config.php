@@ -2,7 +2,7 @@
 
 return [
     'dataCacheConfig'=> [
-        'path' => __DIR__.'/../../cache/data',
-        'expiresAfter'=>3600,
+        'path'        => __DIR__.'/../../cache/data',
+        'expiresAfter'=> 3600,
     ],
 ];

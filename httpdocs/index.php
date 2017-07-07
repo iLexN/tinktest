@@ -10,9 +10,9 @@ date_default_timezone_set('Asia/Hong_Kong');
 $conf = new Noodlehaus\Config(__DIR__.'/../config/live/');
 $settings = $conf->all() ?: [];
 
-if ( file_exists(__DIR__.'/../config/dev/') ){
+if (file_exists(__DIR__.'/../config/dev/')) {
     $confDev = new Noodlehaus\Config(__DIR__.'/../config/dev/');
-    $settings = array_merge($conf->all(),$confDev->all());
+    $settings = array_merge($conf->all(), $confDev->all());
 }
 
 // app init

@@ -62,7 +62,7 @@ class TransferOtherOwerTest extends \PHPUnit\Framework\TestCase
             $this->container,
             $this->ac1,
             $this->ac2,
-            ['amount'=>1000],
+            ['amount'=> 1000],
             []);
 
         $transfer->transfer($this->container['historyModule']);
