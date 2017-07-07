@@ -10,7 +10,7 @@ class TransferModuleTest extends \PHPUnit\Framework\TestCase
 
     protected function setUp()
     {
-        $settings = require __DIR__.'/../../config/db-config.php';
+        $settings = require __DIR__.'/../../config/dev/db-config.php';
         require __DIR__.'/../../app/setup/db-setup.php';
 
         $container = new \Slim\Container();
@@ -58,7 +58,6 @@ class TransferModuleTest extends \PHPUnit\Framework\TestCase
 
     public function testTransfer()
     {
-
         $transferModule = new \Tink\Module\Transfer\BuildTransfer($this->container);
         $t = $transferModule->create($this->ac1, $this->ac2, ['amount'=>1000]);
         $history = $this->container['historyModule'];

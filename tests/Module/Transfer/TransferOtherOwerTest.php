@@ -10,7 +10,7 @@ class TransferOtherOwerTest extends \PHPUnit\Framework\TestCase
 
     protected function setUp()
     {
-        $settings = require __DIR__.'/../../../config/db-config.php';
+        $settings = require __DIR__.'/../../../config/dev/db-config.php';
         require __DIR__.'/../../../app/setup/db-setup.php';
 
         $container = new \Slim\Container();
@@ -59,9 +59,11 @@ class TransferOtherOwerTest extends \PHPUnit\Framework\TestCase
     public function testTransfer()
     {
         $transfer = new \Tink\Module\Transfer\TransferOtherOwer(
-                $this->container,
-                $this->ac1,
-                $this->ac2, ['amount'=>1000], []);
+            $this->container,
+            $this->ac1,
+            $this->ac2,
+            ['amount'=>1000],
+            []);
 
         $transfer->transfer($this->container['historyModule']);
 
