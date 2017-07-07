@@ -2,9 +2,9 @@
 
 return [
     'settings' => [
-        'displayErrorDetails' => true,
-        'routerCacheDisabled' => false,
-        'routerCacheFile' => __DIR__ . '/../../cache/route.cache',
+        'displayErrorDetails'               => true,
+        'routerCacheDisabled'               => false,
+        'routerCacheFile'                   => __DIR__.'/../../cache/route.cache',
         'determineRouteBeforeAppMiddleware' => true,
     ],
 ];
