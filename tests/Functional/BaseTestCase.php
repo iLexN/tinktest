@@ -53,7 +53,7 @@ class BaseTestCase extends \PHPUnit\Framework\TestCase
         $response = new Response();
 
         // Use the application settings
-        $conf = new \Noodlehaus\Config(__DIR__.'/../../config/dev');
+        $conf = new \Noodlehaus\Config(__DIR__.'/../../config/default');
         $settings = $conf->all() ?: [];
 
         // Instantiate the application
