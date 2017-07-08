@@ -10,7 +10,7 @@ class TransferModuleTest extends \PHPUnit\Framework\TestCase
 
     protected function setUp()
     {
-        $settings = require __DIR__.'/../../config/dev/db-config.php';
+        $settings = require __DIR__.'/../../config/default/db-config.php';
         require __DIR__.'/../../app/setup/db-setup.php';
 
         $container = new \Slim\Container();
