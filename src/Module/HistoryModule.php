@@ -38,9 +38,9 @@ class HistoryModule
         $histroy = new History();
         $histroy->amount = $data['amount'];
         $histroy->action = $status;
-        $histroy->account_id = $ac->id;
         $histroy->related_ac = $acTo;
-        $histroy->save();
+        
+        $ac->history()->save($histroy);
         $ac->calBalance($data['amount'], $status);
         $ac->save();
     }
