@@ -1,7 +1,6 @@
 <?php
 
 use Sami\Sami;
-use Sami\RemoteRepository\GitHubRemoteRepository;
 use Symfony\Component\Finder\Finder;
 
 $srcDir = __DIR__.'/../src';
