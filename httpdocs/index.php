@@ -6,15 +6,15 @@ $autoloader = require '../vendor/autoload.php';
 
 date_default_timezone_set('Asia/Hong_Kong');
 
-// get default config
+/** get default config **/
 $conf = new Noodlehaus\Config(__DIR__.'/../config/default/');
 $settings = $conf->all() ?: [];
 
+/** only 1 for overwriter **/
 if (file_exists(__DIR__.'/../config/live/')) {
     $confDev = new Noodlehaus\Config(__DIR__.'/../config/live/');
     $settings = array_merge($conf->all(), $confDev->all());
-}
-if (file_exists(__DIR__.'/../config/dev/')) {
+} else if (file_exists(__DIR__.'/../config/dev/')) {
     $confDev = new Noodlehaus\Config(__DIR__.'/../config/dev/');
     $settings = array_merge($conf->all(), $confDev->all());
 }

@@ -5,11 +5,13 @@ namespace Tink\Model;
 use Illuminate\Database\Eloquent\Model as Model;
 
 /**
- * @property int $id
- * @property int $ower
- * @property string $name
- * @property string $status
- * @property float $balance
+ * This is the database Account table
+ *
+ * @property int $id account id , db pk
+ * @property int $ower ower id
+ * @property string $name account name
+ * @property string $status account status,open/close
+ * @property float $balance account money
  */
 class Account extends Model
 {
@@ -23,6 +25,8 @@ class Account extends Model
     ];
 
     /**
+     * Check have enough money for with draw.
+     *
      * @param float $money
      *
      * @return bool
@@ -33,8 +37,11 @@ class Account extends Model
     }
 
     /**
+     * Cal Account Balance after some action.
+     *
      * @param float  $money
      * @param string $status
+     * @return void
      */
     public function calBalance($money, $status)
     {
@@ -51,6 +58,9 @@ class Account extends Model
         }
     }
 
+    /**
+     * Account HasMany History.
+     */
     public function history()
     {
         return $this->hasMany(__NAMESPACE__.'\History');

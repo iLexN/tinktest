@@ -4,10 +4,11 @@ namespace Tink\Module\Transfer\Rule;
 
 use Tink\Model\Account;
 
+/**
+ * Setup the Rule for special case.
+ */
 class BuildRulesArray
 {
-    //put your code here
-
     private $from;
 
     private $data;
@@ -21,6 +22,11 @@ class BuildRulesArray
         $this->container = $container;
     }
 
+    /**
+     * Same Owner Rules.
+     *
+     * @return RuleInterface[]
+     */
     public function buildSameOwnerRule()
     {
         return [
@@ -29,6 +35,11 @@ class BuildRulesArray
             ];
     }
 
+    /**
+     * other Owner Rules.
+     *
+     * @return RuleInterface[]
+     */
     public function buildOtherOwnerRule()
     {
         return  [

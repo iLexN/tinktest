@@ -7,7 +7,7 @@ use Tink\Model\History;
 use Valitron\Validator;
 
 /**
- * Description of UserModule.
+ * History Module - CURD for History table.
  *
  * @author user
  */
@@ -24,12 +24,16 @@ class HistoryModule
     }
 
     /**
+     * Create History.
+     * add money in/out recond.
+     * also cal balance
+     *
      * @param array    $data
      * @param string   $status
      * @param Account  $ac
      * @param int|null $acTo
      */
-    public function create($data, $status, Account $ac, $acTo = null)
+    public function create(array $data, $status, Account $ac, $acTo = null)
     {
         $histroy = new History();
         $histroy->amount = $data['amount'];
@@ -41,7 +45,13 @@ class HistoryModule
         $ac->save();
     }
 
-    public function validator($data)
+    /**
+     * Validator rule.
+     * @param array $data
+     *
+     * @return Validator
+     */
+    public function validator(array $data)
     {
         $validator = new Validator($data, $this->getValidatorField());
         $validator->rule('required', ['amount']);
@@ -50,6 +60,10 @@ class HistoryModule
         return $validator;
     }
 
+    /**
+     * get field need validator.
+     * @return array
+     */
     private function getValidatorField()
     {
         return ['account_id', 'action', 'amount'];

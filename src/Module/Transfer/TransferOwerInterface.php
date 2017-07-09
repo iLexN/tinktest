@@ -4,6 +4,9 @@ namespace Tink\Module\Transfer;
 
 use Tink\Module\HistoryModule;
 
+/**
+ * Transfer Owner Interface.
+ */
 interface TransferOwerInterface
 {
     /**

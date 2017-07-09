@@ -7,9 +7,8 @@ use Tink\Model\Owner;
 use Valitron\Validator;
 
 /**
- * Description of UserModule.
- *
- * @author user
+ * Account Module
+ * CURD - for Account Table
  */
 class AcccountModule
 {
@@ -24,12 +23,14 @@ class AcccountModule
     }
 
     /**
+     * Create Account.
+     *
      * @param array $data
      * @param Owner $owner
      *
      * @return Account
      */
-    public function create($data, Owner $owner)
+    public function create(array $data, Owner $owner)
     {
         $ac = new Account();
         $ac->name = $data['name'];
@@ -42,6 +43,7 @@ class AcccountModule
     }
 
     /**
+     * Close Account.
      * @param Account $ac
      *
      * @return Account
@@ -53,6 +55,7 @@ class AcccountModule
     }
 
     /**
+     * Validator - before create account.
      * @param array $data
      *
      * @return Validator
@@ -67,6 +70,7 @@ class AcccountModule
     }
 
     /**
+     * get field need validator.
      * @return array
      */
     private function getValidatorField()
@@ -75,6 +79,7 @@ class AcccountModule
     }
 
     /**
+     * Get Account info.
      * @param int $id
      *
      * @return Account

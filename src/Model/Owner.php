@@ -5,6 +5,8 @@ namespace Tink\Model;
 use Illuminate\Database\Eloquent\Model as Model;
 
 /**
+ * This is the database Owner table
+ *
  * @property int $id
  * @property string $status
  */

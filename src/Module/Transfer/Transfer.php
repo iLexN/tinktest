@@ -4,6 +4,9 @@ namespace Tink\Module\Transfer;
 
 use Tink\Model\Account;
 
+/**
+ * Transfer Class.
+ */
 class Transfer
 {
     /**
@@ -37,6 +40,10 @@ class Transfer
         $this->rules = $rules;
     }
 
+    /**
+     * check can transfer or not.
+     * @return bool
+     */
     public function canTransfer()
     {
         foreach ($this->rules as $rule) {
