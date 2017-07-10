@@ -3,6 +3,8 @@
 namespace Tink\Module\Transfer;
 
 use Tink\Model\Account;
+use Tink\Module\Transfer\TransferResultInterface;
+use Tink\Module\Transfer\TransferResult;
 
 /**
  * Transfer Class.
@@ -40,18 +42,21 @@ class Transfer
         $this->rules = $rules;
     }
 
+
     /**
-     * check can transfer or not.
-     * @return bool
+     * Check Can Transfer or not.
+     * @return \Tink\Module\Transfer\TransferResultInterface
      */
     public function canTransfer()
     {
         foreach ($this->rules as $rule) {
             if (!$rule->validate()) {
-                return ['status'=>false, 'msg'=>$rule->getErrorMsg()];
+                return new TransferResult(false, $rule->getErrorMsg());
+                //return ['status'=>false, 'msg'=>$rule->getErrorMsg()];
             }
         }
 
-        return ['status'=>true, 'msg'=>'can transfer'];
+        return new TransferResult(true, 'can transfer');
+        //return ['status'=>true, 'msg'=>'can transfer'];
     }
 }

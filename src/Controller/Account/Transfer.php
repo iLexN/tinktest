@@ -44,10 +44,11 @@ class Transfer
         /* @var $transfer \Tink\Module\Transfer\TransferOwerInterface */
         $transfer = $buildTransfer->create($fromAcc, $toAcc, $validator->data());
 
+        /** @var \Tink\Module\Transfer\TransferResultInterface $result */
         $result = $transfer->canTransfer();
 
-        if ($result['status'] === false) {
-            return $response->write(\json_encode(['status'=>$result['msg']]));
+        if (!$result->getStatus()) {
+            return $response->write(\json_encode(['status' => $result->getMsg()]));
         }
 
         //do transfer
