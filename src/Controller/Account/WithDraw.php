@@ -41,7 +41,7 @@ class WithDraw
 
         /** @var AccountModule $accountModule */
         $accountModule = $this->container['accountModule'];
-        $accountModule->amountChange($validator->data(), $args['action'],$acInfo);
+        $accountModule->amountChange($validator->data(), $args['action'], $acInfo);
 
         return $response->write(\json_encode(['data'=>$acInfo->toArray(), 'status'=>'success']));
     }

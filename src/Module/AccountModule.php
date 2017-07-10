@@ -63,7 +63,7 @@ class AccountModule
     {
         /** @var HistoryModule $history */
         $history = $this->container['historyModule'];
-        $historyObj = $history->create($data,$status, $acTo);
+        $historyObj = $history->create($data, $status, $acTo);
 
         $ac->history()->save($historyObj);
         $ac->calBalance($historyObj->amount, $status);

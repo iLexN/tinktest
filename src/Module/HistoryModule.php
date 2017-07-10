@@ -40,7 +40,6 @@ class HistoryModule
         $history->related_ac = $acTo;
 
         return $history;
-
     }
 
     /**
