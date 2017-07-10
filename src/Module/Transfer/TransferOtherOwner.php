@@ -11,7 +11,7 @@ class TransferOtherOwner extends Transfer implements TransferOwnerInterface
     /**
      * @param AccountModule $accountModule
      */
-    public function transfer(AccountModule $accountModule): void
+    public function transfer(AccountModule $accountModule)
     {
         //$history->create($this->data, 'transferFrom', $this->to, $this->from->id);
 

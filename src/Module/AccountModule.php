@@ -46,7 +46,7 @@ class AccountModule
      * Close Account.
      * @param Account $ac
      */
-    public function close(Account $ac): void
+    public function close(Account $ac)
     {
         $ac->status = Account::AC_STATUS_INACTIVE;
         $ac->save();
@@ -59,7 +59,7 @@ class AccountModule
      * @param Account $ac
      * @param int $acTo
      */
-    public function amountChange(array $data, $status, Account $ac, $acTo = null): void
+    public function amountChange(array $data, $status, Account $ac, $acTo = null)
     {
         /** @var HistoryModule $history */
         $history = $this->container['historyModule'];
