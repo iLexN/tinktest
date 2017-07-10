@@ -30,7 +30,7 @@ class AccountModule
      *
      * @return Account
      */
-    public function create(array $data, Owner $owner)
+    public function create(array $data, Owner $owner): Account
     {
         $ac = new Account();
         $ac->name = $data['name'];
@@ -46,7 +46,7 @@ class AccountModule
      * Close Account.
      * @param Account $ac
      */
-    public function close(Account $ac)
+    public function close(Account $ac): void
     {
         $ac->status = Account::AC_STATUS_INACTIVE;
         $ac->save();
@@ -59,7 +59,7 @@ class AccountModule
      * @param Account $ac
      * @param int $acTo
      */
-    public function amountChange(array $data, $status, Account $ac, $acTo = null)
+    public function amountChange(array $data, $status, Account $ac, $acTo = null): void
     {
         /** @var HistoryModule $history */
         $history = $this->container['historyModule'];
@@ -76,7 +76,7 @@ class AccountModule
      *
      * @return Validator
      */
-    public function validator($data)
+    public function validator($data): Validator
     {
         $validator = new Validator($data, $this->getValidatorField());
         $validator->rule('required', ['name']);
@@ -89,7 +89,7 @@ class AccountModule
      * get field need validator.
      * @return array
      */
-    private function getValidatorField()
+    private function getValidatorField(): array
     {
         return ['name', 'amount', 'status'];
     }
@@ -100,7 +100,7 @@ class AccountModule
      *
      * @return Account
      */
-    public function getAcInfo($id)
+    public function getAcInfo($id): Account
     {
         return Account::where('id', $id)
             ->where('status', Account::AC_STATUS_ACTIVE)

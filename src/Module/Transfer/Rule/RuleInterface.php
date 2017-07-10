@@ -9,12 +9,12 @@ interface RuleInterface
      *
      * @return bool
      */
-    public function validate();
+    public function validate(): bool;
 
     /**
      * get Error Message.
      *
      * @return string
      */
-    public function getErrorMsg();
+    public function getErrorMsg(): string;
 }

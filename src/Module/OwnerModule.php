@@ -27,7 +27,7 @@ class OwnerModule
      *
      * @return Owner
      */
-    public function getOwnerInfo($id)
+    public function getOwnerInfo($id): Owner
     {
         return Owner::where('id', $id)
                 ->where('status', 'Active')

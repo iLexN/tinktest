@@ -45,7 +45,7 @@ class Transfer
      * Check Can Transfer or not.
      * @return \Tink\Module\Transfer\TransferResultInterface
      */
-    public function canTransfer()
+    public function canTransfer(): TransferResultInterface
     {
         foreach ($this->rules as $rule) {
             if (!$rule->validate()) {

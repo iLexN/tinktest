@@ -8,7 +8,10 @@ class TransferOtherOwner extends Transfer implements TransferOwnerInterface
 {
     const CHARGE = 100;
 
-    public function transfer(AccountModule $accountModule)
+    /**
+     * @param AccountModule $accountModule
+     */
+    public function transfer(AccountModule $accountModule): void
     {
         //$history->create($this->data, 'transferFrom', $this->to, $this->from->id);
 

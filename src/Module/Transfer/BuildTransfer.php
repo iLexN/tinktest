@@ -27,7 +27,7 @@ class BuildTransfer
      * @param array $data
      * @return \Tink\Module\Transfer\TransferOwnerInterface
      */
-    public function create(Account $from, Account $to, $data)
+    public function create(Account $from, Account $to, $data): TransferResultInterface
     {
         $buildRule = new BuildRule($from, $data, $this->container);
 
@@ -44,7 +44,7 @@ class BuildTransfer
      * @param Account $to
      * @return bool
      */
-    private function isSameOwner(Account $from, Account $to)
+    private function isSameOwner(Account $from, Account $to): bool
     {
         return $from->ower === $to->ower;
     }

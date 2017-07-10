@@ -32,7 +32,7 @@ class HistoryModule
      * @param int|null $acTo
      * @return History
      */
-    public function create(array $data, $status, $acTo = null)
+    public function create(array $data, $status, $acTo = null): History
     {
         $history = new History();
         $history->amount = $data['amount'];
@@ -49,7 +49,7 @@ class HistoryModule
      *
      * @return Validator
      */
-    public function validator(array $data)
+    public function validator(array $data): Validator
     {
         $validator = new Validator($data, $this->getValidatorField());
         $validator->rule('required', ['amount']);
@@ -62,7 +62,7 @@ class HistoryModule
      * get field need validator.
      * @return array
      */
-    private function getValidatorField()
+    private function getValidatorField(): array
     {
         return ['account_id', 'action', 'amount'];
     }

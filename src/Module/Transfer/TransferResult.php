@@ -32,7 +32,7 @@ class TransferResult implements TransferResultInterface
     /**
      * @return bool
      */
-    public function getStatus()
+    public function getStatus(): bool
     {
         return $this->status;
     }
@@ -40,7 +40,7 @@ class TransferResult implements TransferResultInterface
     /**
      * @return string
      */
-    public function getMsg()
+    public function getMsg(): string
     {
         return $this->msg;
     }

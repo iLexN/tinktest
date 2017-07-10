@@ -26,6 +26,10 @@ class RuleDailyLimit implements RuleInterface
         $this->data = $data;
     }
 
+    /**
+     * @inheritdoc
+     * @return bool
+     */
     public function validate()
     {
         $sum = $this->from->history()->where('created_at', 'like', date('Y-m-d').'%')
@@ -34,6 +38,9 @@ class RuleDailyLimit implements RuleInterface
         return  ($sum + $this->data['amount']) <= self::DAILY_LIMIT;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function getErrorMsg()
     {
         return 'over daily limit';

@@ -27,7 +27,7 @@ class BuildRulesArray
      *
      * @return RuleInterface[]
      */
-    public function buildSameOwnerRule()
+    public function buildSameOwnerRule(): array
     {
         return [
                 new RuleWithDrawAmount($this->from, $this->data),
@@ -40,7 +40,7 @@ class BuildRulesArray
      *
      * @return RuleInterface[]
      */
-    public function buildOtherOwnerRule()
+    public function buildOtherOwnerRule(): array
     {
         return  [
                 new RuleWithDrawAmountExtraCharge($this->from, $this->data),

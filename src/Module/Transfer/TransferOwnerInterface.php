@@ -17,9 +17,8 @@ interface TransferOwnerInterface
     public function transfer(AccountModule $accountModule);
 
     /**
-     * check can do the transfer.
-     *
-     * @return array
+     * Check Can Transfer or not.
+     * @return \Tink\Module\Transfer\TransferResultInterface
      */
-    public function canTransfer();
+    public function canTransfer(): TransferResultInterface;
 }

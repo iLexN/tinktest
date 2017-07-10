@@ -5,7 +5,7 @@ namespace Tink\Module\Transfer;
 
 interface TransferResultInterface
 {
-    public function getStatus();
+    public function getStatus(): bool;
 
-    public function getMsg();
+    public function getMsg(): string;
 }
