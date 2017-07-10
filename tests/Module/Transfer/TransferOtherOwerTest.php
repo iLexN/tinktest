@@ -96,8 +96,8 @@ class TransferOtherOwerTest extends \PHPUnit\Framework\TestCase
             ]);
         $ar = $transfer->canTransfer();
 
-        $this->assertEquals(false, $ar['status']);
-        $this->assertEquals('not enough money to transfer', $ar['msg']);
+        $this->assertEquals(false, $ar->getStatus());
+        $this->assertEquals('not enough money to transfer', $ar->getMsg());
     }
 
     public function testCanTransferWithDrawSuccess()
@@ -110,8 +110,8 @@ class TransferOtherOwerTest extends \PHPUnit\Framework\TestCase
             ]);
         $ar = $transfer->canTransfer();
 
-        $this->assertEquals(true, $ar['status']);
-        $this->assertEquals('can transfer', $ar['msg']);
+        $this->assertEquals(true, $ar->getStatus());
+        $this->assertEquals('can transfer', $ar->getMsg());
     }
 
     public function testCanTransferE2()
@@ -124,8 +124,8 @@ class TransferOtherOwerTest extends \PHPUnit\Framework\TestCase
             ]);
         $ar = $transfer->canTransfer();
 
-        $this->assertEquals(false, $ar['status']);
-        $this->assertEquals('over daily limit', $ar['msg']);
+        $this->assertEquals(false, $ar->getStatus());
+        $this->assertEquals('over daily limit', $ar->getMsg());
     }
 
     public function testCanTransferE3()
@@ -152,8 +152,8 @@ class TransferOtherOwerTest extends \PHPUnit\Framework\TestCase
             ]);
         $ar = $transfer->canTransfer();
 
-        $this->assertEquals(false, $ar['status']);
-        $this->assertEquals('not approve', $ar['msg']);
+        $this->assertEquals(false, $ar->getStatus());
+        $this->assertEquals('not approve', $ar->getMsg());
     }
 
     public function testCanTransferE4()
@@ -180,8 +180,8 @@ class TransferOtherOwerTest extends \PHPUnit\Framework\TestCase
             ]);
         $ar = $transfer->canTransfer();
 
-        $this->assertEquals(false, $ar['status']);
-        $this->assertEquals('not approve', $ar['msg']);
+        $this->assertEquals(false, $ar->getStatus());
+        $this->assertEquals('not approve', $ar->getMsg());
     }
 
     public function testCanTransferApiSuccess()
@@ -208,7 +208,7 @@ class TransferOtherOwerTest extends \PHPUnit\Framework\TestCase
             ]);
         $ar = $transfer->canTransfer();
 
-        $this->assertEquals(true, $ar['status']);
-        $this->assertEquals('can transfer', $ar['msg']);
+        $this->assertEquals(true, $ar->getStatus());
+        $this->assertEquals('can transfer', $ar->getMsg());
     }
 }
