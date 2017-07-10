@@ -82,8 +82,8 @@ class TransferOtherOwerTest extends \PHPUnit\Framework\TestCase
                 $this->ac2, ['amount'=>1000], []);
         $ar = $transfer->canTransfer();
 
-        $this->assertEquals(true, $ar['status']);
-        $this->assertEquals('can transfer', $ar['msg']);
+        $this->assertEquals(true, $ar->getStatus());
+        $this->assertEquals('can transfer', $ar->getMsg());
     }
 
     public function testCanTransferE1()
