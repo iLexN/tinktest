@@ -15,11 +15,11 @@ use Illuminate\Database\Eloquent\Model as Model;
  */
 class Account extends Model
 {
+    const AC_STATUS_ACTIVE = 'Active';
+    const AC_STATUS_INACTIVE = 'inActive';
     protected $table = 'account';
     protected $primaryKey = 'id';
-
     protected $hidden = ['status', 'created_at', 'updated_at'];
-
     protected $casts = [
         'balance' => 'float',
     ];

@@ -35,7 +35,7 @@ class AcccountModule
         $ac = new Account();
         $ac->name = $data['name'];
         $ac->balance = 0.00;
-        $ac->status = 'Active';
+        $ac->status = Account::AC_STATUS_ACTIVE;
         $ac->ower = $owner->id;
         $ac->save();
 
@@ -50,7 +50,7 @@ class AcccountModule
      */
     public function close(Account $ac)
     {
-        $ac->status = 'inActive';
+        $ac->status = Account::AC_STATUS_INACTIVE;
         $ac->save();
     }
 
@@ -104,7 +104,7 @@ class AcccountModule
     public function getAcInfo($id)
     {
         return Account::where('id', $id)
-                ->where('status', 'Active')
+            ->where('status', Account::AC_STATUS_ACTIVE)
                 ->first();
     }
 }
