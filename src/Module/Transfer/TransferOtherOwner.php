@@ -24,7 +24,10 @@ class TransferOtherOwner extends Transfer implements TransferOwnerInterface
         $accountModule->amountChange($this->data, 'transferTo', $this->from, $this->to->id);
     }
 
-    public function canTransfer()
+    /**
+     * @return TransferResultInterface
+     */
+    public function canTransfer(): TransferResultInterface
     {
         return parent::canTransfer();
     }
