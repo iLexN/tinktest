@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="index, follow, all" />
-    <title>Tink\Module\Transfer\Transfer | API</title>
+    <title>Tink\Module\Transfer\TransferOtherOwner | API</title>
 
             <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../../../css/bootstrap-theme.min.css">
@@ -19,7 +19,7 @@
     
     </head>
 
-    <body id="class" data-name="class:Tink_Module_Transfer_Transfer" data-root-path="../../../">
+    <body id="class" data-name="class:Tink_Module_Transfer_TransferOtherOwner" data-root-path="../../../">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
@@ -66,29 +66,40 @@
                         <div class="namespace-breadcrumbs">
             <ol class="breadcrumb">
                 <li><span class="label label-default">class</span></li>
-                        <li><a href="../../../Tink.html">Tink</a></li><li class="backslash">\</li><li><a href="../../../Tink/Module.html">Module</a></li><li class="backslash">\</li><li><a href="../../../Tink/Module/Transfer.html">Transfer</a></li><li class="backslash">\</li><li>Transfer</li>
+                        <li><a href="../../../Tink.html">Tink</a></li><li class="backslash">\</li><li><a href="../../../Tink/Module.html">Module</a></li><li class="backslash">\</li><li><a href="../../../Tink/Module/Transfer.html">Transfer</a></li><li class="backslash">\</li><li>TransferOtherOwner</li>
             </ol>
         </div>
                 <div id="page-content">
                 
     <div class="page-header">
         <h1>
-            Transfer
+            TransferOtherOwner
                 
         </h1>
     </div>
 
     <p>    class
-    <strong>Transfer</strong>
+    <strong>TransferOtherOwner</strong>        extends <a href="../../../Tink/Module/Transfer/Transfer.html"><abbr title="Tink\Module\Transfer\Transfer">Transfer</abbr></a>        implements
+        <a href="../../../Tink/Module/Transfer/TransferOwnerInterface.html"><abbr title="Tink\Module\Transfer\TransferOwnerInterface">TransferOwnerInterface</abbr></a>
 </p>
 
         
     
 
-            <div class="description">
-            <p>Transfer Class.</p>                                </div>
     
     
+            <h2>Constants</h2>
+
+            <table class="table table-condensed">
+                    <tr>
+                <td>CHARGE</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+            </table>
+
     
             <h2>Properties</h2>
 
@@ -99,7 +110,7 @@
                 </td>
                 <td>$container</td>
                 <td class="last"></td>
-                <td></td>
+                <td><small>from&nbsp;<a href="../../../Tink/Module/Transfer/Transfer.html#property_container"><abbr title="Tink\Module\Transfer\Transfer">Transfer</abbr></a></small></td>
             </tr>
                     <tr>
                 <td class="type" id="property_from">
@@ -107,7 +118,7 @@
                 </td>
                 <td>$from</td>
                 <td class="last"></td>
-                <td></td>
+                <td><small>from&nbsp;<a href="../../../Tink/Module/Transfer/Transfer.html#property_from"><abbr title="Tink\Module\Transfer\Transfer">Transfer</abbr></a></small></td>
             </tr>
                     <tr>
                 <td class="type" id="property_to">
@@ -115,7 +126,7 @@
                 </td>
                 <td>$to</td>
                 <td class="last"></td>
-                <td></td>
+                <td><small>from&nbsp;<a href="../../../Tink/Module/Transfer/Transfer.html#property_to"><abbr title="Tink\Module\Transfer\Transfer">Transfer</abbr></a></small></td>
             </tr>
                     <tr>
                 <td class="type" id="property_data">
@@ -123,7 +134,7 @@
                 </td>
                 <td>$data</td>
                 <td class="last"></td>
-                <td></td>
+                <td><small>from&nbsp;<a href="../../../Tink/Module/Transfer/Transfer.html#property_data"><abbr title="Tink\Module\Transfer\Transfer">Transfer</abbr></a></small></td>
             </tr>
                     <tr>
                 <td class="type" id="property_rules">
@@ -131,7 +142,7 @@
                 </td>
                 <td>$rules</td>
                 <td class="last"></td>
-                <td></td>
+                <td><small>from&nbsp;<a href="../../../Tink/Module/Transfer/Transfer.html#property_rules"><abbr title="Tink\Module\Transfer\Transfer">Transfer</abbr></a></small></td>
             </tr>
             </table>
 
@@ -148,16 +159,28 @@
         
                                             <p class="no-description">No description</p>
                                     </div>
-                <div class="col-md-2"></div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Tink/Module/Transfer/Transfer.html#method___construct"><abbr title="Tink\Module\Transfer\Transfer">Transfer</abbr></a></small></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    bool
+                    <a href="../../../Tink/Module/Transfer/TransferResultInterface.html"><abbr title="Tink\Module\Transfer\TransferResultInterface">TransferResultInterface</abbr></a>
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_canTransfer">canTransfer</a>()
         
-                                            <p>check can transfer or not.</p>                </div>
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_transfer">transfer</a>(<a href="../../../Tink/Module/AccountModule.html"><abbr title="Tink\Module\AccountModule">AccountModule</abbr></a> $accountModule)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
@@ -168,7 +191,7 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         line 34</div>
+        <div class="location">in <a href="../../../Tink/Module/Transfer/Transfer.html#method___construct"><abbr title="Tink\Module\Transfer\Transfer">Transfer</abbr></a> at         line 34</div>
         <code>                    
     <strong>__construct</strong>(<abbr title="Slim\Container">Container</abbr> $container, <a href="../../../Tink/Model/Account.html"><abbr title="Tink\Model\Account">Account</abbr></a> $from, <a href="../../../Tink/Model/Account.html"><abbr title="Tink\Model\Account">Account</abbr></a> $to, $data, $rules = [])
         </code>
@@ -217,8 +240,8 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_canTransfer">
-        <div class="location">at         line 47</div>
-        <code>                    bool
+        <div class="location">at         line 30</div>
+        <code>                    <a href="../../../Tink/Module/Transfer/TransferResultInterface.html"><abbr title="Tink\Module\Transfer\TransferResultInterface">TransferResultInterface</abbr></a>
     <strong>canTransfer</strong>()
         </code>
     </h3>
@@ -226,19 +249,46 @@
             
     
 
-                    <div class="method-description">
-                                    <p>check can transfer or not.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td>bool</td>
+            <td><a href="../../../Tink/Module/Transfer/TransferResultInterface.html"><abbr title="Tink\Module\Transfer\TransferResultInterface">TransferResultInterface</abbr></a></td>
             <td></td>
         </tr>
     </table>
 
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_transfer">
+        <div class="location">at         line 14</div>
+        <code>                    
+    <strong>transfer</strong>(<a href="../../../Tink/Module/AccountModule.html"><abbr title="Tink\Module\AccountModule">AccountModule</abbr></a> $accountModule)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../Tink/Module/AccountModule.html"><abbr title="Tink\Module\AccountModule">AccountModule</abbr></a></td>
+                <td>$accountModule</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
             
             
                     </div>

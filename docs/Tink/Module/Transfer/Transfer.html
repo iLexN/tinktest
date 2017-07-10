@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="index, follow, all" />
-    <title>Tink\Module\Transfer\BuildTransfer | API</title>
+    <title>Tink\Module\Transfer\Transfer | API</title>
 
             <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../../../css/bootstrap-theme.min.css">
@@ -19,7 +19,7 @@
     
     </head>
 
-    <body id="class" data-name="class:Tink_Module_Transfer_BuildTransfer" data-root-path="../../../">
+    <body id="class" data-name="class:Tink_Module_Transfer_Transfer" data-root-path="../../../">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
@@ -66,27 +66,27 @@
                         <div class="namespace-breadcrumbs">
             <ol class="breadcrumb">
                 <li><span class="label label-default">class</span></li>
-                        <li><a href="../../../Tink.html">Tink</a></li><li class="backslash">\</li><li><a href="../../../Tink/Module.html">Module</a></li><li class="backslash">\</li><li><a href="../../../Tink/Module/Transfer.html">Transfer</a></li><li class="backslash">\</li><li>BuildTransfer</li>
+                        <li><a href="../../../Tink.html">Tink</a></li><li class="backslash">\</li><li><a href="../../../Tink/Module.html">Module</a></li><li class="backslash">\</li><li><a href="../../../Tink/Module/Transfer.html">Transfer</a></li><li class="backslash">\</li><li>Transfer</li>
             </ol>
         </div>
                 <div id="page-content">
                 
     <div class="page-header">
         <h1>
-            BuildTransfer
+            Transfer
                 
         </h1>
     </div>
 
     <p>    class
-    <strong>BuildTransfer</strong>
+    <strong>Transfer</strong>
 </p>
 
         
     
 
             <div class="description">
-            <p>Build Transfer Class.</p>                                </div>
+            <p>Transfer Class.</p>                                </div>
     
     
     
@@ -101,6 +101,38 @@
                 <td class="last"></td>
                 <td></td>
             </tr>
+                    <tr>
+                <td class="type" id="property_from">
+                                                                                <a href="../../../Tink/Model/Account.html"><abbr title="Tink\Model\Account">Account</abbr></a>
+                </td>
+                <td>$from</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_to">
+                                                                                <a href="../../../Tink/Model/Account.html"><abbr title="Tink\Model\Account">Account</abbr></a>
+                </td>
+                <td>$to</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_data">
+                                                                                array
+                </td>
+                <td>$data</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_rules">
+                                        protected                                        
+                </td>
+                <td>$rules</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
             </table>
 
     
@@ -112,7 +144,7 @@
                     
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method___construct">__construct</a>(<abbr title="Slim\Container">Container</abbr> $container)
+                    <a href="#method___construct">__construct</a>(<abbr title="Slim\Container">Container</abbr> $container, <a href="../../../Tink/Model/Account.html"><abbr title="Tink\Model\Account">Account</abbr></a> $from, <a href="../../../Tink/Model/Account.html"><abbr title="Tink\Model\Account">Account</abbr></a> $to, $data, $rules = [])
         
                                             <p class="no-description">No description</p>
                                     </div>
@@ -120,12 +152,12 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    <abbr title="Tink\Module\TransferTransferOwerInterface">TransferTransferOwerInterface</abbr>
+                    <a href="../../../Tink/Module/Transfer/TransferResultInterface.html"><abbr title="Tink\Module\Transfer\TransferResultInterface">TransferResultInterface</abbr></a>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_create">create</a>(<a href="../../../Tink/Model/Account.html"><abbr title="Tink\Model\Account">Account</abbr></a> $from, <a href="../../../Tink/Model/Account.html"><abbr title="Tink\Model\Account">Account</abbr></a> $to, array $data)
+                    <a href="#method_canTransfer">canTransfer</a>()
         
-                                            <p>Get Transfer Class.</p>                </div>
+                                            <p>Check Can Transfer or not.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
@@ -136,9 +168,9 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         line 18</div>
+        <div class="location">at         line 34</div>
         <code>                    
-    <strong>__construct</strong>(<abbr title="Slim\Container">Container</abbr> $container)
+    <strong>__construct</strong>(<abbr title="Slim\Container">Container</abbr> $container, <a href="../../../Tink/Model/Account.html"><abbr title="Tink\Model\Account">Account</abbr></a> $from, <a href="../../../Tink/Model/Account.html"><abbr title="Tink\Model\Account">Account</abbr></a> $to, $data, $rules = [])
         </code>
     </h3>
     <div class="details">
@@ -154,32 +186,6 @@
                 <td>$container</td>
                 <td></td>
             </tr>
-            </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_create">
-        <div class="location">at         line 30</div>
-        <code>                    <abbr title="Tink\Module\TransferTransferOwerInterface">TransferTransferOwerInterface</abbr>
-    <strong>create</strong>(<a href="../../../Tink/Model/Account.html"><abbr title="Tink\Model\Account">Account</abbr></a> $from, <a href="../../../Tink/Model/Account.html"><abbr title="Tink\Model\Account">Account</abbr></a> $to, array $data)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Get Transfer Class.</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
                     <tr>
                 <td><a href="../../../Tink/Model/Account.html"><abbr title="Tink\Model\Account">Account</abbr></a></td>
                 <td>$from</td>
@@ -191,18 +197,44 @@
                 <td></td>
             </tr>
                     <tr>
-                <td>array</td>
+                <td></td>
                 <td>$data</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$rules</td>
                 <td></td>
             </tr>
             </table>
 
             
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_canTransfer">
+        <div class="location">at         line 48</div>
+        <code>                    <a href="../../../Tink/Module/Transfer/TransferResultInterface.html"><abbr title="Tink\Module\Transfer\TransferResultInterface">TransferResultInterface</abbr></a>
+    <strong>canTransfer</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Check Can Transfer or not.</p>                                                </div>
+                <div class="tags">
+            
                             <h4>Return Value</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td><abbr title="Tink\Module\TransferTransferOwerInterface">TransferTransferOwerInterface</abbr></td>
+            <td><a href="../../../Tink/Module/Transfer/TransferResultInterface.html"><abbr title="Tink\Module\Transfer\TransferResultInterface">TransferResultInterface</abbr></a></td>
             <td></td>
         </tr>
     </table>

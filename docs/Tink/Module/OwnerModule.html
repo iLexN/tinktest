@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="index, follow, all" />
-    <title>Tink\Module\HistoryModule | API</title>
+    <title>Tink\Module\OwnerModule | API</title>
 
             <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
@@ -19,7 +19,7 @@
     
     </head>
 
-    <body id="class" data-name="class:Tink_Module_HistoryModule" data-root-path="../../">
+    <body id="class" data-name="class:Tink_Module_OwnerModule" data-root-path="../../">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
@@ -66,27 +66,27 @@
                         <div class="namespace-breadcrumbs">
             <ol class="breadcrumb">
                 <li><span class="label label-default">class</span></li>
-                        <li><a href="../../Tink.html">Tink</a></li><li class="backslash">\</li><li><a href="../../Tink/Module.html">Module</a></li><li class="backslash">\</li><li>HistoryModule</li>
+                        <li><a href="../../Tink.html">Tink</a></li><li class="backslash">\</li><li><a href="../../Tink/Module.html">Module</a></li><li class="backslash">\</li><li>OwnerModule</li>
             </ol>
         </div>
                 <div id="page-content">
                 
     <div class="page-header">
         <h1>
-            HistoryModule
+            OwnerModule
                 
         </h1>
     </div>
 
     <p>    class
-    <strong>HistoryModule</strong>
+    <strong>OwnerModule</strong>
 </p>
 
         
     
 
             <div class="description">
-            <p>History Module - CURD for History table.</p>                                </div>
+            <p>Owner Module - CURD for Owner table.</p>                                </div>
     
     
     
@@ -120,22 +120,12 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <a href="../../Tink/Model/Owner.html"><abbr title="Tink\Model\Owner">Owner</abbr></a>|null
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_create">create</a>(array $data, string $status, <a href="../../Tink/Model/Account.html"><abbr title="Tink\Model\Account">Account</abbr></a> $ac, int|null $acTo = null)
+                    <a href="#method_getOwnerInfo">getOwnerInfo</a>(int $id)
         
-                                            <p>Create History.</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    <abbr title="Valitron\Validator">Validator</abbr>
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_validator">validator</a>(array $data)
-        
-                                            <p>Validator rule.</p>                </div>
+                                            <p>Get Owner info.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
@@ -146,7 +136,7 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         line 21</div>
+        <div class="location">at         line 19</div>
         <code>                    
     <strong>__construct</strong>(<abbr title="Slim\Container">Container</abbr> $container)
         </code>
@@ -174,10 +164,10 @@
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_create">
-        <div class="location">at         line 36</div>
-        <code>                    
-    <strong>create</strong>(array $data, string $status, <a href="../../Tink/Model/Account.html"><abbr title="Tink\Model\Account">Account</abbr></a> $ac, int|null $acTo = null)
+                    <h3 id="method_getOwnerInfo">
+        <div class="location">at         line 30</div>
+        <code>                    <a href="../../Tink/Model/Owner.html"><abbr title="Tink\Model\Owner">Owner</abbr></a>|null
+    <strong>getOwnerInfo</strong>(int $id)
         </code>
     </h3>
     <div class="details">
@@ -185,61 +175,14 @@
     
 
                     <div class="method-description">
-                                    <p>Create History.</p>                    <p>add money in/out recond.
-also cal balance</p>                            </div>
+                                    <p>Get Owner info.</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>array</td>
-                <td>$data</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>string</td>
-                <td>$status</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td><a href="../../Tink/Model/Account.html"><abbr title="Tink\Model\Account">Account</abbr></a></td>
-                <td>$ac</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>int|null</td>
-                <td>$acTo</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_validator">
-        <div class="location">at         line 54</div>
-        <code>                    <abbr title="Valitron\Validator">Validator</abbr>
-    <strong>validator</strong>(array $data)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Validator rule.</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>array</td>
-                <td>$data</td>
+                <td>int</td>
+                <td>$id</td>
                 <td></td>
             </tr>
             </table>
@@ -249,7 +192,7 @@ also cal balance</p>                            </div>
 
                     <table class="table table-condensed">
         <tr>
-            <td><abbr title="Valitron\Validator">Validator</abbr></td>
+            <td><a href="../../Tink/Model/Owner.html"><abbr title="Tink\Model\Owner">Owner</abbr></a>|null</td>
             <td></td>
         </tr>
     </table>

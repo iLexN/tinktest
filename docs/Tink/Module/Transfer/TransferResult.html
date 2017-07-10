@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="index, follow, all" />
-    <title>Tink\Controller\Account\WithDraw | API</title>
+    <title>Tink\Module\Transfer\TransferResult | API</title>
 
             <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../../../css/bootstrap-theme.min.css">
@@ -19,7 +19,7 @@
     
     </head>
 
-    <body id="class" data-name="class:Tink_Controller_Account_WithDraw" data-root-path="../../../">
+    <body id="class" data-name="class:Tink_Module_Transfer_TransferResult" data-root-path="../../../">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
@@ -66,41 +66,31 @@
                         <div class="namespace-breadcrumbs">
             <ol class="breadcrumb">
                 <li><span class="label label-default">class</span></li>
-                        <li><a href="../../../Tink.html">Tink</a></li><li class="backslash">\</li><li><a href="../../../Tink/Controller.html">Controller</a></li><li class="backslash">\</li><li><a href="../../../Tink/Controller/Account.html">Account</a></li><li class="backslash">\</li><li>WithDraw</li>
+                        <li><a href="../../../Tink.html">Tink</a></li><li class="backslash">\</li><li><a href="../../../Tink/Module.html">Module</a></li><li class="backslash">\</li><li><a href="../../../Tink/Module/Transfer.html">Transfer</a></li><li class="backslash">\</li><li>TransferResult</li>
             </ol>
         </div>
                 <div id="page-content">
                 
     <div class="page-header">
         <h1>
-            WithDraw
+            TransferResult
                 
         </h1>
     </div>
 
     <p>    class
-    <strong>WithDraw</strong>
+    <strong>TransferResult</strong>        implements
+        <a href="../../../Tink/Module/Transfer/TransferResultInterface.html"><abbr title="Tink\Module\Transfer\TransferResultInterface">TransferResultInterface</abbr></a>
 </p>
 
         
     
 
+            <div class="description">
+            <p>Class TransferResult</p>                                </div>
     
     
     
-            <h2>Properties</h2>
-
-            <table class="table table-condensed">
-                    <tr>
-                <td class="type" id="property_container">
-                                                                                <abbr title="Slim\Container">Container</abbr>
-                </td>
-                <td>$container</td>
-                <td class="last"></td>
-                <td></td>
-            </tr>
-            </table>
-
     
             <h2>Methods</h2>
 
@@ -110,7 +100,17 @@
                     
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method___construct">__construct</a>(<abbr title="Slim\Container">Container</abbr> $container)
+                    <a href="#method___construct">__construct</a>(bool $status, string $msg)
+        
+                                            <p>TransferResult constructor.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getStatus">getStatus</a>()
         
                                             <p class="no-description">No description</p>
                                     </div>
@@ -121,7 +121,7 @@
                     
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method___invoke">__invoke</a>(<abbr title="Slim\Http\Request">Request</abbr> $request, <abbr title="Slim\Http\Response">Response</abbr> $response, array $args)
+                    <a href="#method_getMsg">getMsg</a>()
         
                                             <p class="no-description">No description</p>
                                     </div>
@@ -135,22 +135,29 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         line 15</div>
+        <div class="location">at         line 25</div>
         <code>                    
-    <strong>__construct</strong>(<abbr title="Slim\Container">Container</abbr> $container)
+    <strong>__construct</strong>(bool $status, string $msg)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>TransferResult constructor.</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td><abbr title="Slim\Container">Container</abbr></td>
-                <td>$container</td>
+                <td>bool</td>
+                <td>$status</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$msg</td>
                 <td></td>
             </tr>
             </table>
@@ -163,10 +170,10 @@
 
             </div>
                     <div class="method-item">
-                    <h3 id="method___invoke">
-        <div class="location">at         line 20</div>
+                    <h3 id="method_getStatus">
+        <div class="location">at         line 34</div>
         <code>                    
-    <strong>__invoke</strong>(<abbr title="Slim\Http\Request">Request</abbr> $request, <abbr title="Slim\Http\Response">Response</abbr> $response, array $args)
+    <strong>getStatus</strong>()
         </code>
     </h3>
     <div class="details">
@@ -174,26 +181,25 @@
     
 
                 <div class="tags">
-                            <h4>Parameters</h4>
+            
+            
+            
+                    </div>
+    </div>
 
-                    <table class="table table-condensed">
-                    <tr>
-                <td><abbr title="Slim\Http\Request">Request</abbr></td>
-                <td>$request</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td><abbr title="Slim\Http\Response">Response</abbr></td>
-                <td>$response</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>array</td>
-                <td>$args</td>
-                <td></td>
-            </tr>
-            </table>
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getMsg">
+        <div class="location">at         line 42</div>
+        <code>                    
+    <strong>getMsg</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
 
+                <div class="tags">
             
             
             

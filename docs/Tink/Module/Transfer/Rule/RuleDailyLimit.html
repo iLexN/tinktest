@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="index, follow, all" />
-    <title>Tink\Module\OwnerModule | API</title>
+    <title>Tink\Module\Transfer\Rule\RuleDailyLimit | API</title>
 
-            <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
-        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
-        <script src="../../js/jquery-1.11.1.min.js"></script>
-        <script src="../../js/bootstrap.min.js"></script>
-        <script src="../../js/typeahead.min.js"></script>
-        <script src="../../sami.js"></script>
+            <link rel="stylesheet" type="text/css" href="../../../../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../../css/sami.css">
+        <script src="../../../../js/jquery-1.11.1.min.js"></script>
+        <script src="../../../../js/bootstrap.min.js"></script>
+        <script src="../../../../js/typeahead.min.js"></script>
+        <script src="../../../../sami.js"></script>
         <meta name="MobileOptimized" content="width">
         <meta name="HandheldFriendly" content="true">
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
@@ -19,14 +19,14 @@
     
     </head>
 
-    <body id="class" data-name="class:Tink_Module_OwnerModule" data-root-path="../../">
+    <body id="class" data-name="class:Tink_Module_Transfer_Rule_RuleDailyLimit" data-root-path="../../../../">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
                 <script>
             $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
         </script>
-        <form id="search-form" action="../../search.html" method="GET">
+        <form id="search-form" action="../../../../search.html" method="GET">
             <span class="glyphicon glyphicon-search"></span>
             <input name="search"
                    class="typeahead form-control"
@@ -48,16 +48,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="../../index.html">API</a>
+                <a class="navbar-brand" href="../../../../index.html">API</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-elements">
                 <ul class="nav navbar-nav">
-                    <li><a href="../../classes.html">Classes</a></li>
-                                            <li><a href="../../namespaces.html">Namespaces</a></li>
-                                        <li><a href="../../interfaces.html">Interfaces</a></li>
-                    <li><a href="../../traits.html">Traits</a></li>
-                    <li><a href="../../doc-index.html">Index</a></li>
-                    <li><a href="../../search.html">Search</a></li>
+                    <li><a href="../../../../classes.html">Classes</a></li>
+                                            <li><a href="../../../../namespaces.html">Namespaces</a></li>
+                                        <li><a href="../../../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../../../traits.html">Traits</a></li>
+                    <li><a href="../../../../doc-index.html">Index</a></li>
+                    <li><a href="../../../../search.html">Search</a></li>
                 </ul>
             </div>
         </div>
@@ -66,43 +66,43 @@
                         <div class="namespace-breadcrumbs">
             <ol class="breadcrumb">
                 <li><span class="label label-default">class</span></li>
-                        <li><a href="../../Tink.html">Tink</a></li><li class="backslash">\</li><li><a href="../../Tink/Module.html">Module</a></li><li class="backslash">\</li><li>OwnerModule</li>
+                        <li><a href="../../../../Tink.html">Tink</a></li><li class="backslash">\</li><li><a href="../../../../Tink/Module.html">Module</a></li><li class="backslash">\</li><li><a href="../../../../Tink/Module/Transfer.html">Transfer</a></li><li class="backslash">\</li><li><a href="../../../../Tink/Module/Transfer/Rule.html">Rule</a></li><li class="backslash">\</li><li>RuleDailyLimit</li>
             </ol>
         </div>
                 <div id="page-content">
                 
     <div class="page-header">
         <h1>
-            OwnerModule
+            RuleDailyLimit
                 
         </h1>
     </div>
 
     <p>    class
-    <strong>OwnerModule</strong>
+    <strong>RuleDailyLimit</strong>        implements
+        <a href="../../../../Tink/Module/Transfer/Rule/RuleInterface.html"><abbr title="Tink\Module\Transfer\Rule\RuleInterface">RuleInterface</abbr></a>
 </p>
 
         
     
 
             <div class="description">
-            <p>Owner Module - CURD for Owner table.</p>                                </div>
+            <p>Description of RuleDailyLimit.</p>                                </div>
     
     
-    
-            <h2>Properties</h2>
+            <h2>Constants</h2>
 
             <table class="table table-condensed">
                     <tr>
-                <td class="type" id="property_container">
-                                                                                <abbr title="Slim\Container">Container</abbr>
+                <td>DAILY_LIMIT</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
                 </td>
-                <td>$container</td>
-                <td class="last"></td>
-                <td></td>
             </tr>
             </table>
 
+    
     
             <h2>Methods</h2>
 
@@ -112,7 +112,7 @@
                     
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method___construct">__construct</a>(<abbr title="Slim\Container">Container</abbr> $container)
+                    <a href="#method___construct">__construct</a>($from, $data)
         
                                             <p class="no-description">No description</p>
                                     </div>
@@ -120,12 +120,24 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    <a href="../../Tink/Model/Owner.html"><abbr title="Tink\Model\Owner">Owner</abbr></a>
+                    bool
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_getOwnerInfo">getOwnerInfo</a>(int $id)
+                    <a href="#method_validate">validate</a>()
         
-                                            <p>Get Owner info.</p>                </div>
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getErrorMsg">getErrorMsg</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
@@ -136,9 +148,9 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         line 19</div>
+        <div class="location">at         line 23</div>
         <code>                    
-    <strong>__construct</strong>(<abbr title="Slim\Container">Container</abbr> $container)
+    <strong>__construct</strong>($from, $data)
         </code>
     </h3>
     <div class="details">
@@ -150,8 +162,13 @@
 
                     <table class="table table-condensed">
                     <tr>
-                <td><abbr title="Slim\Container">Container</abbr></td>
-                <td>$container</td>
+                <td></td>
+                <td>$from</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$data</td>
                 <td></td>
             </tr>
             </table>
@@ -164,35 +181,51 @@
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_getOwnerInfo">
-        <div class="location">at         line 30</div>
-        <code>                    <a href="../../Tink/Model/Owner.html"><abbr title="Tink\Model\Owner">Owner</abbr></a>
-    <strong>getOwnerInfo</strong>(int $id)
+                    <h3 id="method_validate">
+        <div class="location">at         line 33</div>
+        <code>                    bool
+    <strong>validate</strong>()
         </code>
     </h3>
     <div class="details">
             
     
 
-                    <div class="method-description">
-                                    <p>Get Owner info.</p>                                                </div>
                 <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>int</td>
-                <td>$id</td>
-                <td></td>
-            </tr>
-            </table>
-
             
                             <h4>Return Value</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td><a href="../../Tink/Model/Owner.html"><abbr title="Tink\Model\Owner">Owner</abbr></a></td>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getErrorMsg">
+        <div class="location">at         line 44</div>
+        <code>                    string
+    <strong>getErrorMsg</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
             <td></td>
         </tr>
     </table>

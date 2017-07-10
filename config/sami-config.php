@@ -14,7 +14,7 @@ $iterator = Finder::create()
 $options = [
    //'theme'                => 'default',
    //'title'                => 'MYsql with Elasticsearch API Documentation',
-   'build_dir'            => __DIR__ . '/../API_DOC',
+   'build_dir'            => __DIR__ . '/../docs',
    'cache_dir'            => __DIR__ . '/../cache/sami_doc',
 ];
 
