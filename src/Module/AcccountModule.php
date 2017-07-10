@@ -55,6 +55,23 @@ class AcccountModule
     }
 
     /**
+     * when change amount - add history.
+     * @param array $data
+     * @param string $status
+     * @param Account $ac
+     */
+    public function amountChange(array $data, $status, Account $ac, $acTo = null)
+    {
+        /** @var HistoryModule $history */
+        $history = $this->container['historyModule'];
+        $historyObj = $history->create($data,$status, $acTo);
+
+        $ac->history()->save($historyObj);
+        $ac->calBalance($historyObj->amount, $status);
+        $ac->save();
+    }
+
+    /**
      * Validator - before create account.
      * @param array $data
      *

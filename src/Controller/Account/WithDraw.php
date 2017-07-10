@@ -4,6 +4,7 @@ namespace Tink\Controller\Account;
 
 use Slim\Http\Request;
 use Slim\Http\Response;
+use Tink\Module\AcccountModule;
 
 class WithDraw
 {
@@ -17,6 +18,12 @@ class WithDraw
         $this->container = $container;
     }
 
+    /**
+     * @param Request $request
+     * @param Response $response
+     * @param array $args
+     * @return mixed
+     */
     public function __invoke(Request $request, Response $response, array $args)
     {
         /* @var $acInfo \Tink\Model\Account */
@@ -34,7 +41,10 @@ class WithDraw
             return $response->write(\json_encode(['status'=>'draw money more than balance']));
         }
 
-        $history->create($validator->data(), $args['action'], $acInfo);
+        //$history->create($validator->data(), $args['action'], $acInfo);
+        /** @var AcccountModule $accountModule */
+        $accountModule = $this->container['acccountModule'];
+        $accountModule->amountChange($validator->data(), $args['action'],$acInfo);
 
         return $response->write(\json_encode(['data'=>$acInfo->toArray(), 'status'=>'success']));
     }

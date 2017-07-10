@@ -2,7 +2,6 @@
 
 namespace Tink\Module;
 
-use Tink\Model\Account;
 use Tink\Model\History;
 use Valitron\Validator;
 
@@ -30,19 +29,18 @@ class HistoryModule
      *
      * @param array    $data
      * @param string   $status
-     * @param Account  $ac
      * @param int|null $acTo
+     * @return History
      */
-    public function create(array $data, $status, Account $ac, $acTo = null)
+    public function create(array $data, $status, $acTo = null)
     {
         $histroy = new History();
         $histroy->amount = $data['amount'];
         $histroy->action = $status;
         $histroy->related_ac = $acTo;
-        
-        $ac->history()->save($histroy);
-        $ac->calBalance($data['amount'], $status);
-        $ac->save();
+
+        return $histroy;
+
     }
 
     /**
