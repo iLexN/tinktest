@@ -98,9 +98,9 @@ class AccountModule
      * Get Account info.
      * @param int $id
      *
-     * @return Account
+     * @return Account|null
      */
-    public function getAcInfo($id): Account
+    public function getAcInfo($id)
     {
         return Account::where('id', $id)
             ->where('status', Account::AC_STATUS_ACTIVE)
