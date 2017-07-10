@@ -2,6 +2,8 @@
 
 namespace Tests\Module;
 
+use Tink\Module\AcccountModule;
+
 class TransferOtherOwerTest extends \PHPUnit\Framework\TestCase
 {
     protected $container;
@@ -44,12 +46,13 @@ class TransferOtherOwerTest extends \PHPUnit\Framework\TestCase
         $owner1 = $container['ownerModule']->getOwnerInfo(1);
         $owner2 = $container['ownerModule']->getOwnerInfo(2);
 
+        /** @var AcccountModule $accountModule */
         $accountModule = $container['acccountModule'];
         $ac1 = $accountModule->create(['name'=>'owner 1'], $owner1);
         $ac2 = $accountModule->create(['name'=>'owner 2'], $owner2);
 
-        $history = $container['historyModule'];
-        $history->create(['amount'=>11000], 'deposit', $ac1);
+        //$history = $container['historyModule'];
+        $accountModule->amountChange(['amount'=>11000], 'deposit', $ac1);
 
         $this->container = $container;
         $this->ac1 = $ac1;
@@ -65,7 +68,7 @@ class TransferOtherOwerTest extends \PHPUnit\Framework\TestCase
             ['amount'=> 1000],
             []);
 
-        $transfer->transfer($this->container['historyModule']);
+        $transfer->transfer($this->container['acccountModule']);
 
         $this->assertEquals(9900, $this->ac1->balance);
         $this->assertEquals(1000, $this->ac2->balance);
