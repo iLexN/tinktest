@@ -60,7 +60,7 @@ class TransferModuleTest extends \PHPUnit\Framework\TestCase
     {
         $transferModule = new \Tink\Module\Transfer\BuildTransfer($this->container);
         $t = $transferModule->create($this->ac1, $this->ac2, ['amount'=>1000]);
-        $history = $this->container['historyModule'];
+        $history = $this->container['acccountModule'];
         $t->transfer($history);
 
         $this->assertInstanceOf('Tink\Module\Transfer\TransferOtherOwer', $t);
