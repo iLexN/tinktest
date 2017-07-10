@@ -27,7 +27,7 @@ class CheckAccount
         $route = $request->getAttribute('route');
         $arguments = $route->getArguments();
 
-        $ac = $this->container['acccountModule']->getAcInfo($arguments['id']);
+        $ac = $this->container['accountModule']->getAcInfo($arguments['id']);
         if ($ac === null) {
             return $response->write(\json_encode(['status'=>'account not exists']));
         }

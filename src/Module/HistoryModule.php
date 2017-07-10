@@ -34,12 +34,12 @@ class HistoryModule
      */
     public function create(array $data, $status, $acTo = null)
     {
-        $histroy = new History();
-        $histroy->amount = $data['amount'];
-        $histroy->action = $status;
-        $histroy->related_ac = $acTo;
+        $history = new History();
+        $history->amount = $data['amount'];
+        $history->action = $status;
+        $history->related_ac = $acTo;
 
-        return $histroy;
+        return $history;
 
     }
 

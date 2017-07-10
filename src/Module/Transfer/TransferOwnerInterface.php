@@ -2,19 +2,19 @@
 
 namespace Tink\Module\Transfer;
 
-use Tink\Module\AcccountModule;
+use Tink\Module\AccountModule;
 
 /**
  * Transfer Owner Interface.
  */
-interface TransferOwerInterface
+interface TransferOwnerInterface
 {
     /**
      * transfer money.
      *
-     * @param \Tink\Module\AcccountModule $accountModule
+     * @param \Tink\Module\AccountModule $accountModule
      */
-    public function transfer(AcccountModule $accountModule);
+    public function transfer(AccountModule $accountModule);
 
     /**
      * check can do the transfer.

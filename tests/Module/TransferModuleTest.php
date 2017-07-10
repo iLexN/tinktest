@@ -8,6 +8,16 @@ class TransferModuleTest extends \PHPUnit\Framework\TestCase
     protected $ac1;
     protected $ac2;
 
+    public function testTransfer()
+    {
+        $transferModule = new \Tink\Module\Transfer\BuildTransfer($this->container);
+        $t = $transferModule->create($this->ac1, $this->ac2, ['amount' => 1000]);
+        $history = $this->container['acccountModule'];
+        $t->transfer($history);
+
+        $this->assertInstanceOf('Tink\Module\Transfer\TransferOtherOwner', $t);
+    }
+
     protected function setUp()
     {
         $settings = require __DIR__.'/../../config/default/db-config.php';
@@ -20,7 +30,7 @@ class TransferModuleTest extends \PHPUnit\Framework\TestCase
         };
 
         $container['acccountModule'] = function (\Slim\Container $c) {
-            return new \Tink\Module\AcccountModule($c);
+            return new \Tink\Module\AccountModule($c);
         };
 
         $container['historyModule'] = function (\Slim\Container $c) {
@@ -54,15 +64,5 @@ class TransferModuleTest extends \PHPUnit\Framework\TestCase
         $this->container = $container;
         $this->ac1 = $ac1;
         $this->ac2 = $ac2;
-    }
-
-    public function testTransfer()
-    {
-        $transferModule = new \Tink\Module\Transfer\BuildTransfer($this->container);
-        $t = $transferModule->create($this->ac1, $this->ac2, ['amount'=>1000]);
-        $history = $this->container['acccountModule'];
-        $t->transfer($history);
-
-        $this->assertInstanceOf('Tink\Module\Transfer\TransferOtherOwer', $t);
     }
 }

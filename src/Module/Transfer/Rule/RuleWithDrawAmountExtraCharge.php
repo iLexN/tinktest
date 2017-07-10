@@ -8,7 +8,7 @@
 
 namespace Tink\Module\Transfer\Rule;
 
-use Tink\Module\Transfer\TransferOtherOwer;
+use Tink\Module\Transfer\TransferOtherOwner;
 
 /**
  * Description of RuleWithDrawAmount.
@@ -19,7 +19,7 @@ class RuleWithDrawAmountExtraCharge extends RuleWithDrawAmount implements RuleIn
 {
     public function validate()
     {
-        $this->data['amount'] += TransferOtherOwer::CHARGE;
+        $this->data['amount'] += TransferOtherOwner::CHARGE;
 
         return parent::validate();
     }

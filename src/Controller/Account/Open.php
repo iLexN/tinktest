@@ -4,7 +4,7 @@ namespace Tink\Controller\Account;
 
 use Slim\Http\Request;
 use Slim\Http\Response;
-use Tink\Module\AcccountModule;
+use Tink\Module\AccountModule;
 
 class Open
 {
@@ -20,8 +20,8 @@ class Open
 
     public function __invoke(Request $request, Response $response, array $args)
     {
-        /* @var $accountModule \Tink\Module\AcccountModule */
-        $accountModule = $this->container['acccountModule'];
+        /* @var $accountModule \Tink\Module\AccountModule */
+        $accountModule = $this->container['accountModule'];
 
         $validator = $accountModule->validator((array) $request->getParsedBody());
 
@@ -38,7 +38,7 @@ class Open
     private function haveDeposit($accountModule, $data, $ac)
     {
         if (isset($data['amount'])) {
-            /** @var AcccountModule $accountModule */
+            /** @var AccountModule $accountModule */
             $accountModule->amountChange($data, 'deposit', $ac);
         }
     }

@@ -3,8 +3,6 @@
 namespace Tink\Module\Transfer;
 
 use Tink\Model\Account;
-use Tink\Module\Transfer\TransferResultInterface;
-use Tink\Module\Transfer\TransferResult;
 
 /**
  * Transfer Class.
@@ -52,11 +50,9 @@ class Transfer
         foreach ($this->rules as $rule) {
             if (!$rule->validate()) {
                 return new TransferResult(false, $rule->getErrorMsg());
-                //return ['status'=>false, 'msg'=>$rule->getErrorMsg()];
             }
         }
 
         return new TransferResult(true, 'can transfer');
-        //return ['status'=>true, 'msg'=>'can transfer'];
     }
 }

@@ -25,26 +25,26 @@ class BuildTransfer
      * @param Account $from
      * @param Account $to
      * @param array $data
-     * @return \Tink\Module\TransferTransferOwerInterface
+     * @return \Tink\Module\Transfer\TransferOwnerInterface
      */
     public function create(Account $from, Account $to, $data)
     {
         $buildRule = new BuildRule($from, $data, $this->container);
 
-        if ($this->isSameOwer($from, $to)) {
-            return new TransferSameOwer($this->container, $from, $to, $data, $buildRule->buildSameOwnerRule());
+        if ($this->isSameOwner($from, $to)) {
+            return new TransferSameOwner($this->container, $from, $to, $data, $buildRule->buildSameOwnerRule());
         } else {
-            return new TransferOtherOwer($this->container, $from, $to, $data, $buildRule->buildOtherOwnerRule());
+            return new TransferOtherOwner($this->container, $from, $to, $data, $buildRule->buildOtherOwnerRule());
         }
     }
 
     /**
-     * Check is same Ower.
+     * Check is same Owner.
      * @param Account $from
      * @param Account $to
      * @return bool
      */
-    private function isSameOwer(Account $from, Account $to)
+    private function isSameOwner(Account $from, Account $to)
     {
         return $from->ower === $to->ower;
     }

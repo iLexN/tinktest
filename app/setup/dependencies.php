@@ -46,8 +46,8 @@ $container['ownerModule'] = function (\Slim\Container $c) {
     return new \Tink\Module\OwnerModule($c);
 };
 
-$container['acccountModule'] = function (\Slim\Container $c) {
-    return new \Tink\Module\AcccountModule($c);
+$container['accountModule'] = function (\Slim\Container $c) {
+    return new \Tink\Module\AccountModule($c);
 };
 
 $container['historyModule'] = function (\Slim\Container $c) {

@@ -10,7 +10,7 @@ use Valitron\Validator;
  * Account Module
  * CURD - for Account Table
  */
-class AcccountModule
+class AccountModule
 {
     /**
      * @var \Slim\Container
@@ -45,8 +45,6 @@ class AcccountModule
     /**
      * Close Account.
      * @param Account $ac
-     *
-     * @return Account
      */
     public function close(Account $ac)
     {
@@ -59,6 +57,7 @@ class AcccountModule
      * @param array $data
      * @param string $status
      * @param Account $ac
+     * @param int $acTo
      */
     public function amountChange(array $data, $status, Account $ac, $acTo = null)
     {

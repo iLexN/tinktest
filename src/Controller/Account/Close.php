@@ -19,8 +19,8 @@ class Close
 
     public function __invoke(Request $request, Response $response, array $args)
     {
-        /* @var $accountModule \Tink\Module\AcccountModule */
-        $accountModule = $this->container['acccountModule'];
+        /* @var $accountModule \Tink\Module\AccountModule */
+        $accountModule = $this->container['accountModule'];
 
         $acInfo = $this->container['ac'];
 

@@ -2,7 +2,6 @@
 
 namespace Tink\Module\Transfer;
 
-use Tink\Module\Transfer\TransferResultInterface;
 
 /**
  * Class TransferResult

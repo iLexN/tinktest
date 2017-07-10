@@ -5,7 +5,7 @@ namespace Tink\Module\Transfer\Rule;
 interface RuleInterface
 {
     /**
-     * validate rlue.
+     * validate rule.
      *
      * @return bool
      */

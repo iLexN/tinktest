@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model as Model;
  * This is the database Account table
  *
  * @property int $id account id , db pk
- * @property int $ower ower id
+ * @property int $ower owner id
  * @property string $name account name
  * @property string $status account status,open/close
  * @property float $balance account money

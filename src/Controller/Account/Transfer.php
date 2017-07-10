@@ -19,8 +19,8 @@ class Transfer
 
     public function __invoke(Request $request, Response $response, array $args)
     {
-        /* @var $accountModule \Tink\Module\AcccountModule */
-        $accountModule = $this->container['acccountModule'];
+        /* @var $accountModule \Tink\Module\AccountModule */
+        $accountModule = $this->container['accountModule'];
 
         /* @var $acInfo \Tink\Model\Account */
         $fromAcc = $this->container['ac'];
@@ -41,7 +41,7 @@ class Transfer
         /* @var $buildTransfer \Tink\Module\Transfer\BuildTransfer */
         $buildTransfer = $this->container['buildTransfer'];
 
-        /* @var $transfer \Tink\Module\Transfer\TransferOwerInterface */
+        /* @var $transfer \Tink\Module\Transfer\TransferOwnerInterface */
         $transfer = $buildTransfer->create($fromAcc, $toAcc, $validator->data());
 
         /** @var \Tink\Module\Transfer\TransferResultInterface $result */
