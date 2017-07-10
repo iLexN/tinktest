@@ -39,10 +39,11 @@ class ResponseCache
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, $next)
     {
         $route = $request->getAttribute('route');
-        $method = $route->getMethods();
+
+        $method = $route === null ? [] : $route->getMethods();
         
         //$item = $this->pool->getItem('Response/'.md5($request->getUri()));
-        $item = $this->pool->getItem('Response'.$request->getUri()->getPath());
+        $item = $this->pool->getItem('Response'.$this->getCacheKey($request));
         
         if ($this->hasCache($method, $item)) {
             $string = $item->get();
@@ -53,6 +54,8 @@ class ResponseCache
         
         $response = $next($request, $response);
 
+        //var_dump($response->getStatusCode());
+        
         if (!$this->hasCache($method, $item)) {
             $item->set(( string)$response->getBody());
             $item->expiresAfter(3600/12);
@@ -60,6 +63,17 @@ class ResponseCache
         }
 
         return $response;
+    }
+    
+    private function getCacheKey($request)
+    {
+        $path = $request->getUri()->getPath();
+        
+        if ( $path === '/') {
+            return 'frontpage';
+        }
+        
+        return $path;
     }
     
     private function hasCache($method, $item)
