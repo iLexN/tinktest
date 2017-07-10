@@ -17,14 +17,14 @@ use Tink\Module\Transfer\TransferOtherOwner;
  */
 class RuleWithDrawAmountExtraCharge extends RuleWithDrawAmount implements RuleInterface
 {
-    public function validate()
+    public function validate(): bool
     {
         $this->data['amount'] += TransferOtherOwner::CHARGE;
 
         return parent::validate();
     }
 
-    public function getErrorMsg()
+    public function getErrorMsg(): string
     {
         return parent::getErrorMsg();
     }

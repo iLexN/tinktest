@@ -26,7 +26,7 @@ class RuleWithDrawAmount implements RuleInterface
         $this->data = $data;
     }
 
-    public function validate()
+    public function validate(): bool
     {
         if ($this->from->checkWithDraw($this->data['amount'])) {
             return true;
@@ -35,7 +35,7 @@ class RuleWithDrawAmount implements RuleInterface
         return false;
     }
 
-    public function getErrorMsg()
+    public function getErrorMsg(): string
     {
         return 'not enough money to transfer';
     }

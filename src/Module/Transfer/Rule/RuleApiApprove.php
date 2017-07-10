@@ -27,7 +27,7 @@ class RuleApiApprove implements RuleInterface
         $this->container = $container;
     }
 
-    public function validate()
+    public function validate(): bool
     {
         $httpClient = $this->container['httpClient'];
         $response = $httpClient->request('GET', '/test/success.json');
@@ -44,7 +44,7 @@ class RuleApiApprove implements RuleInterface
         return true;
     }
 
-    public function getErrorMsg()
+    public function getErrorMsg(): string
     {
         return 'not approve';
     }
