@@ -21,6 +21,12 @@ $container['httpClient'] = function (\Slim\Container $c) {
         ]);
 };
 
+$container['pool'] = function (\Slim\Container $c) {
+    $settings = $c->get('dataCacheConfig');
+    $driver = new \Stash\Driver\FileSystem($settings);
+    return new \Stash\Pool($driver);
+};
+
 // rount handloer
 $container['notFoundHandler'] = function (\Slim\Container $c) {
     return function (\Slim\Http\Request $request, \Slim\Http\Response  $response) use ($c) {
@@ -38,7 +44,7 @@ $container['errorHandler'] = function (\Slim\Container $c) {
     return function (\Slim\Http\Request $request, \Slim\Http\Response $response, \Exception $exception) use ($c) {
         $c['logger']->error('e', (array) $exception);
 
-        return $response->write(\json_encode([$exception]))->withStatus(500);
+        return $response->write($exception)->withStatus(500);
     };
 };
 
