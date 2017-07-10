@@ -27,7 +27,7 @@ class BuildTransfer
      * @param array $data
      * @return \Tink\Module\Transfer\TransferOwnerInterface
      */
-    public function create(Account $from, Account $to, $data): TransferResultInterface
+    public function create(Account $from, Account $to, $data): TransferOwnerInterface
     {
         $buildRule = new BuildRule($from, $data, $this->container);
 
