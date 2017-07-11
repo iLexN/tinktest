@@ -86,6 +86,8 @@ class AccountModule
         $ac->history()->save($historyObj);
         $ac->calBalance($historyObj->amount, $status);
         $ac->save();
+
+        $this->clearAcInfoCache($ac->id);
     }
 
     /**
