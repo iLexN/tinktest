@@ -37,6 +37,11 @@ class TransferModuleTest extends \PHPUnit\Framework\TestCase
             return new \Tink\Module\HistoryModule($c);
         };
 
+        $container['pool'] = function (\Slim\Container $c) {
+            $driver = new \Stash\Driver\FileSystem();
+            return new \Stash\Pool($driver);
+        };
+
         $container['httpClient'] = function (\Slim\Container $c) {
             $stub = $this->createMock(\Psr\Http\Message\ResponseInterface::class);
             $stub->method('getStatusCode')

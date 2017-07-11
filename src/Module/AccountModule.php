@@ -58,6 +58,16 @@ class AccountModule
     {
         $ac->status = Account::AC_STATUS_INACTIVE;
         $ac->save();
+        $this->clearAcInfoCache($ac->id);
+    }
+
+    /**
+     * clear account info cache, Key : Account/{id}
+     * @param int $id
+     */
+    public function clearAcInfoCache($id)
+    {
+        $this->pool->deleteItem('Account/' . $id);
     }
 
     /**
@@ -103,7 +113,7 @@ class AccountModule
     }
 
     /**
-     * Get Account info.
+     * Get Account info. Cache Key : Account/{id}
      * @param int $id
      *
      * @return Account|null
