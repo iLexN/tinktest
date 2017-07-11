@@ -2,6 +2,7 @@
 
 namespace Tink\Module;
 
+use Stash\Pool;
 use Tink\Model\Account;
 use Tink\Model\Owner;
 use Valitron\Validator;
@@ -15,11 +16,18 @@ class AccountModule
     /**
      * @var \Slim\Container
      */
-    public $container;
+    protected $container;
+
+    /**
+     * @var Pool
+     */
+    protected $pool;
 
     public function __construct(\Slim\Container $container)
     {
         $this->container = $container;
+        $this->pool = $container['pool'];
+
     }
 
     /**
@@ -102,8 +110,19 @@ class AccountModule
      */
     public function getAcInfo($id)
     {
-        return Account::where('id', $id)
-            ->where('status', Account::AC_STATUS_ACTIVE)
+        $cacheItem = $this->pool->getItem('Account/' . $id);
+
+        $account = $cacheItem->get();
+
+        if (!$cacheItem->isHit()) {
+            $account = Account::where('id', $id)
+                ->where('status', Account::AC_STATUS_ACTIVE)
                 ->first();
+            $cacheItem->set($account);
+            $cacheItem->expiresAfter(3600 * 3);
+            $this->pool->save($cacheItem);
+        }
+
+        return $account;
     }
 }

@@ -28,7 +28,7 @@ class ResponseCache
     }
 
     /**
-     * logRoute app setting determineRouteBeforeAppMiddleware = true.
+     * add cache for response, app setting determineRouteBeforeAppMiddleware = true.
      *
      * @param \Psr\Http\Message\ServerRequestInterface $request  PSR7 request
      * @param \Psr\Http\Message\ResponseInterface      $response PSR7 response
@@ -41,8 +41,7 @@ class ResponseCache
         $route = $request->getAttribute('route');
 
         $method = $route === null ? [] : $route->getMethods();
-        
-        //$item = $this->pool->getItem('Response/'.md5($request->getUri()));
+
         $item = $this->pool->getItem('Response'.$this->getCacheKey($request));
         
         if ($this->hasCache($method, $item)) {
@@ -64,8 +63,12 @@ class ResponseCache
 
         return $response;
     }
-    
-    private function getCacheKey($request)
+
+    /**
+     * @param ServerRequestInterface $request
+     * @return string
+     */
+    private function getCacheKey(ServerRequestInterface $request): string
     {
         $path = $request->getUri()->getPath();
         
@@ -75,8 +78,13 @@ class ResponseCache
         
         return $path;
     }
-    
-    private function hasCache($method, $item)
+
+    /**
+     * @param array $method
+     * @param $item
+     * @return bool
+     */
+    private function hasCache(array $method, $item): bool
     {
         return in_array("GET", $method) && $item->isHit();
     }
