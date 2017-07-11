@@ -5,6 +5,7 @@ namespace Tink\Controller\Account;
 use Slim\Http\Request;
 use Slim\Http\Response;
 use Tink\Module\AccountModule;
+use Tink\Module\HistoryModule;
 
 class Open
 {
@@ -29,15 +30,38 @@ class Open
             return $response->write(\json_encode($validator->errors()));
         }
 
+        if (!$this->haveDeposit($validator->data()) || !$historyValidator = $this->validatorAmount($validator->data())) {
+            return $response->write(\json_encode($historyValidator->errors()));
+        }
+
         $ac = $accountModule->create($validator->data(), $this->container['owner']);
-        $this->haveDeposit($accountModule, $validator->data(), $ac);
+        $this->haveDeposits($accountModule, $validator->data(), $ac);
+
 
         return $response->write(\json_encode(['data'=>$ac->toArray(), 'status'=>'success']));
     }
 
-    private function haveDeposit($accountModule, $data, $ac)
+    /**
+     * check have amount input or not.
+     * @param array $data
+     * @return bool
+     */
+    private function haveDeposit(array $data)
     {
-        if (isset($data['amount'])) {
+        return isset($data['amount']);
+    }
+
+    private function validatorAmount(array $data)
+    {
+        /** @var HistoryModule $historyModule */
+        $historyModule = $this->container['historyModule'];
+        $validator = $historyModule->validator($data);
+        return $validator;
+    }
+
+    private function haveDeposits($accountModule, $data, $ac)
+    {
+        if ($this->haveDeposit($data)) {
             /** @var AccountModule $accountModule */
             $accountModule->amountChange($data, 'deposit', $ac);
         }
