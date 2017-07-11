@@ -51,11 +51,6 @@ class Open
         return isset($data['amount']);
     }
 
-    /**
-     * Validator for history
-     * @param array $data
-     * @return \Valitron\Validator
-     */
     private function validatorAmount(array $data)
     {
         /** @var HistoryModule $historyModule */
@@ -64,12 +59,6 @@ class Open
         return $validator;
     }
 
-    /**
-     * add amount when have input.
-     * @param $accountModule
-     * @param $data
-     * @param $ac
-     */
     private function haveDeposits($accountModule, $data, $ac)
     {
         if ($this->haveDeposit($data)) {
