@@ -34,7 +34,7 @@ $container['notFoundHandler'] = function (\Slim\Container $c) {
             'method' => $request->getMethod(),
             'uri'    => (string) $request->getUri(),
         ];
-        $c['logger']->info('404', $logInfo);
+        //$c['logger']->info('404', $logInfo);
 
         return $response->write('404')->withStatus(404);
     };

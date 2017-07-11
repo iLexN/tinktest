@@ -55,7 +55,7 @@ class ResponseCache
 
         //var_dump($response->getStatusCode());
         
-        if (!$this->hasCache($method, $item)) {
+        if (!$this->hasCache($method, $item) && $response->getStatusCode() === 200) {
             $item->set(( string)$response->getBody());
             $item->expiresAfter(3600/12);
             $this->pool->save($item);
