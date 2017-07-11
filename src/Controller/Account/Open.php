@@ -30,7 +30,7 @@ class Open
             return $response->write(\json_encode($validator->errors()));
         }
 
-        if (!$this->haveDeposit($validator->data()) || !$historyValidator = $this->validatorAmount($validator->data())) {
+        if (!$this->haveDeposit($validator->data()) && !$historyValidator = $this->validatorAmount($validator->data())) {
             return $response->write(\json_encode($historyValidator->errors()));
         }
 
