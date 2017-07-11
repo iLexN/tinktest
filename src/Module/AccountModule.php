@@ -68,6 +68,7 @@ class AccountModule
     public function clearAcInfoCache($id)
     {
         $this->pool->deleteItem('Account/' . $id);
+        //$this->pool->deleteItem('Response/account/' . $id);
     }
 
     /**

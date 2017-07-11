@@ -30,9 +30,11 @@ class Open
             return $response->write(\json_encode($validator->errors()));
         }
 
+        /*
         if (!$this->haveDeposit($validator->data()) || !$historyValidator = $this->validatorAmount($validator->data())) {
             return $response->write(\json_encode($historyValidator->errors()));
         }
+        */
 
         $ac = $accountModule->create($validator->data(), $this->container['owner']);
         $this->haveDeposits($accountModule, $validator->data(), $ac);
