@@ -27,7 +27,6 @@ class AccountModule
     {
         $this->container = $container;
         $this->pool = $container['pool'];
-
     }
 
     /**

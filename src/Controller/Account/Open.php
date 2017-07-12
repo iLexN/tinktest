@@ -6,20 +6,12 @@ use Slim\Http\Request;
 use Slim\Http\Response;
 use Tink\Module\AccountModule;
 use Tink\Module\HistoryModule;
+use Tink\Controller\AbstractController;
+use Tink\Controller\ControllerResult;
 
-class Open
+class Open extends AbstractController
 {
-    /**
-     * @var \Slim\Container
-     */
-    public $container;
-
-    public function __construct(\Slim\Container $container)
-    {
-        $this->container = $container;
-    }
-
-    public function __invoke(Request $request, Response $response, array $args)
+    public function action(Request $request, array $args)
     {
         /* @var $accountModule \Tink\Module\AccountModule */
         $accountModule = $this->container['accountModule'];
@@ -27,7 +19,7 @@ class Open
         $validator = $accountModule->validator((array) $request->getParsedBody());
 
         if (!$validator->validate()) {
-            return $response->write(\json_encode($validator->errors()));
+            return new ControllerResult(self::JSON_RESPONSE, $validator->errors());
         }
 
         /** todo add validator */
@@ -40,8 +32,9 @@ class Open
         $ac = $accountModule->create($validator->data(), $this->container['owner']);
         $this->haveDeposits($accountModule, $validator->data(), $ac);
 
-
-        return $response->write(\json_encode(['data'=>$ac->toArray(), 'status'=>'success']));
+        $out = ['data'=>$ac->toArray(), 'status'=>'success'];
+        
+        return new ControllerResult(self::JSON_RESPONSE, $out);
     }
 
     /**

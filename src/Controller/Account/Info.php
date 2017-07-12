@@ -4,23 +4,16 @@ namespace Tink\Controller\Account;
 
 use Slim\Http\Request;
 use Slim\Http\Response;
+use Tink\Controller\AbstractController;
+use Tink\Controller\ControllerResult;
 
-class Info
+class Info extends AbstractController
 {
-    /**
-     * @var \Slim\Container
-     */
-    public $container;
-
-    public function __construct(\Slim\Container $container)
-    {
-        $this->container = $container;
-    }
-
-    public function __invoke(Request $request, Response $response, array $args)
+    public function action(Request $request, array $args)
     {
         $acInfo = $this->container['ac'];
-
-        return $response->write(\json_encode(['data'=>$acInfo->toArray(), 'status'=>'success']));
+        $out = ['data'=>$acInfo->toArray(), 'status'=>'success'];
+        
+        return new ControllerResult(self::JSON_RESPONSE, $out);
     }
 }

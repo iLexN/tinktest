@@ -4,20 +4,12 @@ namespace Tink\Controller\Account;
 
 use Slim\Http\Request;
 use Slim\Http\Response;
+use Tink\Controller\AbstractController;
+use Tink\Controller\ControllerResult;
 
-class Transfer
+class Transfer extends AbstractController
 {
-    /**
-     * @var \Slim\Container
-     */
-    public $container;
-
-    public function __construct(\Slim\Container $container)
-    {
-        $this->container = $container;
-    }
-
-    public function __invoke(Request $request, Response $response, array $args)
+    public function action(Request $request, array $args)
     {
         /* @var $accountModule \Tink\Module\AccountModule */
         $accountModule = $this->container['accountModule'];
@@ -28,14 +20,14 @@ class Transfer
         $toAcc = $accountModule->getAcInfo($args['toid']);
 
         if ($toAcc === null) {
-            return $response->write(\json_encode(['status'=>'transfer to account not exists']));
+            return new ControllerResult(self::JSON_RESPONSE, ['status'=>'transfer to account not exists']);
         }
 
         /* @var $history \Tink\Module\HistoryModule */
         $history = $this->container['historyModule'];
         $validator = $history->validator((array)$request->getParsedBody());
         if (!$validator->validate()) {
-            return $response->write(\json_encode($validator->errors()));
+            return new ControllerResult(self::JSON_RESPONSE, $validator->errors());
         }
 
         /* @var $buildTransfer \Tink\Module\Transfer\BuildTransfer */
@@ -48,12 +40,13 @@ class Transfer
         $result = $transfer->canTransfer();
 
         if (!$result->getStatus()) {
-            return $response->write(\json_encode(['status' => $result->getMsg()]));
+            return new ControllerResult(self::JSON_RESPONSE, ['status' => $result->getMsg()]);
         }
 
         //do transfer
         $transfer->transfer($accountModule);
 
-        return $response->write(\json_encode(['data'=>$fromAcc->toArray(), 'status'=>'success']));
+        $out = ['data'=>$fromAcc->toArray(), 'status'=>'success'];
+        return new ControllerResult(self::JSON_RESPONSE, $out);
     }
 }
