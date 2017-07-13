@@ -96,9 +96,17 @@ CURD - for Account Table</p>                                </div>
             <table class="table table-condensed">
                     <tr>
                 <td class="type" id="property_container">
-                                                                                <abbr title="Slim\Container">Container</abbr>
+                                        protected                                        <abbr title="Slim\Container">Container</abbr>
                 </td>
                 <td>$container</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_pool">
+                                        protected                                        <abbr title="Stash\Pool">Pool</abbr>
+                </td>
+                <td>$pool</td>
                 <td class="last"></td>
                 <td></td>
             </tr>
@@ -144,6 +152,16 @@ CURD - for Account Table</p>                                </div>
                     
                 </div>
                 <div class="col-md-8 type">
+                    <a href="#method_clearAcInfoCache">clearAcInfoCache</a>(int $id)
+        
+                                            <p>clear account info cache, Key : Account/{id}</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_amountChange">amountChange</a>(array $data, string $status, <a href="../../Tink/Model/Account.html"><abbr title="Tink\Model\Account">Account</abbr></a> $ac, int $acTo = null)
         
                                             <p>when change amount - add history.</p>                </div>
@@ -166,7 +184,7 @@ CURD - for Account Table</p>                                </div>
                 <div class="col-md-8 type">
                     <a href="#method_getAcInfo">getAcInfo</a>(int $id)
         
-                                            <p>Get Account info.</p>                </div>
+                                            <p>Get Account info. Cache Key : Account/{id}</p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
@@ -177,7 +195,7 @@ CURD - for Account Table</p>                                </div>
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         line 20</div>
+        <div class="location">at         line 26</div>
         <code>                    
     <strong>__construct</strong>(<abbr title="Slim\Container">Container</abbr> $container)
         </code>
@@ -206,7 +224,7 @@ CURD - for Account Table</p>                                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_create">
-        <div class="location">at         line 33</div>
+        <div class="location">at         line 40</div>
         <code>                    <a href="../../Tink/Model/Account.html"><abbr title="Tink\Model\Account">Account</abbr></a>
     <strong>create</strong>(array $data, <a href="../../Tink/Model/Owner.html"><abbr title="Tink\Model\Owner">Owner</abbr></a> $owner)
         </code>
@@ -251,7 +269,7 @@ CURD - for Account Table</p>                                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_close">
-        <div class="location">at         line 49</div>
+        <div class="location">at         line 56</div>
         <code>                    
     <strong>close</strong>(<a href="../../Tink/Model/Account.html"><abbr title="Tink\Model\Account">Account</abbr></a> $ac)
         </code>
@@ -281,8 +299,39 @@ CURD - for Account Table</p>                                </div>
 
             </div>
                     <div class="method-item">
+                    <h3 id="method_clearAcInfoCache">
+        <div class="location">at         line 67</div>
+        <code>                    
+    <strong>clearAcInfoCache</strong>(int $id)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>clear account info cache, Key : Account/{id}</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>int</td>
+                <td>$id</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
                     <h3 id="method_amountChange">
-        <div class="location">at         line 62</div>
+        <div class="location">at         line 80</div>
         <code>                    
     <strong>amountChange</strong>(array $data, string $status, <a href="../../Tink/Model/Account.html"><abbr title="Tink\Model\Account">Account</abbr></a> $ac, int $acTo = null)
         </code>
@@ -328,7 +377,7 @@ CURD - for Account Table</p>                                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_validator">
-        <div class="location">at         line 79</div>
+        <div class="location">at         line 99</div>
         <code>                    <abbr title="Valitron\Validator">Validator</abbr>
     <strong>validator</strong>(array $data)
         </code>
@@ -368,7 +417,7 @@ CURD - for Account Table</p>                                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_getAcInfo">
-        <div class="location">at         line 103</div>
+        <div class="location">at         line 123</div>
         <code>                    <a href="../../Tink/Model/Account.html"><abbr title="Tink\Model\Account">Account</abbr></a>|null
     <strong>getAcInfo</strong>(int $id)
         </code>
@@ -378,7 +427,7 @@ CURD - for Account Table</p>                                </div>
     
 
                     <div class="method-description">
-                                    <p>Get Account info.</p>                                                </div>
+                                    <p>Get Account info. Cache Key : Account/{id}</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 

@@ -45,18 +45,17 @@ class ResponseCache
         $item = $this->pool->getItem('Response'.$this->getCacheKey($request));
         
         if ($this->hasCache($method, $item)) {
-            $string = $item->get();
-            $response->getBody()->write($string);
+            $responseArray = $item->get();
+            $response->getBody()->write($responseArray[0]);
+            $response = $response->withHeader('Content-type', $responseArray[1]);
             
             return $response;
         }
         
         $response = $next($request, $response);
 
-        //var_dump($response->getStatusCode());
-        
         if (!$this->hasCache($method, $item) && $response->getStatusCode() === 200) {
-            $item->set(( string)$response->getBody());
+            $item->set([( string)$response->getBody(),$response->getHeader('Content-type')]);
             $item->expiresAfter(3600/12);
             $this->pool->save($item);
         }

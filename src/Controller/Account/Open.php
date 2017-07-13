@@ -2,8 +2,7 @@
 
 namespace Tink\Controller\Account;
 
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Psr\Http\Message\ServerRequestInterface;
 use Tink\Module\AccountModule;
 use Tink\Module\HistoryModule;
 use Tink\Controller\AbstractController;
@@ -11,7 +10,7 @@ use Tink\Controller\ControllerResult;
 
 class Open extends AbstractController
 {
-    public function action(Request $request, array $args)
+    public function action(ServerRequestInterface $request, array $args)
     {
         /* @var $accountModule \Tink\Module\AccountModule */
         $accountModule = $this->container['accountModule'];
@@ -19,7 +18,7 @@ class Open extends AbstractController
         $validator = $accountModule->validator((array) $request->getParsedBody());
 
         if (!$validator->validate()) {
-            return new ControllerResult(self::JSON_RESPONSE, $validator->errors());
+            return new ControllerResult(false, $validator->errors());
         }
 
         /** todo add validator */
@@ -34,7 +33,7 @@ class Open extends AbstractController
 
         $out = ['data'=>$ac->toArray(), 'status'=>'success'];
         
-        return new ControllerResult(self::JSON_RESPONSE, $out);
+        return new ControllerResult(true, $out);
     }
 
     /**

@@ -2,14 +2,13 @@
 
 namespace Tink\Controller\Account;
 
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Psr\Http\Message\ServerRequestInterface;
 use Tink\Controller\AbstractController;
 use Tink\Controller\ControllerResult;
 
 class Transfer extends AbstractController
 {
-    public function action(Request $request, array $args)
+    public function action(ServerRequestInterface $request, array $args)
     {
         /* @var $accountModule \Tink\Module\AccountModule */
         $accountModule = $this->container['accountModule'];
@@ -20,14 +19,14 @@ class Transfer extends AbstractController
         $toAcc = $accountModule->getAcInfo($args['toid']);
 
         if ($toAcc === null) {
-            return new ControllerResult(self::JSON_RESPONSE, ['status'=>'transfer to account not exists']);
+            return new ControllerResult(false, ['status'=>'transfer to account not exists']);
         }
 
         /* @var $history \Tink\Module\HistoryModule */
         $history = $this->container['historyModule'];
         $validator = $history->validator((array)$request->getParsedBody());
         if (!$validator->validate()) {
-            return new ControllerResult(self::JSON_RESPONSE, $validator->errors());
+            return new ControllerResult(false, $validator->errors());
         }
 
         /* @var $buildTransfer \Tink\Module\Transfer\BuildTransfer */
@@ -40,13 +39,13 @@ class Transfer extends AbstractController
         $result = $transfer->canTransfer();
 
         if (!$result->getStatus()) {
-            return new ControllerResult(self::JSON_RESPONSE, ['status' => $result->getMsg()]);
+            return new ControllerResult(false, ['status' => $result->getMsg()]);
         }
 
         //do transfer
         $transfer->transfer($accountModule);
 
         $out = ['data'=>$fromAcc->toArray(), 'status'=>'success'];
-        return new ControllerResult(self::JSON_RESPONSE, $out);
+        return new ControllerResult(true, $out);
     }
 }
