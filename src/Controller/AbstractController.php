@@ -2,9 +2,13 @@
 
 namespace Tink\Controller;
 
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use Tink\Controller\ControllerResultInterface;
 
+/**
+ * Abstract Controller for ARD
+ */
 abstract class AbstractController
 {
     /**
@@ -12,29 +16,22 @@ abstract class AbstractController
      */
     protected $container;
     
-    const JSON_RESPONSE = 'Json Out Put';
-    const REDIRECT_RESPONSE = 'Redirect';
-    
     public function __construct(\Slim\Container $container)
     {
         $this->container = $container;
     }
     
-    public function __invoke(Request $request, Response $response, array $args)
+    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, array $args)
     {
         $result = $this->action($request, $args);
 
-        return $this->getResponse($response, $result);
+        return $result->getResponse($response);
     }
     
-    private function getResponse(Response $response, ControllerResult $result)
-    {
-        switch ($result->getStatus()) {
-            case self::JSON_RESPONSE:
-                $response->getBody()->write(\json_encode($result->getOutput()));
-                return $response;
-        }
-    }
-    
-    abstract protected function action(Request $request, array $args);
+    /**
+     * the action process the Request
+     * @param ServerRequestInterface $request
+     * @return ControllerResultInterface
+     */
+    abstract protected function action(ServerRequestInterface $request, array $args);
 }

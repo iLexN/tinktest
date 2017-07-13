@@ -2,8 +2,11 @@
 
 namespace Tink\Controller;
 
+use Psr\Http\Message\ResponseInterface;
+use Tink\Controller\ControllerResultInterface;
+
 /**
- * Class TransferResult
+ * Class Response Result
  */
 class ControllerResult implements ControllerResultInterface
 {
@@ -15,11 +18,11 @@ class ControllerResult implements ControllerResultInterface
     private $msg;
 
     /**
-     * TransferResult constructor.
+     * Response Result constructor.
      * @param bool $status
      * @param string $msg
      */
-    public function __construct($status, $msg)
+    public function __construct(bool $status, $msg)
     {
         $this->status = $status;
         $this->msg = $msg;
@@ -28,7 +31,7 @@ class ControllerResult implements ControllerResultInterface
     /**
      * @return bool
      */
-    public function getStatus(): bool
+    public function getStatus() : bool
     {
         return $this->status;
     }
@@ -36,5 +39,18 @@ class ControllerResult implements ControllerResultInterface
     public function getOutput()
     {
         return $this->msg;
+    }
+    
+    /**
+     * Proccess the Response
+     * @param ResponseInterface $response
+     * @return ResponseInterface
+     */
+    public function getResponse(ResponseInterface $response) : ResponseInterface
+    {
+        $response->getBody()->write(\json_encode($this->getOutput()));
+        $response = $response->withHeader('Content-type', 'application/json');
+        
+        return $response;
     }
 }
