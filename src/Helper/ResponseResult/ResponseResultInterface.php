@@ -1,10 +1,10 @@
 <?php
 
-namespace Tink\Controller\CollrollerResult;
+namespace Tink\Helper\ResponseResult;
 
 use Psr\Http\Message\ResponseInterface;
 
-interface ControllerResultInterface
+interface ResponseResultInterface
 {
     /**
      * get the response status

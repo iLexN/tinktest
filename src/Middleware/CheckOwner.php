@@ -5,7 +5,7 @@ namespace Tink\Middleware;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Slim\Container;
-use Tink\Controller\CollrollerResult\ControllerResult;
+use Tink\Helper\ResponseResult\JsonResponse;
 
 /**
  * Description of CheckOwner.
@@ -31,7 +31,7 @@ class CheckOwner
 
         $owner = $this->container['ownerModule']->getOwnerInfo($arguments['owner']);
         if ($owner === null) {
-            $result = new ControllerResult(false, ['status'=>'owner not exists']);
+            $result = new JsonResponse(false, ['status' => 'owner not exists']);
             return $result->getResponse($response);
         }
 

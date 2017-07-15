@@ -1,13 +1,15 @@
 <?php
 
-namespace Tink\Controller\CollrollerResult;
+namespace Tink\Helper\ResponseResult;
 
 use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use Slim\Exception\NotFoundException;
 
 /**
  * Class Response Result
  */
-class ControllerResult implements ControllerResultInterface
+class NotFountResponse implements ResponseResultInterface
 {
     /**
      * @var bool
@@ -17,14 +19,21 @@ class ControllerResult implements ControllerResultInterface
     private $msg;
 
     /**
+     * @var ServerRequestInterface
+     */
+    private $request;
+
+    /**
      * Response Result constructor.
      * @param bool $status
-     * @param mixed $msg
+     * @param $msg
+     * @param ServerRequestInterface $request
      */
-    public function __construct(bool $status, $msg)
+    public function __construct(bool $status, $msg, ServerRequestInterface$request)
     {
         $this->status = $status;
         $this->msg = $msg;
+        $this->request = $request;
     }
 
     /**
@@ -42,17 +51,15 @@ class ControllerResult implements ControllerResultInterface
     {
         return $this->msg;
     }
-    
+
     /**
-     * Proccess the Response
+     * NotFound
      * @param ResponseInterface $response
      * @return ResponseInterface
+     * @throws \Slim\Exception\NotFoundException
      */
     public function getResponse(ResponseInterface $response) : ResponseInterface
     {
-        $response->getBody()->write(\json_encode($this->getOutput()));
-        $response = $response->withHeader('Content-type', 'application/json');
-        
-        return $response;
+        throw new NotFoundException($this->request, $response);
     }
 }

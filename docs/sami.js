@@ -5,7 +5,7 @@ window.projectVersion = 'master';
 
     var bhIndex = null;
     var rootPath = '';
-    var treeHtml = '        <ul>                <li data-name="namespace:Tink" class="opened">                    <div style="padding-left:0px" class="hd">                        <span class="glyphicon glyphicon-play"></span><a href="Tink.html">Tink</a>                    </div>                    <div class="bd">                                <ul>                <li data-name="namespace:Tink_Controller" class="opened">                    <div style="padding-left:18px" class="hd">                        <span class="glyphicon glyphicon-play"></span><a href="Tink/Controller.html">Controller</a>                    </div>                    <div class="bd">                                <ul>                <li data-name="namespace:Tink_Controller_Account" >                    <div style="padding-left:36px" class="hd">                        <span class="glyphicon glyphicon-play"></span><a href="Tink/Controller/Account.html">Account</a>                    </div>                    <div class="bd">                                <ul>                <li data-name="class:Tink_Controller_Account_Close" >                    <div style="padding-left:62px" class="hd leaf">                        <a href="Tink/Controller/Account/Close.html">Close</a>                    </div>                </li>                            <li data-name="class:Tink_Controller_Account_Info" >                    <div style="padding-left:62px" class="hd leaf">                        <a href="Tink/Controller/Account/Info.html">Info</a>                    </div>                </li>                            <li data-name="class:Tink_Controller_Account_Open" >                    <div style="padding-left:62px" class="hd leaf">                        <a href="Tink/Controller/Account/Open.html">Open</a>                    </div>                </li>                            <li data-name="class:Tink_Controller_Account_Transfer" >                    <div style="padding-left:62px" class="hd leaf">                        <a href="Tink/Controller/Account/Transfer.html">Transfer</a>                    </div>                </li>                            <li data-name="class:Tink_Controller_Account_WithDraw" >                    <div style="padding-left:62px" class="hd leaf">                        <a href="Tink/Controller/Account/WithDraw.html">WithDraw</a>                    </div>                </li>                </ul></div>                </li>                            <li data-name="class:Tink_Controller_AbstractController" >                    <div style="padding-left:44px" class="hd leaf">                        <a href="Tink/Controller/AbstractController.html">AbstractController</a>                    </div>                </li>                            <li data-name="class:Tink_Controller_Controller404Result" >                    <div style="padding-left:44px" class="hd leaf">                        <a href="Tink/Controller/Controller404Result.html">Controller404Result</a>                    </div>                </li>                            <li data-name="class:Tink_Controller_ControllerResult" >                    <div style="padding-left:44px" class="hd leaf">                        <a href="Tink/Controller/ControllerResult.html">ControllerResult</a>                    </div>                </li>                            <li data-name="class:Tink_Controller_ControllerResultInterface" >                    <div style="padding-left:44px" class="hd leaf">                        <a href="Tink/Controller/ControllerResultInterface.html">ControllerResultInterface</a>                    </div>                </li>                            <li data-name="class:Tink_Controller_Info" >                    <div style="padding-left:44px" class="hd leaf">                        <a href="Tink/Controller/Info.html">Info</a>                    </div>                </li>                </ul></div>                </li>                            <li data-name="namespace:Tink_Middleware" class="opened">                    <div style="padding-left:18px" class="hd">                        <span class="glyphicon glyphicon-play"></span><a href="Tink/Middleware.html">Middleware</a>                    </div>                    <div class="bd">                                <ul>                <li data-name="class:Tink_Middleware_CheckAccount" >                    <div style="padding-left:44px" class="hd leaf">                        <a href="Tink/Middleware/CheckAccount.html">CheckAccount</a>                    </div>                </li>                            <li data-name="class:Tink_Middleware_CheckOwner" >                    <div style="padding-left:44px" class="hd leaf">                        <a href="Tink/Middleware/CheckOwner.html">CheckOwner</a>                    </div>                </li>                            <li data-name="class:Tink_Middleware_DBLog" >                    <div style="padding-left:44px" class="hd leaf">                        <a href="Tink/Middleware/DBLog.html">DBLog</a>                    </div>                </li>                            <li data-name="class:Tink_Middleware_ResponseCache" >                    <div style="padding-left:44px" class="hd leaf">                        <a href="Tink/Middleware/ResponseCache.html">ResponseCache</a>                    </div>                </li>                </ul></div>                </li>                            <li data-name="namespace:Tink_Model" class="opened">                    <div style="padding-left:18px" class="hd">                        <span class="glyphicon glyphicon-play"></span><a href="Tink/Model.html">Model</a>                    </div>                    <div class="bd">                                <ul>                <li data-name="class:Tink_Model_Account" >                    <div style="padding-left:44px" class="hd leaf">                        <a href="Tink/Model/Account.html">Account</a>                    </div>                </li>                            <li data-name="class:Tink_Model_History" >                    <div style="padding-left:44px" class="hd leaf">                        <a href="Tink/Model/History.html">History</a>                    </div>                </li>                            <li data-name="class:Tink_Model_Owner" >                    <div style="padding-left:44px" class="hd leaf">                        <a href="Tink/Model/Owner.html">Owner</a>                    </div>                </li>                </ul></div>                </li>                            <li data-name="namespace:Tink_Module" class="opened">                    <div style="padding-left:18px" class="hd">                        <span class="glyphicon glyphicon-play"></span><a href="Tink/Module.html">Module</a>                    </div>                    <div class="bd">                                <ul>                <li data-name="namespace:Tink_Module_Transfer" >                    <div style="padding-left:36px" class="hd">                        <span class="glyphicon glyphicon-play"></span><a href="Tink/Module/Transfer.html">Transfer</a>                    </div>                    <div class="bd">                                <ul>                <li data-name="namespace:Tink_Module_Transfer_Rule" >                    <div style="padding-left:54px" class="hd">                        <span class="glyphicon glyphicon-play"></span><a href="Tink/Module/Transfer/Rule.html">Rule</a>                    </div>                    <div class="bd">                                <ul>                <li data-name="class:Tink_Module_Transfer_Rule_BuildRulesArray" >                    <div style="padding-left:80px" class="hd leaf">                        <a href="Tink/Module/Transfer/Rule/BuildRulesArray.html">BuildRulesArray</a>                    </div>                </li>                            <li data-name="class:Tink_Module_Transfer_Rule_RuleApiApprove" >                    <div style="padding-left:80px" class="hd leaf">                        <a href="Tink/Module/Transfer/Rule/RuleApiApprove.html">RuleApiApprove</a>                    </div>                </li>                            <li data-name="class:Tink_Module_Transfer_Rule_RuleDailyLimit" >                    <div style="padding-left:80px" class="hd leaf">                        <a href="Tink/Module/Transfer/Rule/RuleDailyLimit.html">RuleDailyLimit</a>                    </div>                </li>                            <li data-name="class:Tink_Module_Transfer_Rule_RuleInterface" >                    <div style="padding-left:80px" class="hd leaf">                        <a href="Tink/Module/Transfer/Rule/RuleInterface.html">RuleInterface</a>                    </div>                </li>                            <li data-name="class:Tink_Module_Transfer_Rule_RuleWithDrawAmount" >                    <div style="padding-left:80px" class="hd leaf">                        <a href="Tink/Module/Transfer/Rule/RuleWithDrawAmount.html">RuleWithDrawAmount</a>                    </div>                </li>                            <li data-name="class:Tink_Module_Transfer_Rule_RuleWithDrawAmountExtraCharge" >                    <div style="padding-left:80px" class="hd leaf">                        <a href="Tink/Module/Transfer/Rule/RuleWithDrawAmountExtraCharge.html">RuleWithDrawAmountExtraCharge</a>                    </div>                </li>                </ul></div>                </li>                            <li data-name="class:Tink_Module_Transfer_BuildTransfer" >                    <div style="padding-left:62px" class="hd leaf">                        <a href="Tink/Module/Transfer/BuildTransfer.html">BuildTransfer</a>                    </div>                </li>                            <li data-name="class:Tink_Module_Transfer_Transfer" >                    <div style="padding-left:62px" class="hd leaf">                        <a href="Tink/Module/Transfer/Transfer.html">Transfer</a>                    </div>                </li>                            <li data-name="class:Tink_Module_Transfer_TransferOtherOwner" >                    <div style="padding-left:62px" class="hd leaf">                        <a href="Tink/Module/Transfer/TransferOtherOwner.html">TransferOtherOwner</a>                    </div>                </li>                            <li data-name="class:Tink_Module_Transfer_TransferOwnerInterface" >                    <div style="padding-left:62px" class="hd leaf">                        <a href="Tink/Module/Transfer/TransferOwnerInterface.html">TransferOwnerInterface</a>                    </div>                </li>                            <li data-name="class:Tink_Module_Transfer_TransferResult" >                    <div style="padding-left:62px" class="hd leaf">                        <a href="Tink/Module/Transfer/TransferResult.html">TransferResult</a>                    </div>                </li>                            <li data-name="class:Tink_Module_Transfer_TransferResultInterface" >                    <div style="padding-left:62px" class="hd leaf">                        <a href="Tink/Module/Transfer/TransferResultInterface.html">TransferResultInterface</a>                    </div>                </li>                            <li data-name="class:Tink_Module_Transfer_TransferSameOwner" >                    <div style="padding-left:62px" class="hd leaf">                        <a href="Tink/Module/Transfer/TransferSameOwner.html">TransferSameOwner</a>                    </div>                </li>                </ul></div>                </li>                            <li data-name="class:Tink_Module_AccountModule" >                    <div style="padding-left:44px" class="hd leaf">                        <a href="Tink/Module/AccountModule.html">AccountModule</a>                    </div>                </li>                            <li data-name="class:Tink_Module_HistoryModule" >                    <div style="padding-left:44px" class="hd leaf">                        <a href="Tink/Module/HistoryModule.html">HistoryModule</a>                    </div>                </li>                            <li data-name="class:Tink_Module_OwnerModule" >                    <div style="padding-left:44px" class="hd leaf">                        <a href="Tink/Module/OwnerModule.html">OwnerModule</a>                    </div>                </li>                </ul></div>                </li>                </ul></div>                </li>                </ul>';
+    var treeHtml = '        <ul>                <li data-name="namespace:Tink" class="opened">                    <div style="padding-left:0px" class="hd">                        <span class="glyphicon glyphicon-play"></span><a href="Tink.html">Tink</a>                    </div>                    <div class="bd">                                <ul>                <li data-name="namespace:Tink_Controller" class="opened">                    <div style="padding-left:18px" class="hd">                        <span class="glyphicon glyphicon-play"></span><a href="Tink/Controller.html">Controller</a>                    </div>                    <div class="bd">                                <ul>                <li data-name="namespace:Tink_Controller_Account" >                    <div style="padding-left:36px" class="hd">                        <span class="glyphicon glyphicon-play"></span><a href="Tink/Controller/Account.html">Account</a>                    </div>                    <div class="bd">                                <ul>                <li data-name="class:Tink_Controller_Account_Close" >                    <div style="padding-left:62px" class="hd leaf">                        <a href="Tink/Controller/Account/Close.html">Close</a>                    </div>                </li>                            <li data-name="class:Tink_Controller_Account_Info" >                    <div style="padding-left:62px" class="hd leaf">                        <a href="Tink/Controller/Account/Info.html">Info</a>                    </div>                </li>                            <li data-name="class:Tink_Controller_Account_Open" >                    <div style="padding-left:62px" class="hd leaf">                        <a href="Tink/Controller/Account/Open.html">Open</a>                    </div>                </li>                            <li data-name="class:Tink_Controller_Account_Transfer" >                    <div style="padding-left:62px" class="hd leaf">                        <a href="Tink/Controller/Account/Transfer.html">Transfer</a>                    </div>                </li>                            <li data-name="class:Tink_Controller_Account_WithDraw" >                    <div style="padding-left:62px" class="hd leaf">                        <a href="Tink/Controller/Account/WithDraw.html">WithDraw</a>                    </div>                </li>                </ul></div>                </li>                            <li data-name="class:Tink_Controller_AbstractController" >                    <div style="padding-left:44px" class="hd leaf">                        <a href="Tink/Controller/AbstractController.html">AbstractController</a>                    </div>                </li>                            <li data-name="class:Tink_Controller_Info" >                    <div style="padding-left:44px" class="hd leaf">                        <a href="Tink/Controller/Info.html">Info</a>                    </div>                </li>                </ul></div>                </li>                            <li data-name="namespace:Tink_Helper" class="opened">                    <div style="padding-left:18px" class="hd">                        <span class="glyphicon glyphicon-play"></span><a href="Tink/Helper.html">Helper</a>                    </div>                    <div class="bd">                                <ul>                <li data-name="namespace:Tink_Helper_ResponseResult" >                    <div style="padding-left:36px" class="hd">                        <span class="glyphicon glyphicon-play"></span><a href="Tink/Helper/ResponseResult.html">ResponseResult</a>                    </div>                    <div class="bd">                                <ul>                <li data-name="class:Tink_Helper_ResponseResult_JsonResponse" >                    <div style="padding-left:62px" class="hd leaf">                        <a href="Tink/Helper/ResponseResult/JsonResponse.html">JsonResponse</a>                    </div>                </li>                            <li data-name="class:Tink_Helper_ResponseResult_NotFountResponse" >                    <div style="padding-left:62px" class="hd leaf">                        <a href="Tink/Helper/ResponseResult/NotFountResponse.html">NotFountResponse</a>                    </div>                </li>                            <li data-name="class:Tink_Helper_ResponseResult_RedirectResponse" >                    <div style="padding-left:62px" class="hd leaf">                        <a href="Tink/Helper/ResponseResult/RedirectResponse.html">RedirectResponse</a>                    </div>                </li>                            <li data-name="class:Tink_Helper_ResponseResult_ResponseResultInterface" >                    <div style="padding-left:62px" class="hd leaf">                        <a href="Tink/Helper/ResponseResult/ResponseResultInterface.html">ResponseResultInterface</a>                    </div>                </li>                </ul></div>                </li>                </ul></div>                </li>                            <li data-name="namespace:Tink_Middleware" class="opened">                    <div style="padding-left:18px" class="hd">                        <span class="glyphicon glyphicon-play"></span><a href="Tink/Middleware.html">Middleware</a>                    </div>                    <div class="bd">                                <ul>                <li data-name="class:Tink_Middleware_CheckAccount" >                    <div style="padding-left:44px" class="hd leaf">                        <a href="Tink/Middleware/CheckAccount.html">CheckAccount</a>                    </div>                </li>                            <li data-name="class:Tink_Middleware_CheckOwner" >                    <div style="padding-left:44px" class="hd leaf">                        <a href="Tink/Middleware/CheckOwner.html">CheckOwner</a>                    </div>                </li>                            <li data-name="class:Tink_Middleware_DBLog" >                    <div style="padding-left:44px" class="hd leaf">                        <a href="Tink/Middleware/DBLog.html">DBLog</a>                    </div>                </li>                            <li data-name="class:Tink_Middleware_ResponseCache" >                    <div style="padding-left:44px" class="hd leaf">                        <a href="Tink/Middleware/ResponseCache.html">ResponseCache</a>                    </div>                </li>                </ul></div>                </li>                            <li data-name="namespace:Tink_Model" class="opened">                    <div style="padding-left:18px" class="hd">                        <span class="glyphicon glyphicon-play"></span><a href="Tink/Model.html">Model</a>                    </div>                    <div class="bd">                                <ul>                <li data-name="class:Tink_Model_Account" >                    <div style="padding-left:44px" class="hd leaf">                        <a href="Tink/Model/Account.html">Account</a>                    </div>                </li>                            <li data-name="class:Tink_Model_History" >                    <div style="padding-left:44px" class="hd leaf">                        <a href="Tink/Model/History.html">History</a>                    </div>                </li>                            <li data-name="class:Tink_Model_Owner" >                    <div style="padding-left:44px" class="hd leaf">                        <a href="Tink/Model/Owner.html">Owner</a>                    </div>                </li>                </ul></div>                </li>                            <li data-name="namespace:Tink_Module" class="opened">                    <div style="padding-left:18px" class="hd">                        <span class="glyphicon glyphicon-play"></span><a href="Tink/Module.html">Module</a>                    </div>                    <div class="bd">                                <ul>                <li data-name="namespace:Tink_Module_Transfer" >                    <div style="padding-left:36px" class="hd">                        <span class="glyphicon glyphicon-play"></span><a href="Tink/Module/Transfer.html">Transfer</a>                    </div>                    <div class="bd">                                <ul>                <li data-name="namespace:Tink_Module_Transfer_Rule" >                    <div style="padding-left:54px" class="hd">                        <span class="glyphicon glyphicon-play"></span><a href="Tink/Module/Transfer/Rule.html">Rule</a>                    </div>                    <div class="bd">                                <ul>                <li data-name="class:Tink_Module_Transfer_Rule_BuildRulesArray" >                    <div style="padding-left:80px" class="hd leaf">                        <a href="Tink/Module/Transfer/Rule/BuildRulesArray.html">BuildRulesArray</a>                    </div>                </li>                            <li data-name="class:Tink_Module_Transfer_Rule_RuleApiApprove" >                    <div style="padding-left:80px" class="hd leaf">                        <a href="Tink/Module/Transfer/Rule/RuleApiApprove.html">RuleApiApprove</a>                    </div>                </li>                            <li data-name="class:Tink_Module_Transfer_Rule_RuleDailyLimit" >                    <div style="padding-left:80px" class="hd leaf">                        <a href="Tink/Module/Transfer/Rule/RuleDailyLimit.html">RuleDailyLimit</a>                    </div>                </li>                            <li data-name="class:Tink_Module_Transfer_Rule_RuleInterface" >                    <div style="padding-left:80px" class="hd leaf">                        <a href="Tink/Module/Transfer/Rule/RuleInterface.html">RuleInterface</a>                    </div>                </li>                            <li data-name="class:Tink_Module_Transfer_Rule_RuleWithDrawAmount" >                    <div style="padding-left:80px" class="hd leaf">                        <a href="Tink/Module/Transfer/Rule/RuleWithDrawAmount.html">RuleWithDrawAmount</a>                    </div>                </li>                            <li data-name="class:Tink_Module_Transfer_Rule_RuleWithDrawAmountExtraCharge" >                    <div style="padding-left:80px" class="hd leaf">                        <a href="Tink/Module/Transfer/Rule/RuleWithDrawAmountExtraCharge.html">RuleWithDrawAmountExtraCharge</a>                    </div>                </li>                </ul></div>                </li>                            <li data-name="class:Tink_Module_Transfer_BuildTransfer" >                    <div style="padding-left:62px" class="hd leaf">                        <a href="Tink/Module/Transfer/BuildTransfer.html">BuildTransfer</a>                    </div>                </li>                            <li data-name="class:Tink_Module_Transfer_Transfer" >                    <div style="padding-left:62px" class="hd leaf">                        <a href="Tink/Module/Transfer/Transfer.html">Transfer</a>                    </div>                </li>                            <li data-name="class:Tink_Module_Transfer_TransferOtherOwner" >                    <div style="padding-left:62px" class="hd leaf">                        <a href="Tink/Module/Transfer/TransferOtherOwner.html">TransferOtherOwner</a>                    </div>                </li>                            <li data-name="class:Tink_Module_Transfer_TransferOwnerInterface" >                    <div style="padding-left:62px" class="hd leaf">                        <a href="Tink/Module/Transfer/TransferOwnerInterface.html">TransferOwnerInterface</a>                    </div>                </li>                            <li data-name="class:Tink_Module_Transfer_TransferResult" >                    <div style="padding-left:62px" class="hd leaf">                        <a href="Tink/Module/Transfer/TransferResult.html">TransferResult</a>                    </div>                </li>                            <li data-name="class:Tink_Module_Transfer_TransferResultInterface" >                    <div style="padding-left:62px" class="hd leaf">                        <a href="Tink/Module/Transfer/TransferResultInterface.html">TransferResultInterface</a>                    </div>                </li>                            <li data-name="class:Tink_Module_Transfer_TransferSameOwner" >                    <div style="padding-left:62px" class="hd leaf">                        <a href="Tink/Module/Transfer/TransferSameOwner.html">TransferSameOwner</a>                    </div>                </li>                </ul></div>                </li>                            <li data-name="class:Tink_Module_AccountModule" >                    <div style="padding-left:44px" class="hd leaf">                        <a href="Tink/Module/AccountModule.html">AccountModule</a>                    </div>                </li>                            <li data-name="class:Tink_Module_HistoryModule" >                    <div style="padding-left:44px" class="hd leaf">                        <a href="Tink/Module/HistoryModule.html">HistoryModule</a>                    </div>                </li>                            <li data-name="class:Tink_Module_OwnerModule" >                    <div style="padding-left:44px" class="hd leaf">                        <a href="Tink/Module/OwnerModule.html">OwnerModule</a>                    </div>                </li>                </ul></div>                </li>                </ul></div>                </li>                </ul>';
 
     var searchTypeClasses = {
         'Namespace': 'label-default',
@@ -17,12 +17,85 @@ window.projectVersion = 'master';
     };
 
     var searchIndex = [
-                    
-            {"type": "Namespace", "link": "Tink.html", "name": "Tink", "doc": "Namespace Tink"},{"type": "Namespace", "link": "Tink/Controller.html", "name": "Tink\\Controller", "doc": "Namespace Tink\\Controller"},{"type": "Namespace", "link": "Tink/Controller/Account.html", "name": "Tink\\Controller\\Account", "doc": "Namespace Tink\\Controller\\Account"},{"type": "Namespace", "link": "Tink/Middleware.html", "name": "Tink\\Middleware", "doc": "Namespace Tink\\Middleware"},{"type": "Namespace", "link": "Tink/Model.html", "name": "Tink\\Model", "doc": "Namespace Tink\\Model"},{"type": "Namespace", "link": "Tink/Module.html", "name": "Tink\\Module", "doc": "Namespace Tink\\Module"},{"type": "Namespace", "link": "Tink/Module/Transfer.html", "name": "Tink\\Module\\Transfer", "doc": "Namespace Tink\\Module\\Transfer"},{"type": "Namespace", "link": "Tink/Module/Transfer/Rule.html", "name": "Tink\\Module\\Transfer\\Rule", "doc": "Namespace Tink\\Module\\Transfer\\Rule"},
-            {"type": "Interface", "fromName": "Tink\\Controller", "fromLink": "Tink/Controller.html", "link": "Tink/Controller/ControllerResultInterface.html", "name": "Tink\\Controller\\ControllerResultInterface", "doc": "&quot;&quot;"},
-                                                        {"type": "Method", "fromName": "Tink\\Controller\\ControllerResultInterface", "fromLink": "Tink/Controller/ControllerResultInterface.html", "link": "Tink/Controller/ControllerResultInterface.html#method_getStatus", "name": "Tink\\Controller\\ControllerResultInterface::getStatus", "doc": "&quot;get the response status&quot;"},
-                    {"type": "Method", "fromName": "Tink\\Controller\\ControllerResultInterface", "fromLink": "Tink/Controller/ControllerResultInterface.html", "link": "Tink/Controller/ControllerResultInterface.html#method_getOutput", "name": "Tink\\Controller\\ControllerResultInterface::getOutput", "doc": "&quot;&quot;"},
-                    {"type": "Method", "fromName": "Tink\\Controller\\ControllerResultInterface", "fromLink": "Tink/Controller/ControllerResultInterface.html", "link": "Tink/Controller/ControllerResultInterface.html#method_getResponse", "name": "Tink\\Controller\\ControllerResultInterface::getResponse", "doc": "&quot;Proccess the Response&quot;"},
+
+        {"type": "Namespace", "link": "Tink.html", "name": "Tink", "doc": "Namespace Tink"}, {
+            "type": "Namespace",
+            "link": "Tink/Controller.html",
+            "name": "Tink\\Controller",
+            "doc": "Namespace Tink\\Controller"
+        }, {
+            "type": "Namespace",
+            "link": "Tink/Controller/Account.html",
+            "name": "Tink\\Controller\\Account",
+            "doc": "Namespace Tink\\Controller\\Account"
+        }, {
+            "type": "Namespace",
+            "link": "Tink/Helper.html",
+            "name": "Tink\\Helper",
+            "doc": "Namespace Tink\\Helper"
+        }, {
+            "type": "Namespace",
+            "link": "Tink/Helper/ResponseResult.html",
+            "name": "Tink\\Helper\\ResponseResult",
+            "doc": "Namespace Tink\\Helper\\ResponseResult"
+        }, {
+            "type": "Namespace",
+            "link": "Tink/Middleware.html",
+            "name": "Tink\\Middleware",
+            "doc": "Namespace Tink\\Middleware"
+        }, {
+            "type": "Namespace",
+            "link": "Tink/Model.html",
+            "name": "Tink\\Model",
+            "doc": "Namespace Tink\\Model"
+        }, {
+            "type": "Namespace",
+            "link": "Tink/Module.html",
+            "name": "Tink\\Module",
+            "doc": "Namespace Tink\\Module"
+        }, {
+            "type": "Namespace",
+            "link": "Tink/Module/Transfer.html",
+            "name": "Tink\\Module\\Transfer",
+            "doc": "Namespace Tink\\Module\\Transfer"
+        }, {
+            "type": "Namespace",
+            "link": "Tink/Module/Transfer/Rule.html",
+            "name": "Tink\\Module\\Transfer\\Rule",
+            "doc": "Namespace Tink\\Module\\Transfer\\Rule"
+        },
+        {
+            "type": "Interface",
+            "fromName": "Tink\\Helper\\ResponseResult",
+            "fromLink": "Tink/Helper/ResponseResult.html",
+            "link": "Tink/Helper/ResponseResult/ResponseResultInterface.html",
+            "name": "Tink\\Helper\\ResponseResult\\ResponseResultInterface",
+            "doc": "&quot;&quot;"
+        },
+        {
+            "type": "Method",
+            "fromName": "Tink\\Helper\\ResponseResult\\ResponseResultInterface",
+            "fromLink": "Tink/Helper/ResponseResult/ResponseResultInterface.html",
+            "link": "Tink/Helper/ResponseResult/ResponseResultInterface.html#method_getStatus",
+            "name": "Tink\\Helper\\ResponseResult\\ResponseResultInterface::getStatus",
+            "doc": "&quot;get the response status&quot;"
+        },
+        {
+            "type": "Method",
+            "fromName": "Tink\\Helper\\ResponseResult\\ResponseResultInterface",
+            "fromLink": "Tink/Helper/ResponseResult/ResponseResultInterface.html",
+            "link": "Tink/Helper/ResponseResult/ResponseResultInterface.html#method_getOutput",
+            "name": "Tink\\Helper\\ResponseResult\\ResponseResultInterface::getOutput",
+            "doc": "&quot;&quot;"
+        },
+        {
+            "type": "Method",
+            "fromName": "Tink\\Helper\\ResponseResult\\ResponseResultInterface",
+            "fromLink": "Tink/Helper/ResponseResult/ResponseResultInterface.html",
+            "link": "Tink/Helper/ResponseResult/ResponseResultInterface.html#method_getResponse",
+            "name": "Tink\\Helper\\ResponseResult\\ResponseResultInterface::getResponse",
+            "doc": "&quot;Proccess the Response&quot;"
+        },
             
             {"type": "Interface", "fromName": "Tink\\Module\\Transfer\\Rule", "fromLink": "Tink/Module/Transfer/Rule.html", "link": "Tink/Module/Transfer/Rule/RuleInterface.html", "name": "Tink\\Module\\Transfer\\Rule\\RuleInterface", "doc": "&quot;&quot;"},
                                                         {"type": "Method", "fromName": "Tink\\Module\\Transfer\\Rule\\RuleInterface", "fromLink": "Tink/Module/Transfer/Rule/RuleInterface.html", "link": "Tink/Module/Transfer/Rule/RuleInterface.html#method_validate", "name": "Tink\\Module\\Transfer\\Rule\\RuleInterface::validate", "doc": "&quot;validate rule.&quot;"},
@@ -50,32 +123,185 @@ window.projectVersion = 'master';
             
             {"type": "Class", "fromName": "Tink\\Controller\\Account", "fromLink": "Tink/Controller/Account.html", "link": "Tink/Controller/Account/Open.html", "name": "Tink\\Controller\\Account\\Open", "doc": "&quot;Class Open route: POST \/[ower_id]\/account&quot;"},
                                                         {"type": "Method", "fromName": "Tink\\Controller\\Account\\Open", "fromLink": "Tink/Controller/Account/Open.html", "link": "Tink/Controller/Account/Open.html#method_action", "name": "Tink\\Controller\\Account\\Open::action", "doc": "&quot;open account by ower&quot;"},
-            
-            {"type": "Class", "fromName": "Tink\\Controller\\Account", "fromLink": "Tink/Controller/Account.html", "link": "Tink/Controller/Account/Transfer.html", "name": "Tink\\Controller\\Account\\Transfer", "doc": "&quot;&quot;"},
-                                                        {"type": "Method", "fromName": "Tink\\Controller\\Account\\Transfer", "fromLink": "Tink/Controller/Account/Transfer.html", "link": "Tink/Controller/Account/Transfer.html#method_action", "name": "Tink\\Controller\\Account\\Transfer::action", "doc": "&quot;the action process the Request&quot;"},
+
+        {
+            "type": "Class",
+            "fromName": "Tink\\Controller\\Account",
+            "fromLink": "Tink/Controller/Account.html",
+            "link": "Tink/Controller/Account/Transfer.html",
+            "name": "Tink\\Controller\\Account\\Transfer",
+            "doc": "&quot;Class Transfer : POST&quot;"
+        },
+        {
+            "type": "Method",
+            "fromName": "Tink\\Controller\\Account\\Transfer",
+            "fromLink": "Tink/Controller/Account/Transfer.html",
+            "link": "Tink/Controller/Account/Transfer.html#method_action",
+            "name": "Tink\\Controller\\Account\\Transfer::action",
+            "doc": "&quot;Transfer one ac to other other&quot;"
+        },
             
             {"type": "Class", "fromName": "Tink\\Controller\\Account", "fromLink": "Tink/Controller/Account.html", "link": "Tink/Controller/Account/WithDraw.html", "name": "Tink\\Controller\\Account\\WithDraw", "doc": "&quot;Class WithDraw&quot;"},
                                                         {"type": "Method", "fromName": "Tink\\Controller\\Account\\WithDraw", "fromLink": "Tink/Controller/Account/WithDraw.html", "link": "Tink/Controller/Account/WithDraw.html#method_action", "name": "Tink\\Controller\\Account\\WithDraw::action", "doc": "&quot;with draw action&quot;"},
             
-            {"type": "Class", "fromName": "Tink\\Controller", "fromLink": "Tink/Controller.html", "link": "Tink/Controller/Controller404Result.html", "name": "Tink\\Controller\\Controller404Result", "doc": "&quot;Class Response Result&quot;"},
-                                                        {"type": "Method", "fromName": "Tink\\Controller\\Controller404Result", "fromLink": "Tink/Controller/Controller404Result.html", "link": "Tink/Controller/Controller404Result.html#method___construct", "name": "Tink\\Controller\\Controller404Result::__construct", "doc": "&quot;Response Result constructor.&quot;"},
-                    {"type": "Method", "fromName": "Tink\\Controller\\Controller404Result", "fromLink": "Tink/Controller/Controller404Result.html", "link": "Tink/Controller/Controller404Result.html#method_getStatus", "name": "Tink\\Controller\\Controller404Result::getStatus", "doc": "&quot;&quot;"},
-                    {"type": "Method", "fromName": "Tink\\Controller\\Controller404Result", "fromLink": "Tink/Controller/Controller404Result.html", "link": "Tink/Controller/Controller404Result.html#method_getOutput", "name": "Tink\\Controller\\Controller404Result::getOutput", "doc": "&quot;&quot;"},
-                    {"type": "Method", "fromName": "Tink\\Controller\\Controller404Result", "fromLink": "Tink/Controller/Controller404Result.html", "link": "Tink/Controller/Controller404Result.html#method_getResponse", "name": "Tink\\Controller\\Controller404Result::getResponse", "doc": "&quot;Proccess the Response&quot;"},
-            
-            {"type": "Class", "fromName": "Tink\\Controller", "fromLink": "Tink/Controller.html", "link": "Tink/Controller/ControllerResult.html", "name": "Tink\\Controller\\ControllerResult", "doc": "&quot;Class Response Result&quot;"},
-                                                        {"type": "Method", "fromName": "Tink\\Controller\\ControllerResult", "fromLink": "Tink/Controller/ControllerResult.html", "link": "Tink/Controller/ControllerResult.html#method___construct", "name": "Tink\\Controller\\ControllerResult::__construct", "doc": "&quot;Response Result constructor.&quot;"},
-                    {"type": "Method", "fromName": "Tink\\Controller\\ControllerResult", "fromLink": "Tink/Controller/ControllerResult.html", "link": "Tink/Controller/ControllerResult.html#method_getStatus", "name": "Tink\\Controller\\ControllerResult::getStatus", "doc": "&quot;&quot;"},
-                    {"type": "Method", "fromName": "Tink\\Controller\\ControllerResult", "fromLink": "Tink/Controller/ControllerResult.html", "link": "Tink/Controller/ControllerResult.html#method_getOutput", "name": "Tink\\Controller\\ControllerResult::getOutput", "doc": "&quot;&quot;"},
-                    {"type": "Method", "fromName": "Tink\\Controller\\ControllerResult", "fromLink": "Tink/Controller/ControllerResult.html", "link": "Tink/Controller/ControllerResult.html#method_getResponse", "name": "Tink\\Controller\\ControllerResult::getResponse", "doc": "&quot;Proccess the Response&quot;"},
-            
-            {"type": "Class", "fromName": "Tink\\Controller", "fromLink": "Tink/Controller.html", "link": "Tink/Controller/ControllerResultInterface.html", "name": "Tink\\Controller\\ControllerResultInterface", "doc": "&quot;&quot;"},
-                                                        {"type": "Method", "fromName": "Tink\\Controller\\ControllerResultInterface", "fromLink": "Tink/Controller/ControllerResultInterface.html", "link": "Tink/Controller/ControllerResultInterface.html#method_getStatus", "name": "Tink\\Controller\\ControllerResultInterface::getStatus", "doc": "&quot;get the response status&quot;"},
-                    {"type": "Method", "fromName": "Tink\\Controller\\ControllerResultInterface", "fromLink": "Tink/Controller/ControllerResultInterface.html", "link": "Tink/Controller/ControllerResultInterface.html#method_getOutput", "name": "Tink\\Controller\\ControllerResultInterface::getOutput", "doc": "&quot;&quot;"},
-                    {"type": "Method", "fromName": "Tink\\Controller\\ControllerResultInterface", "fromLink": "Tink/Controller/ControllerResultInterface.html", "link": "Tink/Controller/ControllerResultInterface.html#method_getResponse", "name": "Tink\\Controller\\ControllerResultInterface::getResponse", "doc": "&quot;Proccess the Response&quot;"},
-            
             {"type": "Class", "fromName": "Tink\\Controller", "fromLink": "Tink/Controller.html", "link": "Tink/Controller/Info.html", "name": "Tink\\Controller\\Info", "doc": "&quot;&quot;"},
                                                         {"type": "Method", "fromName": "Tink\\Controller\\Info", "fromLink": "Tink/Controller/Info.html", "link": "Tink/Controller/Info.html#method_action", "name": "Tink\\Controller\\Info::action", "doc": "&quot;&quot;"},
+
+        {
+            "type": "Class",
+            "fromName": "Tink\\Helper\\ResponseResult",
+            "fromLink": "Tink/Helper/ResponseResult.html",
+            "link": "Tink/Helper/ResponseResult/JsonResponse.html",
+            "name": "Tink\\Helper\\ResponseResult\\JsonResponse",
+            "doc": "&quot;Class Response Result&quot;"
+        },
+        {
+            "type": "Method",
+            "fromName": "Tink\\Helper\\ResponseResult\\JsonResponse",
+            "fromLink": "Tink/Helper/ResponseResult/JsonResponse.html",
+            "link": "Tink/Helper/ResponseResult/JsonResponse.html#method___construct",
+            "name": "Tink\\Helper\\ResponseResult\\JsonResponse::__construct",
+            "doc": "&quot;Response Result constructor.&quot;"
+        },
+        {
+            "type": "Method",
+            "fromName": "Tink\\Helper\\ResponseResult\\JsonResponse",
+            "fromLink": "Tink/Helper/ResponseResult/JsonResponse.html",
+            "link": "Tink/Helper/ResponseResult/JsonResponse.html#method_getStatus",
+            "name": "Tink\\Helper\\ResponseResult\\JsonResponse::getStatus",
+            "doc": "&quot;&quot;"
+        },
+        {
+            "type": "Method",
+            "fromName": "Tink\\Helper\\ResponseResult\\JsonResponse",
+            "fromLink": "Tink/Helper/ResponseResult/JsonResponse.html",
+            "link": "Tink/Helper/ResponseResult/JsonResponse.html#method_getOutput",
+            "name": "Tink\\Helper\\ResponseResult\\JsonResponse::getOutput",
+            "doc": "&quot;&quot;"
+        },
+        {
+            "type": "Method",
+            "fromName": "Tink\\Helper\\ResponseResult\\JsonResponse",
+            "fromLink": "Tink/Helper/ResponseResult/JsonResponse.html",
+            "link": "Tink/Helper/ResponseResult/JsonResponse.html#method_getResponse",
+            "name": "Tink\\Helper\\ResponseResult\\JsonResponse::getResponse",
+            "doc": "&quot;Proccess the Response&quot;"
+        },
+
+        {
+            "type": "Class",
+            "fromName": "Tink\\Helper\\ResponseResult",
+            "fromLink": "Tink/Helper/ResponseResult.html",
+            "link": "Tink/Helper/ResponseResult/NotFountResponse.html",
+            "name": "Tink\\Helper\\ResponseResult\\NotFountResponse",
+            "doc": "&quot;Class Response Result&quot;"
+        },
+        {
+            "type": "Method",
+            "fromName": "Tink\\Helper\\ResponseResult\\NotFountResponse",
+            "fromLink": "Tink/Helper/ResponseResult/NotFountResponse.html",
+            "link": "Tink/Helper/ResponseResult/NotFountResponse.html#method___construct",
+            "name": "Tink\\Helper\\ResponseResult\\NotFountResponse::__construct",
+            "doc": "&quot;Response Result constructor.&quot;"
+        },
+        {
+            "type": "Method",
+            "fromName": "Tink\\Helper\\ResponseResult\\NotFountResponse",
+            "fromLink": "Tink/Helper/ResponseResult/NotFountResponse.html",
+            "link": "Tink/Helper/ResponseResult/NotFountResponse.html#method_getStatus",
+            "name": "Tink\\Helper\\ResponseResult\\NotFountResponse::getStatus",
+            "doc": "&quot;&quot;"
+        },
+        {
+            "type": "Method",
+            "fromName": "Tink\\Helper\\ResponseResult\\NotFountResponse",
+            "fromLink": "Tink/Helper/ResponseResult/NotFountResponse.html",
+            "link": "Tink/Helper/ResponseResult/NotFountResponse.html#method_getOutput",
+            "name": "Tink\\Helper\\ResponseResult\\NotFountResponse::getOutput",
+            "doc": "&quot;&quot;"
+        },
+        {
+            "type": "Method",
+            "fromName": "Tink\\Helper\\ResponseResult\\NotFountResponse",
+            "fromLink": "Tink/Helper/ResponseResult/NotFountResponse.html",
+            "link": "Tink/Helper/ResponseResult/NotFountResponse.html#method_getResponse",
+            "name": "Tink\\Helper\\ResponseResult\\NotFountResponse::getResponse",
+            "doc": "&quot;NotFound&quot;"
+        },
+
+        {
+            "type": "Class",
+            "fromName": "Tink\\Helper\\ResponseResult",
+            "fromLink": "Tink/Helper/ResponseResult.html",
+            "link": "Tink/Helper/ResponseResult/RedirectResponse.html",
+            "name": "Tink\\Helper\\ResponseResult\\RedirectResponse",
+            "doc": "&quot;Class RedirectResponse&quot;"
+        },
+        {
+            "type": "Method",
+            "fromName": "Tink\\Helper\\ResponseResult\\RedirectResponse",
+            "fromLink": "Tink/Helper/ResponseResult/RedirectResponse.html",
+            "link": "Tink/Helper/ResponseResult/RedirectResponse.html#method___construct",
+            "name": "Tink\\Helper\\ResponseResult\\RedirectResponse::__construct",
+            "doc": "&quot;RedirectResponse constructor.&quot;"
+        },
+        {
+            "type": "Method",
+            "fromName": "Tink\\Helper\\ResponseResult\\RedirectResponse",
+            "fromLink": "Tink/Helper/ResponseResult/RedirectResponse.html",
+            "link": "Tink/Helper/ResponseResult/RedirectResponse.html#method_getStatus",
+            "name": "Tink\\Helper\\ResponseResult\\RedirectResponse::getStatus",
+            "doc": "&quot;get the response status&quot;"
+        },
+        {
+            "type": "Method",
+            "fromName": "Tink\\Helper\\ResponseResult\\RedirectResponse",
+            "fromLink": "Tink/Helper/ResponseResult/RedirectResponse.html",
+            "link": "Tink/Helper/ResponseResult/RedirectResponse.html#method_getOutput",
+            "name": "Tink\\Helper\\ResponseResult\\RedirectResponse::getOutput",
+            "doc": "&quot;&quot;"
+        },
+        {
+            "type": "Method",
+            "fromName": "Tink\\Helper\\ResponseResult\\RedirectResponse",
+            "fromLink": "Tink/Helper/ResponseResult/RedirectResponse.html",
+            "link": "Tink/Helper/ResponseResult/RedirectResponse.html#method_getResponse",
+            "name": "Tink\\Helper\\ResponseResult\\RedirectResponse::getResponse",
+            "doc": "&quot;301 Redirect with path\nProccess the Response&quot;"
+        },
+
+        {
+            "type": "Class",
+            "fromName": "Tink\\Helper\\ResponseResult",
+            "fromLink": "Tink/Helper/ResponseResult.html",
+            "link": "Tink/Helper/ResponseResult/ResponseResultInterface.html",
+            "name": "Tink\\Helper\\ResponseResult\\ResponseResultInterface",
+            "doc": "&quot;&quot;"
+        },
+        {
+            "type": "Method",
+            "fromName": "Tink\\Helper\\ResponseResult\\ResponseResultInterface",
+            "fromLink": "Tink/Helper/ResponseResult/ResponseResultInterface.html",
+            "link": "Tink/Helper/ResponseResult/ResponseResultInterface.html#method_getStatus",
+            "name": "Tink\\Helper\\ResponseResult\\ResponseResultInterface::getStatus",
+            "doc": "&quot;get the response status&quot;"
+        },
+        {
+            "type": "Method",
+            "fromName": "Tink\\Helper\\ResponseResult\\ResponseResultInterface",
+            "fromLink": "Tink/Helper/ResponseResult/ResponseResultInterface.html",
+            "link": "Tink/Helper/ResponseResult/ResponseResultInterface.html#method_getOutput",
+            "name": "Tink\\Helper\\ResponseResult\\ResponseResultInterface::getOutput",
+            "doc": "&quot;&quot;"
+        },
+        {
+            "type": "Method",
+            "fromName": "Tink\\Helper\\ResponseResult\\ResponseResultInterface",
+            "fromLink": "Tink/Helper/ResponseResult/ResponseResultInterface.html",
+            "link": "Tink/Helper/ResponseResult/ResponseResultInterface.html#method_getResponse",
+            "name": "Tink\\Helper\\ResponseResult\\ResponseResultInterface::getResponse",
+            "doc": "&quot;Proccess the Response&quot;"
+        },
             
             {"type": "Class", "fromName": "Tink\\Middleware", "fromLink": "Tink/Middleware.html", "link": "Tink/Middleware/CheckAccount.html", "name": "Tink\\Middleware\\CheckAccount", "doc": "&quot;Description of CheckOwner.&quot;"},
                                                         {"type": "Method", "fromName": "Tink\\Middleware\\CheckAccount", "fromLink": "Tink/Middleware/CheckAccount.html", "link": "Tink/Middleware/CheckAccount.html#method___construct", "name": "Tink\\Middleware\\CheckAccount::__construct", "doc": "&quot;&quot;"},
@@ -157,8 +383,22 @@ window.projectVersion = 'master';
                     {"type": "Method", "fromName": "Tink\\Module\\Transfer\\Transfer", "fromLink": "Tink/Module/Transfer/Transfer.html", "link": "Tink/Module/Transfer/Transfer.html#method_canTransfer", "name": "Tink\\Module\\Transfer\\Transfer::canTransfer", "doc": "&quot;Check Can Transfer or not.&quot;"},
             
             {"type": "Class", "fromName": "Tink\\Module\\Transfer", "fromLink": "Tink/Module/Transfer.html", "link": "Tink/Module/Transfer/TransferOtherOwner.html", "name": "Tink\\Module\\Transfer\\TransferOtherOwner", "doc": "&quot;&quot;"},
-                                                        {"type": "Method", "fromName": "Tink\\Module\\Transfer\\TransferOtherOwner", "fromLink": "Tink/Module/Transfer/TransferOtherOwner.html", "link": "Tink/Module/Transfer/TransferOtherOwner.html#method_transfer", "name": "Tink\\Module\\Transfer\\TransferOtherOwner::transfer", "doc": "&quot;transfer money.&quot;"},
-                    {"type": "Method", "fromName": "Tink\\Module\\Transfer\\TransferOtherOwner", "fromLink": "Tink/Module/Transfer/TransferOtherOwner.html", "link": "Tink/Module/Transfer/TransferOtherOwner.html#method_canTransfer", "name": "Tink\\Module\\Transfer\\TransferOtherOwner::canTransfer", "doc": "&quot;Check Can Transfer or not.&quot;"},
+        {
+            "type": "Method",
+            "fromName": "Tink\\Module\\Transfer\\TransferOtherOwner",
+            "fromLink": "Tink/Module/Transfer/TransferOtherOwner.html",
+            "link": "Tink/Module/Transfer/TransferOtherOwner.html#method_transfer",
+            "name": "Tink\\Module\\Transfer\\TransferOtherOwner::transfer",
+            "doc": "&quot;&quot;"
+        },
+        {
+            "type": "Method",
+            "fromName": "Tink\\Module\\Transfer\\TransferOtherOwner",
+            "fromLink": "Tink/Module/Transfer/TransferOtherOwner.html",
+            "link": "Tink/Module/Transfer/TransferOtherOwner.html#method_canTransfer",
+            "name": "Tink\\Module\\Transfer\\TransferOtherOwner::canTransfer",
+            "doc": "&quot;&quot;"
+        },
             
             {"type": "Class", "fromName": "Tink\\Module\\Transfer", "fromLink": "Tink/Module/Transfer.html", "link": "Tink/Module/Transfer/TransferOwnerInterface.html", "name": "Tink\\Module\\Transfer\\TransferOwnerInterface", "doc": "&quot;Transfer Owner Interface.&quot;"},
                                                         {"type": "Method", "fromName": "Tink\\Module\\Transfer\\TransferOwnerInterface", "fromLink": "Tink/Module/Transfer/TransferOwnerInterface.html", "link": "Tink/Module/Transfer/TransferOwnerInterface.html#method_transfer", "name": "Tink\\Module\\Transfer\\TransferOwnerInterface::transfer", "doc": "&quot;transfer money.&quot;"},
@@ -174,8 +414,22 @@ window.projectVersion = 'master';
                     {"type": "Method", "fromName": "Tink\\Module\\Transfer\\TransferResultInterface", "fromLink": "Tink/Module/Transfer/TransferResultInterface.html", "link": "Tink/Module/Transfer/TransferResultInterface.html#method_getMsg", "name": "Tink\\Module\\Transfer\\TransferResultInterface::getMsg", "doc": "&quot;&quot;"},
             
             {"type": "Class", "fromName": "Tink\\Module\\Transfer", "fromLink": "Tink/Module/Transfer.html", "link": "Tink/Module/Transfer/TransferSameOwner.html", "name": "Tink\\Module\\Transfer\\TransferSameOwner", "doc": "&quot;&quot;"},
-                                                        {"type": "Method", "fromName": "Tink\\Module\\Transfer\\TransferSameOwner", "fromLink": "Tink/Module/Transfer/TransferSameOwner.html", "link": "Tink/Module/Transfer/TransferSameOwner.html#method_transfer", "name": "Tink\\Module\\Transfer\\TransferSameOwner::transfer", "doc": "&quot;transfer money.&quot;"},
-                    {"type": "Method", "fromName": "Tink\\Module\\Transfer\\TransferSameOwner", "fromLink": "Tink/Module/Transfer/TransferSameOwner.html", "link": "Tink/Module/Transfer/TransferSameOwner.html#method_canTransfer", "name": "Tink\\Module\\Transfer\\TransferSameOwner::canTransfer", "doc": "&quot;Check Can Transfer or not.&quot;"},
+        {
+            "type": "Method",
+            "fromName": "Tink\\Module\\Transfer\\TransferSameOwner",
+            "fromLink": "Tink/Module/Transfer/TransferSameOwner.html",
+            "link": "Tink/Module/Transfer/TransferSameOwner.html#method_transfer",
+            "name": "Tink\\Module\\Transfer\\TransferSameOwner::transfer",
+            "doc": "&quot;&quot;"
+        },
+        {
+            "type": "Method",
+            "fromName": "Tink\\Module\\Transfer\\TransferSameOwner",
+            "fromLink": "Tink/Module/Transfer/TransferSameOwner.html",
+            "link": "Tink/Module/Transfer/TransferSameOwner.html#method_canTransfer",
+            "name": "Tink\\Module\\Transfer\\TransferSameOwner::canTransfer",
+            "doc": "&quot;&quot;"
+        },
             
             
                                         // Fix trailing commas in the index

@@ -1,14 +1,14 @@
 <?php
 
-namespace Tink\Controller\CollrollerResult;
+namespace Tink\Helper\ResponseResult;
 
 use Psr\Http\Message\ResponseInterface;
 
 /**
- * Class CollrollerRedirectResult
- * @package Tink\Controller\CollrollerResult
+ * Class RedirectResponse
+ * @package Tink\Controller\ResponseResult
  */
-class CollrollerRedirectResult implements ControllerResultInterface
+class RedirectResponse implements ResponseResultInterface
 {
     /**
      * @var bool
@@ -21,7 +21,7 @@ class CollrollerRedirectResult implements ControllerResultInterface
     private $msg;
 
     /**
-     * CollrollerRedirectResult constructor.
+     * RedirectResponse constructor.
      * @param bool $status
      * @param string $msg redirect path
      */

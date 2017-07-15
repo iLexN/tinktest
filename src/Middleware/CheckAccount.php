@@ -5,7 +5,7 @@ namespace Tink\Middleware;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Slim\Container;
-use Tink\Controller\CollrollerResult\ControllerResult;
+use Tink\Helper\ResponseResult\JsonResponse;
 
 /**
  * Description of CheckOwner.
@@ -31,7 +31,7 @@ class CheckAccount
 
         $ac = $this->container['accountModule']->getAcInfo($arguments['id']);
         if ($ac === null) {
-            $result = new ControllerResult(\false, ['status'=>'account not exists']);
+            $result = new JsonResponse(\false, ['status' => 'account not exists']);
             return $result->getResponse($response);
         }
 

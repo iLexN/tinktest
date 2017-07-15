@@ -4,8 +4,8 @@ namespace Tink\Controller\Account;
 
 use Psr\Http\Message\ServerRequestInterface;
 use Tink\Controller\AbstractController;
-use Tink\Controller\CollrollerResult\ControllerResult;
-use Tink\Controller\CollrollerResult\ControllerResultInterface;
+use Tink\Helper\ResponseResult\JsonResponse;
+use Tink\Helper\ResponseResult\ResponseResultInterface;
 use Tink\Model\Account;
 use Tink\Module\AccountModule;
 
@@ -21,9 +21,9 @@ class Open extends AbstractController
      * open account by ower
      * @param ServerRequestInterface $request
      * @param array $args
-     * @return ControllerResultInterface
+     * @return ResponseResultInterface
      */
-    public function action(ServerRequestInterface $request, array $args) : ControllerResultInterface
+    public function action(ServerRequestInterface $request, array $args): ResponseResultInterface
     {
         /* @var $accountModule \Tink\Module\AccountModule */
         $accountModule = $this->container['accountModule'];
@@ -31,7 +31,7 @@ class Open extends AbstractController
         $validator = $accountModule->validator((array) $request->getParsedBody());
 
         if (!$validator->validate()) {
-            return new ControllerResult(false, $validator->errors());
+            return new JsonResponse(false, $validator->errors());
         }
 
         /** todo add validator */
@@ -47,28 +47,9 @@ class Open extends AbstractController
         $this->haveDeposits($accountModule, $validator->data(), $ac);
 
         $out = ['data'=>$ac->toArray(), 'status'=>'success'];
-        
-        return new ControllerResult(true, $out);
-    }
 
-    /**
-     * check have amount input or not.
-     * @param array $data
-     * @return bool
-     */
-    private function haveDeposit(array $data) : bool
-    {
-        return isset($data['amount']);
+        return new JsonResponse(true, $out);
     }
-
-    
-    //private function validatorAmount(array $data)
-    //{
-    //    /** @var HistoryModule $historyModule */
-    //    $historyModule = $this->container['historyModule'];
-    //    $validator = $historyModule->validator($data);
-    //    return $validator;
-    //}
 
     /**
      * do amount change
@@ -83,5 +64,24 @@ class Open extends AbstractController
             /** @var AccountModule $accountModule */
             $accountModule->amountChange($data, 'deposit', $ac);
         }
+    }
+
+
+    //private function validatorAmount(array $data)
+    //{
+    //    /** @var HistoryModule $historyModule */
+    //    $historyModule = $this->container['historyModule'];
+    //    $validator = $historyModule->validator($data);
+    //    return $validator;
+    //}
+
+    /**
+     * check have amount input or not.
+     * @param array $data
+     * @return bool
+     */
+    private function haveDeposit(array $data): bool
+    {
+        return isset($data['amount']);
     }
 }

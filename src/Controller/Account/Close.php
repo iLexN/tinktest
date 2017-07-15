@@ -4,8 +4,8 @@ namespace Tink\Controller\Account;
 
 use Psr\Http\Message\ServerRequestInterface;
 use Tink\Controller\AbstractController;
-use Tink\Controller\CollrollerResult\ControllerResult;
-use Tink\Controller\CollrollerResult\ControllerResultInterface;
+use Tink\Helper\ResponseResult\JsonResponse;
+use Tink\Helper\ResponseResult\ResponseResultInterface;
 use Tink\Module\AccountModule;
 
 /**
@@ -18,9 +18,9 @@ class Close extends AbstractController
      * Close Account
      * @param ServerRequestInterface $request
      * @param array $args
-     * @return ControllerResultInterface
+     * @return ResponseResultInterface
      */
-    public function action(ServerRequestInterface $request, array $args) : ControllerResultInterface
+    public function action(ServerRequestInterface $request, array $args): ResponseResultInterface
     {
         /** @var AccountModule $accountModule */
         $accountModule = $this->container['accountModule'];
@@ -29,6 +29,6 @@ class Close extends AbstractController
         
         $out = ['status'=>'success'];
 
-        return new ControllerResult(true, $out);
+        return new JsonResponse(true, $out);
     }
 }
