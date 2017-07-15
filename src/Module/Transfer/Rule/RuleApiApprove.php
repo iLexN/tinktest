@@ -29,6 +29,7 @@ class RuleApiApprove implements RuleInterface
 
     public function validate(): bool
     {
+        /** @var \GuzzleHttp\Client $httpClient */
         $httpClient = $this->container['httpClient'];
         $response = $httpClient->request('GET', '/test/success.json');
 

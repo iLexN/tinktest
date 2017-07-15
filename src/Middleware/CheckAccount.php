@@ -2,8 +2,10 @@
 
 namespace Tink\Middleware;
 
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use Slim\Container;
+use Tink\Controller\CollrollerResult\ControllerResult;
 
 /**
  * Description of CheckOwner.
@@ -17,20 +19,22 @@ class CheckAccount
      */
     public $container;
 
-    public function __construct(\Slim\Container $container)
+    public function __construct(Container $container)
     {
         $this->container = $container;
     }
 
-    public function __invoke(Request $request, Response $response, $next)
+    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, $next)
     {
         $route = $request->getAttribute('route');
         $arguments = $route->getArguments();
 
         $ac = $this->container['accountModule']->getAcInfo($arguments['id']);
         if ($ac === null) {
-            return $response->write(\json_encode(['status'=>'account not exists']));
+            $result = new ControllerResult(\false, ['status'=>'account not exists']);
+            return $result->getResponse($response);
         }
+
         $this->container['ac'] = $ac;
 
         return $next($request, $response);

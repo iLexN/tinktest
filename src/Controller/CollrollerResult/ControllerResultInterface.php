@@ -1,6 +1,6 @@
 <?php
 
-namespace Tink\Controller;
+namespace Tink\Controller\CollrollerResult;
 
 use Psr\Http\Message\ResponseInterface;
 

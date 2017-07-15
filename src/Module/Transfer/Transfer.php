@@ -2,6 +2,7 @@
 
 namespace Tink\Module\Transfer;
 
+use Slim\Container;
 use Tink\Model\Account;
 
 /**
@@ -31,7 +32,7 @@ class Transfer
 
     protected $rules = [];
 
-    public function __construct(\Slim\Container $container, Account $from, Account $to, $data, $rules = [])
+    public function __construct(Container $container, Account $from, Account $to, $data, $rules = [])
     {
         $this->container = $container;
         $this->from = $from;

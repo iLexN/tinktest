@@ -1,9 +1,8 @@
 <?php
 
-namespace Tink\Controller;
+namespace Tink\Controller\CollrollerResult;
 
 use Psr\Http\Message\ResponseInterface;
-use Tink\Controller\ControllerResultInterface;
 
 /**
  * Class Response Result
@@ -20,7 +19,7 @@ class ControllerResult implements ControllerResultInterface
     /**
      * Response Result constructor.
      * @param bool $status
-     * @param string $msg
+     * @param mixed $msg
      */
     public function __construct(bool $status, $msg)
     {
@@ -36,6 +35,9 @@ class ControllerResult implements ControllerResultInterface
         return $this->status;
     }
 
+    /**
+     * @return mixed
+     */
     public function getOutput()
     {
         return $this->msg;

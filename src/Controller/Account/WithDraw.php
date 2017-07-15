@@ -2,17 +2,32 @@
 
 namespace Tink\Controller\Account;
 
-use Tink\Module\AccountModule;
-use Tink\Controller\AbstractController;
-use Tink\Controller\ControllerResult;
 use Psr\Http\Message\ServerRequestInterface;
+use Tink\Controller\AbstractController;
+use Tink\Controller\CollrollerResult\ControllerResult;
+use Tink\Controller\CollrollerResult\ControllerResultInterface;
+use Tink\Model\Account;
+use Tink\Module\AccountModule;
+use Tink\Module\HistoryModule;
 
+/**
+ * Class WithDraw
+ * @package Tink\Controller\Account
+ */
 class WithDraw extends AbstractController
 {
-    public function action(ServerRequestInterface $request, array $args)
+    /**
+     * with draw action
+     * @param ServerRequestInterface $request
+     * @param array $args
+     * @return ControllerResultInterface
+     */
+    public function action(ServerRequestInterface $request, array $args) : ControllerResultInterface
     {
+        /** @var Account $acInfo */
         $acInfo = $this->container['ac'];
 
+        /** @var HistoryModule $history */
         $history = $this->container['historyModule'];
         $validator = $history->validator((array)$request->getParsedBody());
 

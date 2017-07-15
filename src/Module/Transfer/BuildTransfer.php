@@ -2,6 +2,7 @@
 
 namespace Tink\Module\Transfer;
 
+use Slim\Container;
 use Tink\Model\Account;
 use Tink\Module\Transfer\Rule\BuildRulesArray as BuildRule;
 
@@ -15,7 +16,7 @@ class BuildTransfer
      */
     public $container;
 
-    public function __construct(\Slim\Container $container)
+    public function __construct(Container $container)
     {
         $this->container = $container;
     }

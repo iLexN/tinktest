@@ -4,13 +4,25 @@ namespace Tink\Controller\Account;
 
 use Psr\Http\Message\ServerRequestInterface;
 use Tink\Controller\AbstractController;
-use Tink\Controller\ControllerResult;
+use Tink\Controller\CollrollerResult\ControllerResult;
+use Tink\Controller\CollrollerResult\ControllerResultInterface;
+use Tink\Module\AccountModule;
 
+/**
+ * Class Close route : Delete /account/[id]
+ * @package Tink\Controller\Account
+ */
 class Close extends AbstractController
 {
-    public function action(ServerRequestInterface $request, array $args)
+    /**
+     * Close Account
+     * @param ServerRequestInterface $request
+     * @param array $args
+     * @return ControllerResultInterface
+     */
+    public function action(ServerRequestInterface $request, array $args) : ControllerResultInterface
     {
-        /* @var $accountModule \Tink\Module\AccountModule */
+        /** @var AccountModule $accountModule */
         $accountModule = $this->container['accountModule'];
         $acInfo = $this->container['ac'];
         $accountModule->close($acInfo);

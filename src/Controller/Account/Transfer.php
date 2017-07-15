@@ -4,16 +4,29 @@ namespace Tink\Controller\Account;
 
 use Psr\Http\Message\ServerRequestInterface;
 use Tink\Controller\AbstractController;
-use Tink\Controller\ControllerResult;
+use Tink\Controller\CollrollerResult\ControllerResult;
+use Tink\Controller\CollrollerResult\ControllerResultInterface;
+use Tink\Model\Account;
+use Tink\Module\Transfer\BuildTransfer;
 
+/**
+ * Class Transfer : POST
+ * @package Tink\Controller\Account
+ */
 class Transfer extends AbstractController
 {
-    public function action(ServerRequestInterface $request, array $args)
+    /**
+     * Transfer one ac to other other
+     * @param ServerRequestInterface $request
+     * @param array $args
+     * @return ControllerResultInterface
+     */
+    public function action(ServerRequestInterface $request, array $args) : ControllerResultInterface
     {
         /* @var $accountModule \Tink\Module\AccountModule */
         $accountModule = $this->container['accountModule'];
 
-        /* @var $acInfo \Tink\Model\Account */
+        /** @var Account $fromAcc */
         $fromAcc = $this->container['ac'];
 
         $toAcc = $accountModule->getAcInfo($args['toid']);
@@ -29,13 +42,10 @@ class Transfer extends AbstractController
             return new ControllerResult(false, $validator->errors());
         }
 
-        /* @var $buildTransfer \Tink\Module\Transfer\BuildTransfer */
+        /** @var BuildTransfer $buildTransfer */
         $buildTransfer = $this->container['buildTransfer'];
-
-        /* @var $transfer \Tink\Module\Transfer\TransferOwnerInterface */
         $transfer = $buildTransfer->create($fromAcc, $toAcc, $validator->data());
 
-        /** @var \Tink\Module\Transfer\TransferResultInterface $result */
         $result = $transfer->canTransfer();
 
         if (!$result->getStatus()) {

@@ -2,8 +2,10 @@
 
 namespace Tink\Middleware;
 
+use PSR\Cache\CacheItemInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Slim\Container;
 use Stash\Pool;
 
 /**
@@ -21,7 +23,7 @@ class ResponseCache
      */
     protected $pool;
 
-    public function __construct(\Slim\Container $container)
+    public function __construct(Container $container)
     {
         $this->container = $container;
         $this->pool = $container['pool'];
@@ -42,8 +44,8 @@ class ResponseCache
 
         $method = $route === null ? [] : $route->getMethods();
 
-        $item = $this->pool->getItem('Response'.$this->getCacheKey($request));
-        
+        $item = $this->pool->getItem('/Response'.$this->getCacheKey($request));
+
         if ($this->hasCache($method, $item)) {
             $responseArray = $item->get();
             $response->getBody()->write($responseArray[0]);
@@ -51,7 +53,8 @@ class ResponseCache
             
             return $response;
         }
-        
+
+        /** @var ResponseInterface $response */
         $response = $next($request, $response);
 
         if (!$this->hasCache($method, $item) && $response->getStatusCode() === 200) {
@@ -80,10 +83,10 @@ class ResponseCache
 
     /**
      * @param array $method
-     * @param $item
+     * @param CacheItemInterface $item
      * @return bool
      */
-    private function hasCache(array $method, $item): bool
+    private function hasCache(array $method, CacheItemInterface $item): bool
     {
         return in_array("GET", $method) && $item->isHit();
     }

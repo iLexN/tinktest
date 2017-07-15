@@ -2,6 +2,7 @@
 
 namespace Tink\Module;
 
+use Slim\Container;
 use Stash\Pool;
 use Tink\Model\Account;
 use Tink\Model\Owner;
@@ -23,7 +24,7 @@ class AccountModule
      */
     protected $pool;
 
-    public function __construct(\Slim\Container $container)
+    public function __construct(Container $container)
     {
         $this->container = $container;
         $this->pool = $container['pool'];
@@ -66,7 +67,7 @@ class AccountModule
      */
     public function clearAcInfoCache($id)
     {
-        $this->pool->deleteItem('Account/' . $id);
+        $this->pool->deleteItem('/Account/' . $id);
         //$this->pool->deleteItem('Response/account/' . $id);
     }
 
@@ -122,7 +123,7 @@ class AccountModule
      */
     public function getAcInfo($id)
     {
-        $cacheItem = $this->pool->getItem('Account/' . $id);
+        $cacheItem = $this->pool->getItem('/Account/' . $id);
 
         $account = $cacheItem->get();
 

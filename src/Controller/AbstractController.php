@@ -4,7 +4,8 @@ namespace Tink\Controller;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Tink\Controller\ControllerResultInterface;
+use Slim\Container;
+use Tink\Controller\CollrollerResult\ControllerResultInterface;
 
 /**
  * Abstract Controller for ARD
@@ -15,8 +16,8 @@ abstract class AbstractController
      * @var \Slim\Container
      */
     protected $container;
-    
-    public function __construct(\Slim\Container $container)
+
+    public function __construct(Container $container)
     {
         $this->container = $container;
     }
@@ -27,11 +28,12 @@ abstract class AbstractController
 
         return $result->getResponse($response);
     }
-    
+
     /**
      * the action process the Request
      * @param ServerRequestInterface $request
+     * @param array $args
      * @return ControllerResultInterface
      */
-    abstract protected function action(ServerRequestInterface $request, array $args);
+    abstract protected function action(ServerRequestInterface $request, array $args) : ControllerResultInterface;
 }
