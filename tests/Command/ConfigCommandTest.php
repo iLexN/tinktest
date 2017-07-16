@@ -1,47 +1,45 @@
 <?php
 
-namespace Tests\Command;
+namespace Tink\Command;
 
-use PHPUnit\Framework\TestCase;
-use Symfony\Component\Console\Application;
-use Symfony\Component\Console\Tester\CommandTester;
-use Tink\Command\ConfigCommand;
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
 
-class ConfigCommandTest extends TestCase
+class ConfigCommand extends Command
 {
-    public function testPathNotExist()
+    const CONFIG_PATH = 'config/app-config.json';
+
+    protected function configure()
     {
-
-        $application = new Application();
-        $application->add(new ConfigCommand());
-
-        $command = $application->find('Config:Make');
-
-        $commandTester = new CommandTester($command);
-        $commandTester->execute(array(
-            'command' => $command->getName(),
-            'Path' => 'Sitepoint'
-        ));
-
-        $this->assertRegExp('/Your config path not exist/', $commandTester->getDisplay());
+        $this->setName("Config:Make")
+            ->setDescription("Make config")
+            ->addArgument('Path', InputArgument::REQUIRED, 'Config Path');
     }
 
-    public function testPathExist()
+    protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $path = $input->getArgument('Path');
 
-        $path = __DIR__.'/../../config/default';
+        if (\file_exists($path)) {
+            $output->writeln('Your config path: ' . $path);
 
-        $application = new Application();
-        $application->add(new ConfigCommand());
+            if (is_writable(self::CONFIG_PATH)) {
+                $this->makeConfig($path);
+                $output->writeln('Your config is: ' . self::CONFIG_PATH);
+            } else {
+                $output->writeln('Your config is not writable: ' . self::CONFIG_PATH);
+            }
+        } else {
+            $output->writeln('Your config path not exist');
+        }
+    }
 
-        $command = $application->find('Config:Make');
-
-        $commandTester = new CommandTester($command);
-        $commandTester->execute(array(
-            'command' => $command->getName(),
-            'Path' => $path,
-        ));
-
-        $this->assertRegExp('/Your config is: /', $commandTester->getDisplay());
+    private function makeConfig($path)
+    {
+        $conf = new \Noodlehaus\Config($path);
+        $settings = $conf->all();
+        \file_put_contents(self::CONFIG_PATH, json_encode($settings));
     }
 }
