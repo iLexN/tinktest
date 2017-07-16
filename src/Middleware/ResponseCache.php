@@ -75,7 +75,7 @@ class ResponseCache
         $path = $request->getUri()->getPath();
         
         if ($path === '/') {
-            return 'frontpage';
+            return '/frontpage';
         }
         
         return $path;

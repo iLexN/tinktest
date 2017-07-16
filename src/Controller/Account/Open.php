@@ -31,7 +31,7 @@ class Open extends AbstractController
         $validator = $accountModule->validator((array) $request->getParsedBody());
 
         if (!$validator->validate()) {
-            return new JsonResponse(false, $validator->errors());
+            return new JsonResponse($validator->errors());
         }
 
         /** todo add validator */
@@ -48,7 +48,7 @@ class Open extends AbstractController
 
         $out = ['data'=>$ac->toArray(), 'status'=>'success'];
 
-        return new JsonResponse(true, $out);
+        return new JsonResponse($out);
     }
 
     /**

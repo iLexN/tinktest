@@ -26,6 +26,6 @@ class Info extends AbstractController
         $acInfo = $this->container['ac'];
         $out = ['data'=>$acInfo->toArray(), 'status'=>'success'];
 
-        return new JsonResponse(true, $out);
+        return new JsonResponse($out);
     }
 }

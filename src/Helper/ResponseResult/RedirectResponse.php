@@ -11,41 +11,24 @@ use Psr\Http\Message\ResponseInterface;
 class RedirectResponse implements ResponseResultInterface
 {
     /**
-     * @var bool
+     * @var int
      */
-    private $status;
+    private $code;
 
     /**
      * @var string
      */
-    private $msg;
+    private $location;
 
     /**
      * RedirectResponse constructor.
-     * @param bool $status
-     * @param string $msg redirect path
+     * @param int $code
+     * @param string $location
      */
-    public function __construct(bool $status, $msg)
+    public function __construct($code, $location)
     {
-        $this->status = $status;
-        $this->msg = $msg;
-    }
-
-    /**
-     * get the response status
-     * @return bool
-     */
-    public function getStatus(): bool
-    {
-        return $this->status;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getOutput()
-    {
-        return $this->msg;
+        $this->code = $code;
+        $this->location = $location;
     }
 
     /**
@@ -56,6 +39,6 @@ class RedirectResponse implements ResponseResultInterface
      */
     public function getResponse(ResponseInterface $response): ResponseInterface
     {
-        return $response->withStatus(301)->withHeader('Location', $this->msg);
+        return $response->withStatus($this->code)->withHeader('Location', $this->location);
     }
 }

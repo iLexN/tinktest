@@ -32,11 +32,11 @@ class WithDraw extends AbstractController
         $validator = $history->validator((array)$request->getParsedBody());
 
         if (!$validator->validate()) {
-            return new JsonResponse(false, $validator->errors());
+            return new JsonResponse($validator->errors());
         }
 
         if ($args['action'] === 'withdraw' && !$acInfo->checkWithDraw($validator->data()['amount'])) {
-            return new JsonResponse(false, ['status' => 'draw money more than balance']);
+            return new JsonResponse(['status' => 'draw money more than balance']);
         }
 
         /** @var AccountModule $accountModule */
@@ -45,6 +45,6 @@ class WithDraw extends AbstractController
 
         $out = ['data'=>$acInfo->toArray(), 'status'=>'success'];
 
-        return new JsonResponse(true, $out);
+        return new JsonResponse($out);
     }
 }

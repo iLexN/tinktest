@@ -31,7 +31,7 @@ class CheckAccount
 
         $ac = $this->container['accountModule']->getAcInfo($arguments['id']);
         if ($ac === null) {
-            $result = new JsonResponse(\false, ['status' => 'account not exists']);
+            $result = new JsonResponse(['status' => 'account not exists']);
             return $result->getResponse($response);
         }
 

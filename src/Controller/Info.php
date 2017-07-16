@@ -16,8 +16,8 @@ class Info extends AbstractController
     public function action(ServerRequestInterface $request, array $args): ResponseResultInterface
     {
         //todo: Find rount from db
-        $out = ['data'=>'a','status'=>'success'];
+        //$out = ['data'=>'a','status'=>'success'];
 
-        return new NotFountResponse(true, $out, $request);
+        return new NotFountResponse($request);
     }
 }

@@ -9,30 +9,15 @@ use Psr\Http\Message\ResponseInterface;
  */
 class JsonResponse implements ResponseResultInterface
 {
-    /**
-     * @var bool
-     */
-    private $status;
-
     private $msg;
 
     /**
      * Response Result constructor.
-     * @param bool $status
      * @param mixed $msg
      */
-    public function __construct(bool $status, $msg)
+    public function __construct($msg)
     {
-        $this->status = $status;
         $this->msg = $msg;
-    }
-
-    /**
-     * @return bool
-     */
-    public function getStatus() : bool
-    {
-        return $this->status;
     }
 
     /**
@@ -42,17 +27,9 @@ class JsonResponse implements ResponseResultInterface
      */
     public function getResponse(ResponseInterface $response) : ResponseInterface
     {
-        $response->getBody()->write(\json_encode($this->getOutput()));
+        $response->getBody()->write(\json_encode($this->msg));
         $response = $response->withHeader('Content-type', 'application/json');
 
         return $response;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getOutput()
-    {
-        return $this->msg;
     }
 }

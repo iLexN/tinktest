@@ -6,6 +6,6 @@ return [
         'database' => 'tink',
         'user'     => 'root',
         'password' => '',
-        'logging'  => false,
+        'logging'  => true,
     ],
 ];

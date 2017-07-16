@@ -29,6 +29,6 @@ class Close extends AbstractController
         
         $out = ['status'=>'success'];
 
-        return new JsonResponse(true, $out);
+        return new JsonResponse($out);
     }
 }

@@ -12,44 +12,17 @@ use Slim\Exception\NotFoundException;
 class NotFountResponse implements ResponseResultInterface
 {
     /**
-     * @var bool
-     */
-    private $status;
-
-    private $msg;
-
-    /**
      * @var ServerRequestInterface
      */
     private $request;
 
     /**
      * Response Result constructor.
-     * @param bool $status
-     * @param $msg
      * @param ServerRequestInterface $request
      */
-    public function __construct(bool $status, $msg, ServerRequestInterface$request)
+    public function __construct($request)
     {
-        $this->status = $status;
-        $this->msg = $msg;
         $this->request = $request;
-    }
-
-    /**
-     * @return bool
-     */
-    public function getStatus() : bool
-    {
-        return $this->status;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getOutput()
-    {
-        return $this->msg;
     }
 
     /**

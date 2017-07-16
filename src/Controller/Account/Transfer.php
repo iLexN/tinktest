@@ -32,14 +32,14 @@ class Transfer extends AbstractController
         $toAcc = $accountModule->getAcInfo($args['toid']);
 
         if ($toAcc === null) {
-            return new JsonResponse(false, ['status' => 'transfer to account not exists']);
+            return new JsonResponse(['status' => 'transfer to account not exists']);
         }
 
         /* @var $history \Tink\Module\HistoryModule */
         $history = $this->container['historyModule'];
         $validator = $history->validator((array)$request->getParsedBody());
         if (!$validator->validate()) {
-            return new JsonResponse(false, $validator->errors());
+            return new JsonResponse($validator->errors());
         }
 
         /** @var BuildTransfer $buildTransfer */
@@ -49,13 +49,13 @@ class Transfer extends AbstractController
         $result = $transfer->canTransfer();
 
         if (!$result->getStatus()) {
-            return new JsonResponse(false, ['status' => $result->getMsg()]);
+            return new JsonResponse(['status' => $result->getMsg()]);
         }
 
         //do transfer
         $transfer->transfer($accountModule);
 
         $out = ['data'=>$fromAcc->toArray(), 'status'=>'success'];
-        return new JsonResponse(true, $out);
+        return new JsonResponse($out);
     }
 }
