@@ -5,6 +5,7 @@ namespace Tink\Middleware;
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Slim\Container;
 
 /**
  * logs sql.
@@ -21,7 +22,7 @@ class DBLog
      */
     protected $capsule;
 
-    public function __construct(\Slim\Container $container, Capsule $capsule)
+    public function __construct(Container $container, Capsule $capsule)
     {
         $this->c = $container;
         $this->capsule = $capsule;

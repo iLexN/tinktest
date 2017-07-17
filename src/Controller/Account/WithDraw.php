@@ -2,26 +2,41 @@
 
 namespace Tink\Controller\Account;
 
-use Tink\Module\AccountModule;
-use Tink\Controller\AbstractController;
-use Tink\Controller\ControllerResult;
 use Psr\Http\Message\ServerRequestInterface;
+use Tink\Controller\AbstractController;
+use Tink\Helper\ResponseResult\JsonResponse;
+use Tink\Helper\ResponseResult\ResponseResultInterface;
+use Tink\Model\Account;
+use Tink\Module\AccountModule;
+use Tink\Module\HistoryModule;
 
+/**
+ * Class WithDraw
+ * @package Tink\Controller\Account
+ */
 class WithDraw extends AbstractController
 {
-    public function action(ServerRequestInterface $request, array $args)
+    /**
+     * with draw action
+     * @param ServerRequestInterface $request
+     * @param array $args
+     * @return ResponseResultInterface
+     */
+    public function action(ServerRequestInterface $request, array $args): ResponseResultInterface
     {
+        /** @var Account $acInfo */
         $acInfo = $this->container['ac'];
 
+        /** @var HistoryModule $history */
         $history = $this->container['historyModule'];
         $validator = $history->validator((array)$request->getParsedBody());
 
         if (!$validator->validate()) {
-            return new ControllerResult(false, $validator->errors());
+            return new JsonResponse($validator->errors());
         }
 
         if ($args['action'] === 'withdraw' && !$acInfo->checkWithDraw($validator->data()['amount'])) {
-            return new ControllerResult(false, ['status'=>'draw money more than balance']);
+            return new JsonResponse(['status' => 'draw money more than balance']);
         }
 
         /** @var AccountModule $accountModule */
@@ -29,7 +44,7 @@ class WithDraw extends AbstractController
         $accountModule->amountChange($validator->data(), $args['action'], $acInfo);
 
         $out = ['data'=>$acInfo->toArray(), 'status'=>'success'];
-        
-        return new ControllerResult(true, $out);
+
+        return new JsonResponse($out);
     }
 }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="index, follow, all" />
-    <title>Tink\Controller\ControllerResult | API</title>
+    <title>Tink\Controller\Info | API</title>
 
             <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
@@ -19,7 +19,7 @@
     
     </head>
 
-    <body id="class" data-name="class:Tink_Controller_ControllerResult" data-root-path="../../">
+    <body id="class" data-name="class:Tink_Controller_Info" data-root-path="../../">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
@@ -66,31 +66,41 @@
                         <div class="namespace-breadcrumbs">
             <ol class="breadcrumb">
                 <li><span class="label label-default">class</span></li>
-                        <li><a href="../../Tink.html">Tink</a></li><li class="backslash">\</li><li><a href="../../Tink/Controller.html">Controller</a></li><li class="backslash">\</li><li>ControllerResult</li>
+                        <li><a href="../../Tink.html">Tink</a></li><li class="backslash">\</li><li><a href="../../Tink/Controller.html">Controller</a></li><li class="backslash">\</li><li>Info</li>
             </ol>
         </div>
                 <div id="page-content">
                 
     <div class="page-header">
         <h1>
-            ControllerResult
+            Info
                 
         </h1>
     </div>
 
     <p>    class
-    <strong>ControllerResult</strong>        implements
-        <a href="../../Tink/Controller/ControllerResultInterface.html"><abbr title="Tink\Controller\ControllerResultInterface">ControllerResultInterface</abbr></a>
+    <strong>Info</strong>        extends <a href="../../Tink/Controller/AbstractController.html"><abbr title="Tink\Controller\AbstractController">AbstractController</abbr></a>
 </p>
 
         
     
 
-            <div class="description">
-            <p>Class Response Result</p>                                </div>
     
     
     
+            <h2>Properties</h2>
+
+            <table class="table table-condensed">
+                    <tr>
+                <td class="type" id="property_container">
+                                        protected                                        <abbr title="Slim\Container">Container</abbr>
+                </td>
+                <td>$container</td>
+                <td class="last"></td>
+                <td><small>from&nbsp;<a href="../../Tink/Controller/AbstractController.html#property_container"><abbr title="Tink\Controller\AbstractController">AbstractController</abbr></a></small></td>
+            </tr>
+            </table>
+
     
             <h2>Methods</h2>
 
@@ -100,41 +110,33 @@
                     
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method___construct">__construct</a>(bool $status, string $msg)
-        
-                                            <p>Response Result constructor.</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    bool
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_getStatus">getStatus</a>()
+                    <a href="#method___construct">__construct</a>(<abbr title="Slim\Container">Container</abbr> $container)
         
                                             <p class="no-description">No description</p>
                                     </div>
-                <div class="col-md-2"></div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Tink/Controller/AbstractController.html#method___construct"><abbr title="Tink\Controller\AbstractController">AbstractController</abbr></a></small></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_getOutput">getOutput</a>()
+                    <a href="#method___invoke">__invoke</a>(<abbr title="Psr\Http\Message\ServerRequestInterface">ServerRequestInterface</abbr> $request, <abbr title="Psr\Http\Message\ResponseInterface">ResponseInterface</abbr> $response, array $args)
         
                                             <p class="no-description">No description</p>
                                     </div>
-                <div class="col-md-2"></div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../Tink/Controller/AbstractController.html#method___invoke"><abbr title="Tink\Controller\AbstractController">AbstractController</abbr></a></small></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    <abbr title="Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>
+                    <a href="../../Tink/Helper/ResponseResult/ResponseResultInterface.html"><abbr
+                            title="Tink\Helper\ResponseResult\ResponseResultInterface">ResponseResultInterface</abbr></a>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_getResponse">getResponse</a>(<abbr title="Psr\Http\Message\ResponseInterface">ResponseInterface</abbr> $response)
+                    <a href="#method_action">action</a>(<abbr title="Psr\Http\Message\ServerRequestInterface">ServerRequestInterface</abbr> $request, array $args)
         
-                                            <p>Proccess the Response</p>                </div>
+                                            <p class="no-description">No description</p>
+                                    </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
@@ -145,29 +147,25 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         line 25</div>
+                        <div class="location">in <a
+                                href="../../Tink/Controller/AbstractController.html#method___construct"><abbr
+                                title="Tink\Controller\AbstractController">AbstractController</abbr></a> at line 20
+                        </div>
         <code>                    
-    <strong>__construct</strong>(bool $status, string $msg)
+    <strong>__construct</strong>(<abbr title="Slim\Container">Container</abbr> $container)
         </code>
     </h3>
     <div class="details">
             
     
 
-                    <div class="method-description">
-                                    <p>Response Result constructor.</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>bool</td>
-                <td>$status</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>string</td>
-                <td>$msg</td>
+                <td><abbr title="Slim\Container">Container</abbr></td>
+                <td>$container</td>
                 <td></td>
             </tr>
             </table>
@@ -180,74 +178,73 @@
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_getStatus">
-        <div class="location">at         line 34</div>
-        <code>                    bool
-    <strong>getStatus</strong>()
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                <div class="tags">
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td>bool</td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_getOutput">
-        <div class="location">at         line 39</div>
+                    <h3 id="method___invoke">
+                        <div class="location">in <a
+                                href="../../Tink/Controller/AbstractController.html#method___invoke"><abbr
+                                title="Tink\Controller\AbstractController">AbstractController</abbr></a> at line 25
+                        </div>
         <code>                    
-    <strong>getOutput</strong>()
+    <strong>__invoke</strong>(<abbr title="Psr\Http\Message\ServerRequestInterface">ServerRequestInterface</abbr> $request, <abbr title="Psr\Http\Message\ResponseInterface">ResponseInterface</abbr> $response, array $args)
         </code>
     </h3>
     <div class="details">
             
     
 
-                <div class="tags">
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_getResponse">
-        <div class="location">at         line 49</div>
-        <code>                    <abbr title="Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>
-    <strong>getResponse</strong>(<abbr title="Psr\Http\Message\ResponseInterface">ResponseInterface</abbr> $response)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Proccess the Response</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Psr\Http\Message\ServerRequestInterface">ServerRequestInterface</abbr></td>
+                <td>$request</td>
+                <td></td>
+            </tr>
                     <tr>
                 <td><abbr title="Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></td>
                 <td>$response</td>
                 <td></td>
             </tr>
+                    <tr>
+                <td>array</td>
+                <td>$args</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_action">
+                        <div class="location">at line 16</div>
+                        <code> <a href="../../Tink/Helper/ResponseResult/ResponseResultInterface.html"><abbr
+                                title="Tink\Helper\ResponseResult\ResponseResultInterface">ResponseResultInterface</abbr></a>
+    <strong>action</strong>(<abbr title="Psr\Http\Message\ServerRequestInterface">ServerRequestInterface</abbr> $request, array $args)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Psr\Http\Message\ServerRequestInterface">ServerRequestInterface</abbr></td>
+                <td>$request</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$args</td>
+                <td></td>
+            </tr>
             </table>
 
             
@@ -255,7 +252,8 @@
 
                     <table class="table table-condensed">
         <tr>
-            <td><abbr title="Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></td>
+            <td><a href="../../Tink/Helper/ResponseResult/ResponseResultInterface.html"><abbr
+                    title="Tink\Helper\ResponseResult\ResponseResultInterface">ResponseResultInterface</abbr></a></td>
             <td></td>
         </tr>
     </table>

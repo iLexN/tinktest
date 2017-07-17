@@ -1,6 +1,6 @@
 <?php
 
-$container = $app->getContainer();
+
 
 // monolog
 $container['logger'] = function (\Slim\Container $c) {

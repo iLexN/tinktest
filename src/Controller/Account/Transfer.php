@@ -4,48 +4,58 @@ namespace Tink\Controller\Account;
 
 use Psr\Http\Message\ServerRequestInterface;
 use Tink\Controller\AbstractController;
-use Tink\Controller\ControllerResult;
+use Tink\Helper\ResponseResult\JsonResponse;
+use Tink\Helper\ResponseResult\ResponseResultInterface;
+use Tink\Model\Account;
+use Tink\Module\Transfer\BuildTransfer;
 
+/**
+ * Class Transfer : POST
+ * @package Tink\Controller\Account
+ */
 class Transfer extends AbstractController
 {
-    public function action(ServerRequestInterface $request, array $args)
+    /**
+     * Transfer one ac to other other
+     * @param ServerRequestInterface $request
+     * @param array $args
+     * @return ResponseResultInterface
+     */
+    public function action(ServerRequestInterface $request, array $args): ResponseResultInterface
     {
         /* @var $accountModule \Tink\Module\AccountModule */
         $accountModule = $this->container['accountModule'];
 
-        /* @var $acInfo \Tink\Model\Account */
+        /** @var Account $fromAcc */
         $fromAcc = $this->container['ac'];
 
         $toAcc = $accountModule->getAcInfo($args['toid']);
 
         if ($toAcc === null) {
-            return new ControllerResult(false, ['status'=>'transfer to account not exists']);
+            return new JsonResponse(['status' => 'transfer to account not exists']);
         }
 
         /* @var $history \Tink\Module\HistoryModule */
         $history = $this->container['historyModule'];
         $validator = $history->validator((array)$request->getParsedBody());
         if (!$validator->validate()) {
-            return new ControllerResult(false, $validator->errors());
+            return new JsonResponse($validator->errors());
         }
 
-        /* @var $buildTransfer \Tink\Module\Transfer\BuildTransfer */
+        /** @var BuildTransfer $buildTransfer */
         $buildTransfer = $this->container['buildTransfer'];
-
-        /* @var $transfer \Tink\Module\Transfer\TransferOwnerInterface */
         $transfer = $buildTransfer->create($fromAcc, $toAcc, $validator->data());
 
-        /** @var \Tink\Module\Transfer\TransferResultInterface $result */
         $result = $transfer->canTransfer();
 
         if (!$result->getStatus()) {
-            return new ControllerResult(false, ['status' => $result->getMsg()]);
+            return new JsonResponse(['status' => $result->getMsg()]);
         }
 
         //do transfer
         $transfer->transfer($accountModule);
 
         $out = ['data'=>$fromAcc->toArray(), 'status'=>'success'];
-        return new ControllerResult(true, $out);
+        return new JsonResponse($out);
     }
 }

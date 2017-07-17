@@ -1,18 +1,9 @@
 <?php
 
-/**
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 namespace Tink\Module\Transfer\Rule;
 
-/**
- * Description of RuleWithDrawAmount.
- *
- * @author user
- */
+use Tink\Model\Account;
+
 class RuleWithDrawAmount implements RuleInterface
 {
     //put your code here
@@ -20,6 +11,11 @@ class RuleWithDrawAmount implements RuleInterface
     protected $from;
     protected $data;
 
+    /**
+     * RuleWithDrawAmount constructor.
+     * @param Account $from
+     * @param array $data
+     */
     public function __construct($from, $data)
     {
         $this->from = $from;

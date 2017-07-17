@@ -2,6 +2,7 @@
 
 namespace Tink\Module;
 
+use Slim\Container;
 use Tink\Model\Owner;
 
 /**
@@ -16,7 +17,7 @@ class OwnerModule
      */
     public $container;
 
-    public function __construct(\Slim\Container $container)
+    public function __construct(Container $container)
     {
         $this->container = $container;
     }

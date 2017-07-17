@@ -2,6 +2,7 @@
 
 namespace Tink\Module;
 
+use Slim\Container;
 use Tink\Model\History;
 use Valitron\Validator;
 
@@ -17,7 +18,7 @@ class HistoryModule
      */
     public $container;
 
-    public function __construct(\Slim\Container $container)
+    public function __construct(Container $container)
     {
         $this->container = $container;
     }

@@ -1,19 +1,11 @@
 <?php
 
-namespace Tink\Controller;
+namespace Tink\Helper\ResponseResult;
 
 use Psr\Http\Message\ResponseInterface;
 
-interface ControllerResultInterface
+interface ResponseResultInterface
 {
-    /**
-     * get the response status
-     * @return bool
-     */
-    public function getStatus(): bool;
-
-    public function getOutput();
-    
     /**
      * Proccess the Response
      * @param ResponseInterface $response
