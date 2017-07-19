@@ -3,19 +3,16 @@
 namespace Tink\Middleware;
 
 use PSR\Cache\CacheItemInterface;
+use Psr\Container\ContainerInterface as Container;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Slim\Container;
 use Stash\Pool;
 
 /**
- * logs sql.
+ * Cache Response.
  */
 class ResponseCache
 {
-    /**
-     * @var \Slim\Container
-     */
     protected $container;
 
     /**

@@ -2,7 +2,7 @@
 
 namespace Tink\Module;
 
-use Slim\Container;
+use Psr\Container\ContainerInterface as Container;
 use Tink\Model\Owner;
 
 /**
@@ -12,9 +12,6 @@ use Tink\Model\Owner;
  */
 class OwnerModule
 {
-    /**
-     * @var \Slim\Container
-     */
     public $container;
 
     public function __construct(Container $container)

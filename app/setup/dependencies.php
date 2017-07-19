@@ -1,7 +1,5 @@
 <?php
 
-
-
 // monolog
 $container['logger'] = function (\Slim\Container $c) {
     $settings = $c->get('logConfig');
@@ -62,4 +60,12 @@ $container['historyModule'] = function (\Slim\Container $c) {
 
 $container['buildTransfer'] = function (\Slim\Container $c) {
     return new \Tink\Module\Transfer\BuildTransfer($c);
+};
+
+$container['pageModule'] = function (\Slim\Container $c) {
+    return new \Tink\Module\PageModule($c);
+};
+
+$container['widgetManager'] = function (\Slim\Container $c) {
+    return new \Tink\Module\WidgetManager($c);
 };

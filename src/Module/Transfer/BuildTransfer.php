@@ -2,7 +2,7 @@
 
 namespace Tink\Module\Transfer;
 
-use Slim\Container;
+use Psr\Container\ContainerInterface as Container;
 use Tink\Model\Account;
 use Tink\Module\Transfer\Rule\BuildRulesArray as BuildRule;
 
@@ -12,7 +12,7 @@ use Tink\Module\Transfer\Rule\BuildRulesArray as BuildRule;
 class BuildTransfer
 {
     /**
-     * @var \Slim\Container
+     * @var Container
      */
     public $container;
 

@@ -2,7 +2,7 @@
 
 namespace Tink\Module\Transfer;
 
-use Slim\Container;
+use Psr\Container\ContainerInterface as Container;
 use Tink\Model\Account;
 
 /**
@@ -10,9 +10,6 @@ use Tink\Model\Account;
  */
 class Transfer
 {
-    /**
-     * @var \Slim\Container
-     */
     public $container;
 
     /**

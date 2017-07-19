@@ -2,7 +2,7 @@
 
 namespace Tink\Module;
 
-use Slim\Container;
+use Psr\Container\ContainerInterface as Container;
 use Tink\Model\History;
 use Valitron\Validator;
 
@@ -13,9 +13,6 @@ use Valitron\Validator;
  */
 class HistoryModule
 {
-    /**
-     * @var \Slim\Container
-     */
     public $container;
 
     public function __construct(Container $container)

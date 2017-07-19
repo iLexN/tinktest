@@ -3,18 +3,15 @@
 namespace Tink\Middleware;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
+use Psr\Container\ContainerInterface as Container;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Slim\Container;
 
 /**
  * logs sql.
  */
 class DBLog
 {
-    /**
-     * @var \Slim\Container
-     */
     protected $c;
 
     /**

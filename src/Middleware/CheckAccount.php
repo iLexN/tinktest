@@ -2,9 +2,9 @@
 
 namespace Tink\Middleware;
 
+use Psr\Container\ContainerInterface as Container;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Slim\Container;
 use Tink\Helper\ResponseResult\JsonResponse;
 
 /**
@@ -14,9 +14,7 @@ use Tink\Helper\ResponseResult\JsonResponse;
  */
 class CheckAccount
 {
-    /**
-     * @var \Slim\Container
-     */
+
     public $container;
 
     public function __construct(Container $container)

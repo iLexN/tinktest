@@ -2,6 +2,7 @@
 
 namespace Tink\Command;
 
+use Noodlehaus\Config;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -38,7 +39,7 @@ class ConfigCommand extends Command
 
     private function makeConfig($path)
     {
-        $conf = new \Noodlehaus\Config($path);
+        $conf = new Config($path);
         $settings = $conf->all();
         \file_put_contents(self::CONFIG_PATH, json_encode($settings));
     }

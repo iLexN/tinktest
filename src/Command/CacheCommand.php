@@ -2,6 +2,7 @@
 
 namespace Tink\Command;
 
+use Psr\Container\ContainerInterface as Container;
 use Stash\Pool;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -19,7 +20,7 @@ class CacheCommand extends Command
      */
     protected $pool;
 
-    public function __construct($container)
+    public function __construct(Container $container)
     {
         parent::__construct(null);
         $this->pool = $container['pool'];
@@ -39,11 +40,11 @@ class CacheCommand extends Command
 
         switch ($type) {
             case self::RESPONSE_CACHE:
-                $this->pool->deleteItem('/Response/*');
+                $this->pool->deleteItem('/Response/');
                 $output->writeln('Response Cache Clear');
                 break;
             case self::ACCOUNT_CACHE:
-                $this->pool->deleteItem('/Account/*');
+                $this->pool->deleteItem('/Account/');
                 $output->writeln('Account Cache Clear');
                 break;
             case self::MAINTENANCE_CACHE:

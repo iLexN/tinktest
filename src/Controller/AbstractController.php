@@ -2,9 +2,9 @@
 
 namespace Tink\Controller;
 
+use Psr\Container\ContainerInterface as Container;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Slim\Container;
 use Tink\Helper\ResponseResult\ResponseResultInterface;
 
 /**
