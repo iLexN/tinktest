@@ -6,6 +6,10 @@ use Psr\Container\ContainerInterface as Container;
 use Tink\Module\Widget\EachWidget\MainMenuWidget;
 use Tink\Module\Widget\EachWidget\MyInfoWidget;
 
+/**
+ * Class GlobalWidget - define and get the global widge
+ * @package Tink\Module\Widget
+ */
 class GlobalWidget
 {
     /**

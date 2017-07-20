@@ -2,6 +2,10 @@
 
 namespace Tink\Module\Widget\EachWidget;
 
+/**
+ * For content type = FrontPage
+ * @package Tink\Module\Widget\EachWidget
+ */
 class FrontPageWelcomeWidget
 {
     public function __construct()

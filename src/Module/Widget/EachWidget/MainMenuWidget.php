@@ -5,6 +5,10 @@ namespace Tink\Module\Widget\EachWidget;
 use Psr\Container\ContainerInterface as Container;
 use Tink\Module\PageModule;
 
+/**
+ * Main Menu Widget for global
+ * @package Tink\Module\Widget\EachWidget
+ */
 class MainMenuWidget
 {
     /**

@@ -2,6 +2,10 @@
 
 namespace Tink\Module\Widget\EachWidget;
 
+/**
+ * Info Widget, no need di container
+ * @package Tink\Module\Widget\EachWidget
+ */
 class MyInfoWidget
 {
 
