@@ -38,17 +38,16 @@ class Info extends AbstractController
             return new NotFountResponse($request);
         }
     }
-  /*
-      private function getPageInfo(Page $page)
-      {
-          $out = [
-              'pageInfo'=>$page,
-              'pageField'=>$page->getFields()->get()->keyBy('field_name')
-          ];
 
-          $out['Widget'] = $this->container['widgetManager']->getWidget($page);
+    private function getPageInfo(Page $page)
+    {
+        $out = [
+            'pageInfo'=>$page,
+            'pageField'=>$page->getFields()->get()->keyBy('field_name')
+        ];
 
-          return $out;
-      }
-  */
+        $out['Widget'] = $this->container['widgetManager']->getWidget($page);
+
+        return $out;
+    }
 }
