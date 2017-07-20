@@ -14,6 +14,7 @@ before_script:
   - mysql -e 'create database tink;'
   - mysql tink < db/tinktest.sql
   - mkdir cache && mkdir cache/data
+  - vendoor/bin/phinx seed:run
  
 script:
   - if [[ "$TRAVIS_PHP_VERSION" == '7.0' ]]; then mkdir -p build/logs && vendor/bin/phpunit --coverage-clover build/logs/clover.xml ; fi
