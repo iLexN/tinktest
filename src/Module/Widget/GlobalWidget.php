@@ -21,7 +21,7 @@ class GlobalWidget
     public function getWidget() : array
     {
         $mainMenu = new MainMenuWidget($this->container);
-        $info = new MyInfoWidget($this->container);
+        $info = new MyInfoWidget();
         return [
             'main_menu' => $mainMenu->getWeightData(),
             'my_info' => $info->getWeightData()

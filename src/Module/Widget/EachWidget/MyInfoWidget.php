@@ -2,18 +2,11 @@
 
 namespace Tink\Module\Widget\EachWidget;
 
-use Psr\Container\ContainerInterface as Container;
-
 class MyInfoWidget
 {
-    /**
-     * @var Container
-     */
-    public $container;
 
-    public function __construct(Container $container)
+    public function __construct()
     {
-        $this->container = $container;
     }
 
     public function getWeightData() : array

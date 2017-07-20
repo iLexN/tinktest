@@ -19,6 +19,9 @@ use Illuminate\Database\Eloquent\Model as Model;
  * @property string $type content type
  * @property string $content_type content type
  * @property string $uri url
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property mixed $fields
  */
 class Page extends Model
 {
@@ -34,8 +37,8 @@ class Page extends Model
      * GET ALL field
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function getFields()
+    public function fields()
     {
-        return $this->hasMany(__NAMESPACE__.'\PageField');
+        return $this->hasMany(__NAMESPACE__.'\PageField')->get()->keyBy('field_name');
     }
 }

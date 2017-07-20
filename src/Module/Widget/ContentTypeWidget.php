@@ -6,6 +6,10 @@ use Psr\Container\ContainerInterface as Container;
 use Tink\Model\Page;
 use Tink\Module\Widget\EachWidget\FrontPageWelcomeWidget;
 
+/**
+ * Class ContentTypeWidget
+ * @package Tink\Module\Widget
+ */
 class ContentTypeWidget
 {
     /**
@@ -13,19 +17,24 @@ class ContentTypeWidget
      */
     public $container;
 
-    public function __construct(Container $container)
+    public $page;
+
+    protected $request;
+
+    public function __construct(Container $container, Page $page , $request)
     {
         $this->container = $container;
+        $this->page = $page;
+        $this->request = $request;
     }
 
-    public function getWidget(Page $page) : array
+    public function getWidget() : array
     {
-        switch ($page->content_type) {
+        switch ($this->page->content_type) {
             case Page::TYPE_PAGE:
-                return $this->getFrontPageWidget();
-
-            case Page::TYPE_FRONTPAGE:
                 return [];
+            case Page::TYPE_FRONTPAGE:
+                return $this->getFrontPageWidget();
             default:
                 return [];
         }
@@ -33,7 +42,7 @@ class ContentTypeWidget
 
     private function getFrontPageWidget() : array
     {
-        $frontWelcome = new FrontPageWelcomeWidget($this->container);
+        $frontWelcome = new FrontPageWelcomeWidget();
         return [
             'front_welcome' => $frontWelcome->getWeightData(),
         ];

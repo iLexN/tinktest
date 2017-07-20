@@ -2,20 +2,15 @@
 
 namespace Tink\Module\Widget\EachWidget;
 
-use Psr\Container\ContainerInterface as Container;
-
 class FrontPageWelcomeWidget
 {
-    /**
-     * @var Container
-     */
-    public $container;
-
-    public function __construct(Container $container)
+    public function __construct()
     {
-        $this->container = $container;
     }
 
+    /**
+     * @return array
+     */
     public function getWeightData() : array
     {
         return [

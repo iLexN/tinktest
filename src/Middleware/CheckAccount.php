@@ -14,7 +14,6 @@ use Tink\Helper\ResponseResult\JsonResponse;
  */
 class CheckAccount
 {
-
     public $container;
 
     public function __construct(Container $container)

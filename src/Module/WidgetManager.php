@@ -19,13 +19,13 @@ class WidgetManager
         $this->container = $container;
     }
 
-    public function getWidget(Page $page) : array
+    public function getWidget(Page $page, $request) : array
     {
-        $global = new GlobalWidget($this->container);
-        $type = new ContentTypeWidget($this->container);
+        $global = new GlobalWidget($this->container, $request);
+        $type = new ContentTypeWidget($this->container, $page , $request);
         return [
             'global' => $global->getWidget(),
-            'type' => $type->getWidget($page),
+            'type' => $type->getWidget(),
         ];
     }
 }

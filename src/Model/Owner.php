@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Model as Model;
  *
  * @property int $id
  * @property string $status
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
  */
 class Owner extends Model
 {

@@ -12,6 +12,8 @@ use Illuminate\Database\Eloquent\Model as Model;
  * @property string $field_name field name
  * @property string $field_value field value
  * @property string $field_type field type : PlanText,HTML,InterLink
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
  */
 class PageField extends Model
 {
