@@ -37,9 +37,7 @@ class ResponseCache
      */
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, $next)
     {
-        $route = $request->getAttribute('route');
-
-        $method = $route === null ? [] : $route->getMethods();
+        $method = $this->getMethod($request);
 
         $item = $this->pool->getItem('/Response'.$this->getCacheKey($request));
 
@@ -54,13 +52,24 @@ class ResponseCache
         /** @var ResponseInterface $response */
         $response = $next($request, $response);
 
-        if (!$this->hasCache($method, $item) && $response->getStatusCode() === 200) {
+        if ($this->needMakeCache($method, $item, $response)) {
             $item->set([( string)$response->getBody(),$response->getHeader('Content-type')]);
             $item->expiresAfter(3600/12);
             $this->pool->save($item);
         }
 
         return $response;
+    }
+
+    private function getMethod(ServerRequestInterface $request)
+    {
+        $route = $request->getAttribute('route');
+        return ($route === null) ? [] : $route->getMethods();
+    }
+
+    private function needMakeCache($method, $item, $response)
+    {
+        return !$this->hasCache($method, $item) && $response->getStatusCode() === 200;
     }
 
     /**
