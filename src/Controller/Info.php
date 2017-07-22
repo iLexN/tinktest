@@ -3,8 +3,12 @@
 namespace Tink\Controller;
 
 use Psr\Http\Message\ServerRequestInterface;
+use Psr\Log\LoggerInterface;
+use Tink\Helper\ResponseResult\JsonResponse;
 use Tink\Helper\ResponseResult\NotFountResponse;
 use Tink\Helper\ResponseResult\ResponseResultInterface;
+use Tink\Model\Page;
+use Tink\Module\PageModule;
 
 class Info extends AbstractController
 {
@@ -15,9 +19,36 @@ class Info extends AbstractController
      */
     public function action(ServerRequestInterface $request, array $args): ResponseResultInterface
     {
-        //todo: Find rount from db
-        //$out = ['data'=>'a','status'=>'success'];
+        $uri = $request->getUri()->getPath();
 
-        return new NotFountResponse($request);
+        /** @var LoggerInterface $logger */
+        $logger = $this->container['logger'];
+        $logger->info('uri', [$uri]);
+
+        /** @var PageModule $pageModule */
+        $pageModule = $this->container['pageModule'];
+        /** @var Page $page */
+        $page = $pageModule->getPageByUri($uri);
+
+        if ($page) {
+            $logger->info('pageinfo', $page->toArray());
+            $out = $this->getPageInfo($pageModule, $page, $request);
+            return new JsonResponse($out);
+        } else {
+            return new NotFountResponse($request);
+        }
+    }
+
+    private function getPageInfo(PageModule $pageModule, Page $page, $request)
+    {
+        $out = [
+            'pageInfo'=>$page->makeHidden('fields'),
+            'pageField'=>$page->fields->groupby('field_name'),
+        ];
+        //all below will not change any page obj.
+
+        $out['widget'] = $pageModule->getPageWidget($page, $request);
+
+        return $out;
     }
 }

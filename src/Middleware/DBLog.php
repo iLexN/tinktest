@@ -3,18 +3,16 @@
 namespace Tink\Middleware;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
+use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Slim\Container;
 
 /**
  * logs sql.
  */
 class DBLog
 {
-    /**
-     * @var \Slim\Container
-     */
+    /** @var ContainerInterface  */
     protected $c;
 
     /**
@@ -22,7 +20,7 @@ class DBLog
      */
     protected $capsule;
 
-    public function __construct(Container $container, Capsule $capsule)
+    public function __construct(ContainerInterface $container, Capsule $capsule)
     {
         $this->c = $container;
         $this->capsule = $capsule;
@@ -37,16 +35,19 @@ class DBLog
      *
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, $next)
-    {
+    public function __invoke(
+        ServerRequestInterface $request,
+        ResponseInterface $response,
+        callable $next
+    ) : ResponseInterface {
         $response = $next($request, $response);
         $query = $this->capsule->getConnection()->getQueryLog();
         $this->c['logger']->info('query', $query);
-/*
-        $route = $request->getAttribute('route');
-        $this->c->logger->info('route method', $route->getMethods());
-        $this->c->logger->info('route name', [$route->getName()]);
-*/
+        /*
+                $route = $request->getAttribute('route');
+                $this->c->logger->info('route method', $route->getMethods());
+                $this->c->logger->info('route name', [$route->getName()]);
+        */
         return $response;
     }
 }

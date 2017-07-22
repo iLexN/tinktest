@@ -9,30 +9,30 @@ class RuleDailyLimit implements RuleInterface
 {
     const DAILY_LIMIT = 10000;
 
-
+    /** @var Account  */
     private $from;
+    /** @var array  */
     private $data;
-
 
     /**
      * RuleDailyLimit constructor.
      * @param Account $from
      * @param array $data
      */
-    public function __construct(Account $from, $data)
+    public function __construct(Account $from, array $data)
     {
         $this->from = $from;
         $this->data = $data;
     }
 
+
     /**
-     * @inheritdoc
      * @return bool
      */
     public function validate(): bool
     {
         $sum = $this->from->history()->where('created_at', 'like', date('Y-m-d').'%')
-                ->where('action', 'transferTo')->sum('amount');
+            ->where('action', 'transferTo')->sum('amount');
 
         return  ($sum + $this->data['amount']) <= self::DAILY_LIMIT;
     }

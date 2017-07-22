@@ -4,11 +4,15 @@ namespace Tink\Module\Transfer\Rule;
 
 use Tink\Model\Account;
 
+/**
+ * Class RuleWithDrawAmount
+ * @package Tink\Module\Transfer\Rule
+ */
 class RuleWithDrawAmount implements RuleInterface
 {
-    //put your code here
-
+    /** @var Account  */
     protected $from;
+    /** @var array  */
     protected $data;
 
     /**
@@ -16,12 +20,15 @@ class RuleWithDrawAmount implements RuleInterface
      * @param Account $from
      * @param array $data
      */
-    public function __construct($from, $data)
+    public function __construct(Account $from, array $data)
     {
         $this->from = $from;
         $this->data = $data;
     }
 
+    /**
+     * @return bool
+     */
     public function validate(): bool
     {
         if ($this->from->checkWithDraw($this->data['amount'])) {
@@ -31,6 +38,9 @@ class RuleWithDrawAmount implements RuleInterface
         return false;
     }
 
+    /**
+     * @return string
+     */
     public function getErrorMsg(): string
     {
         return 'not enough money to transfer';

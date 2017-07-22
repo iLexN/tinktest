@@ -1,7 +1,5 @@
 <?php
 
-
-
 // monolog
 $container['logger'] = function (\Slim\Container $c) {
     $settings = $c->get('logConfig');
@@ -30,12 +28,10 @@ $container['pool'] = function (\Slim\Container $c) {
 // rount handloer
 $container['notFoundHandler'] = function (\Slim\Container $c) {
     return function (\Slim\Http\Request $request, \Slim\Http\Response  $response) use ($c) {
-        $logInfo = [
-            'method' => $request->getMethod(),
-            'uri'    => (string) $request->getUri(),
-        ];
-        //$c['logger']->info('404', $logInfo);
-
+//        $c['logger']->info('404', [
+//        'method' => $request->getMethod(),
+//            'uri'    => (string) $request->getUri(),
+//        ]);
         return $response->write('404')->withStatus(404);
     };
 };
@@ -45,6 +41,16 @@ $container['errorHandler'] = function (\Slim\Container $c) {
         $c['logger']->error('e', (array) $exception);
 
         return $response->write($exception)->withStatus(500);
+    };
+};
+
+$container['phpErrorHandler'] = function (\Slim\Container $c) {
+    return function (\Slim\Http\Request $request, \Slim\Http\Response $response, $error) use ($c) {
+        $c['logger']->error('e', (array) $error);
+
+        return $c['response']
+            ->withStatus(500)
+            ->write(print_r($error,1));
     };
 };
 
@@ -62,4 +68,12 @@ $container['historyModule'] = function (\Slim\Container $c) {
 
 $container['buildTransfer'] = function (\Slim\Container $c) {
     return new \Tink\Module\Transfer\BuildTransfer($c);
+};
+
+$container['pageModule'] = function (\Slim\Container $c) {
+    return new \Tink\Module\PageModule($c);
+};
+
+$container['widgetManager'] = function (\Slim\Container $c) {
+    return new \Tink\Module\WidgetManager($c);
 };

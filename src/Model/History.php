@@ -12,6 +12,8 @@ use Illuminate\Database\Eloquent\Model as Model;
  * @property string $action
  * @property float $amount
  * @property int $related_ac
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
  */
 class History extends Model
 {

@@ -2,7 +2,7 @@
 
 namespace Tink\Module;
 
-use Slim\Container;
+use Psr\Container\ContainerInterface;
 use Tink\Model\Owner;
 
 /**
@@ -12,12 +12,10 @@ use Tink\Model\Owner;
  */
 class OwnerModule
 {
-    /**
-     * @var \Slim\Container
-     */
+    /** @var ContainerInterface  */
     public $container;
 
-    public function __construct(Container $container)
+    public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
     }
@@ -31,7 +29,7 @@ class OwnerModule
     public function getOwnerInfo($id)
     {
         return Owner::where('id', $id)
-                ->where('status', 'Active')
-                ->first();
+            ->where('status', 'Active')
+            ->first();
     }
 }

@@ -2,6 +2,10 @@
 
 namespace Tink\Module\Transfer\Rule;
 
+/**
+ * Interface RuleInterface
+ * @package Tink\Module\Transfer\Rule
+ */
 interface RuleInterface
 {
     /**

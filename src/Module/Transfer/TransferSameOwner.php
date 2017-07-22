@@ -4,6 +4,10 @@ namespace Tink\Module\Transfer;
 
 use Tink\Module\AccountModule;
 
+/**
+ * Class TransferSameOwner
+ * @package Tink\Module\Transfer
+ */
 class TransferSameOwner extends Transfer implements TransferOwnerInterface
 {
     /**

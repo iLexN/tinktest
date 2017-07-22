@@ -2,7 +2,7 @@
 
 namespace Tink\Module;
 
-use Slim\Container;
+use Psr\Container\ContainerInterface;
 use Stash\Pool;
 use Tink\Model\Account;
 use Tink\Model\Owner;
@@ -14,9 +14,7 @@ use Valitron\Validator;
  */
 class AccountModule
 {
-    /**
-     * @var \Slim\Container
-     */
+    /** @var ContainerInterface  */
     protected $container;
 
     /**
@@ -24,7 +22,7 @@ class AccountModule
      */
     protected $pool;
 
-    public function __construct(Container $container)
+    public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
         $this->pool = $container['pool'];

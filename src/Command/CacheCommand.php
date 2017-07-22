@@ -2,12 +2,18 @@
 
 namespace Tink\Command;
 
+use Psr\Container\ContainerInterface;
 use Stash\Pool;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+/**
+ * Class CacheCommand
+ * Clear Cache Response|Account|All
+ * @package Tink\Command
+ */
 class CacheCommand extends Command
 {
     const RESPONSE_CACHE = 'Response';
@@ -19,12 +25,15 @@ class CacheCommand extends Command
      */
     protected $pool;
 
-    public function __construct($container)
+    /**
+     * CacheCommand constructor.
+     * @param ContainerInterface $container
+     */
+    public function __construct(ContainerInterface $container)
     {
         parent::__construct(null);
         $this->pool = $container['pool'];
     }
-
 
     protected function configure()
     {
@@ -33,17 +42,22 @@ class CacheCommand extends Command
             ->addArgument('Type', InputArgument::REQUIRED, 'Clear Cache Type');
     }
 
+    /**
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return void
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $type = $input->getArgument('Type');
 
         switch ($type) {
             case self::RESPONSE_CACHE:
-                $this->pool->deleteItem('/Response/*');
+                $this->pool->deleteItem('/Response/');
                 $output->writeln('Response Cache Clear');
                 break;
             case self::ACCOUNT_CACHE:
-                $this->pool->deleteItem('/Account/*');
+                $this->pool->deleteItem('/Account/');
                 $output->writeln('Account Cache Clear');
                 break;
             case self::MAINTENANCE_CACHE:

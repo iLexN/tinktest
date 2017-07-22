@@ -1,12 +1,8 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 namespace Tink\Module\Transfer\Rule;
+
+use Psr\Container\ContainerInterface;
 
 /**
  * Description of RuleWithDrawAmount.
@@ -15,18 +11,22 @@ namespace Tink\Module\Transfer\Rule;
  */
 class RuleApiApprove implements RuleInterface
 {
-    //put your code here
-
-    /**
-     * @var \Slim\Container
-     */
+    /** @var ContainerInterface  */
     public $container;
 
-    public function __construct($container)
+    /**
+     * RuleApiApprove constructor.
+     * @param ContainerInterface $container
+     */
+    public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
     }
 
+    /**
+     * Validate this rule - by api
+     * @return bool
+     */
     public function validate(): bool
     {
         /** @var \GuzzleHttp\Client $httpClient */
@@ -45,6 +45,10 @@ class RuleApiApprove implements RuleInterface
         return true;
     }
 
+    /**
+     * Get Error Message
+     * @return string
+     */
     public function getErrorMsg(): string
     {
         return 'not approve';

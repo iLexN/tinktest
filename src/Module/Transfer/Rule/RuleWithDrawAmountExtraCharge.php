@@ -17,6 +17,9 @@ use Tink\Module\Transfer\TransferOtherOwner;
  */
 class RuleWithDrawAmountExtraCharge extends RuleWithDrawAmount implements RuleInterface
 {
+    /**
+     * @return bool
+     */
     public function validate(): bool
     {
         $this->data['amount'] += TransferOtherOwner::CHARGE;
@@ -24,6 +27,9 @@ class RuleWithDrawAmountExtraCharge extends RuleWithDrawAmount implements RuleIn
         return parent::validate();
     }
 
+    /**
+     * @return string
+     */
     public function getErrorMsg(): string
     {
         return parent::getErrorMsg();

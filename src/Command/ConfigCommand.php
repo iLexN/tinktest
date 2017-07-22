@@ -2,11 +2,17 @@
 
 namespace Tink\Command;
 
+use Noodlehaus\Config;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+/**
+ * Class ConfigCommand
+ * Config:Make Path
+ * @package Tink\Command
+ */
 class ConfigCommand extends Command
 {
     const CONFIG_PATH = 'config/app-config.json';
@@ -38,7 +44,7 @@ class ConfigCommand extends Command
 
     private function makeConfig($path)
     {
-        $conf = new \Noodlehaus\Config($path);
+        $conf = new Config($path);
         $settings = $conf->all();
         \file_put_contents(self::CONFIG_PATH, json_encode($settings));
     }

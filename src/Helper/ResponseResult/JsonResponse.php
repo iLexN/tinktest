@@ -9,6 +9,7 @@ use Psr\Http\Message\ResponseInterface;
  */
 class JsonResponse implements ResponseResultInterface
 {
+    /** @var mixed  */
     private $msg;
 
     /**
@@ -27,7 +28,7 @@ class JsonResponse implements ResponseResultInterface
      */
     public function getResponse(ResponseInterface $response) : ResponseInterface
     {
-        $response->getBody()->write(\json_encode($this->msg));
+        $response->getBody()->write(\json_encode($this->msg, JSON_PRETTY_PRINT));
         $response = $response->withHeader('Content-type', 'application/json');
 
         return $response;

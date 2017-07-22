@@ -10,4 +10,3 @@ if ($dbSetting['logging']) {
 }
 
 $app->add(new \Tink\Middleware\ResponseCache($container));
-//$app->add(new \Tink\Middleware\AddJsonHeader($container));

@@ -12,14 +12,21 @@ use Illuminate\Database\Eloquent\Model as Model;
  * @property string $name account name
  * @property string $status account status,open/close
  * @property float $balance account money
+ * @property mixed $history
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
  */
 class Account extends Model
 {
     const AC_STATUS_ACTIVE = 'Active';
     const AC_STATUS_INACTIVE = 'inActive';
+    /** @var string  */
     protected $table = 'account';
+    /** @var string  */
     protected $primaryKey = 'id';
+    /** @var array  */
     protected $hidden = ['status', 'created_at', 'updated_at'];
+    /** @var array  */
     protected $casts = [
         'balance' => 'float',
     ];
@@ -33,7 +40,7 @@ class Account extends Model
      */
     public function checkWithDraw($money)
     {
-        return (float) $this->attributes['balance'] >= (float) $money;
+        return (float) $this->balance >= (float) $money;
     }
 
     /**
@@ -49,11 +56,11 @@ class Account extends Model
             case 'withdraw':
             case 'transferTo':
             case 'charge':
-                $this->attributes['balance'] = $this->attributes['balance'] - $money;
+                $this->balance = $this->balance - $money;
                 break;
             case 'deposit':
             case 'transferFrom':
-                $this->attributes['balance'] = $this->attributes['balance'] + $money;
+                $this->balance = $this->balance + $money;
                 break;
         }
     }
