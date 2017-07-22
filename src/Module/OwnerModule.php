@@ -2,7 +2,7 @@
 
 namespace Tink\Module;
 
-use Psr\Container\ContainerInterface as Container;
+use Psr\Container\ContainerInterface;
 use Tink\Model\Owner;
 
 /**
@@ -12,9 +12,10 @@ use Tink\Model\Owner;
  */
 class OwnerModule
 {
+    /** @var ContainerInterface  */
     public $container;
 
-    public function __construct(Container $container)
+    public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
     }

@@ -3,17 +3,16 @@
 namespace Tink\Module;
 
 use Illuminate\Support\Collection;
-use Psr\Container\ContainerInterface as Container;
+use Psr\Container\ContainerInterface;
+use Psr\Http\Message\ServerRequestInterface;
 use Tink\Model\Page;
 
 class PageModule
 {
-    /**
-     * @var Container
-     */
+    /** @var ContainerInterface  */
     public $container;
 
-    public function __construct(Container $container)
+    public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
     }
@@ -24,7 +23,7 @@ class PageModule
      */
     public function getPageByUri($uri)
     {
-        return Page::where('uri', $uri)
+        return Page::with('fields')->where('uri', $uri)
             ->first();
     }
 
@@ -41,5 +40,16 @@ class PageModule
         }
 
         return Page::select($fields)->find($id);
+    }
+
+    /**
+     * get All widget for this page
+     * @param Page $page
+     * @param ServerRequestInterface $request
+     * @return array
+     */
+    public function getPageWidget(Page $page, ServerRequestInterface $request) : array
+    {
+        return $this->container['widgetManager']->getWidgetByPage($page, $request);
     }
 }

@@ -32,22 +32,22 @@ class Info extends AbstractController
 
         if ($page) {
             $logger->info('pageinfo', $page->toArray());
-            $out = $this->getPageInfo($page, $request);
+            $out = $this->getPageInfo($pageModule, $page, $request);
             return new JsonResponse($out);
         } else {
             return new NotFountResponse($request);
         }
     }
 
-    private function getPageInfo(Page $page, $request)
+    private function getPageInfo(PageModule $pageModule, Page $page, $request)
     {
         $out = [
-            'pageInfo'=>$page,
-            'pageField'=>$page->fields(),
+            'pageInfo'=>$page->makeHidden('fields'),
+            'pageField'=>$page->fields->groupby('field_name'),
         ];
         //all below will not change any page obj.
-        $clonePage = clone $page;
-        $out['widget'] = $this->container['widgetManager']->getWidget($clonePage , $request);
+
+        $out['widget'] = $pageModule->getPageWidget($page, $request);
 
         return $out;
     }

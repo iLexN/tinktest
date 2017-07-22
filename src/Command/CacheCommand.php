@@ -2,13 +2,18 @@
 
 namespace Tink\Command;
 
-use Psr\Container\ContainerInterface as Container;
+use Psr\Container\ContainerInterface;
 use Stash\Pool;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+/**
+ * Class CacheCommand
+ * Clear Cache Response|Account|All
+ * @package Tink\Command
+ */
 class CacheCommand extends Command
 {
     const RESPONSE_CACHE = 'Response';
@@ -20,12 +25,15 @@ class CacheCommand extends Command
      */
     protected $pool;
 
-    public function __construct(Container $container)
+    /**
+     * CacheCommand constructor.
+     * @param ContainerInterface $container
+     */
+    public function __construct(ContainerInterface $container)
     {
         parent::__construct(null);
         $this->pool = $container['pool'];
     }
-
 
     protected function configure()
     {
@@ -34,6 +42,11 @@ class CacheCommand extends Command
             ->addArgument('Type', InputArgument::REQUIRED, 'Clear Cache Type');
     }
 
+    /**
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return void
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $type = $input->getArgument('Type');

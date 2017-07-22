@@ -8,6 +8,11 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+/**
+ * Class ConfigCommand
+ * Config:Make Path
+ * @package Tink\Command
+ */
 class ConfigCommand extends Command
 {
     const CONFIG_PATH = 'config/app-config.json';

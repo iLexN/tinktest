@@ -20,9 +20,13 @@ class Account extends Model
 {
     const AC_STATUS_ACTIVE = 'Active';
     const AC_STATUS_INACTIVE = 'inActive';
+    /** @var string  */
     protected $table = 'account';
+    /** @var string  */
     protected $primaryKey = 'id';
+    /** @var array  */
     protected $hidden = ['status', 'created_at', 'updated_at'];
+    /** @var array  */
     protected $casts = [
         'balance' => 'float',
     ];

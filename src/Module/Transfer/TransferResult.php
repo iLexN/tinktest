@@ -13,7 +13,7 @@ class TransferResult implements TransferResultInterface
     private $status;
 
     /**
-     * @var string
+     * @var string Error Msg
      */
     private $msg;
 

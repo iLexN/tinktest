@@ -8,11 +8,6 @@ namespace Tink\Module\Widget\EachWidget;
  */
 class MyInfoWidget
 {
-
-    public function __construct()
-    {
-    }
-
     public function getWeightData() : array
     {
         $out = [

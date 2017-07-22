@@ -2,7 +2,7 @@
 
 namespace Tink\Middleware;
 
-use Psr\Container\ContainerInterface as Container;
+use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Tink\Helper\ResponseResult\JsonResponse;
@@ -12,14 +12,21 @@ use Tink\Helper\ResponseResult\JsonResponse;
  */
 class CheckOwner
 {
+    /** @var ContainerInterface  */
     public $container;
 
-    public function __construct(Container $container)
+    public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
     }
 
-    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, $next)
+    /**
+     * @param ServerRequestInterface $request
+     * @param ResponseInterface $response
+     * @param callable $next
+     * @return ResponseInterface
+     */
+    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, callable $next)
     {
         $route = $request->getAttribute('route');
         $arguments = $route->getArguments();

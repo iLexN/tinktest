@@ -2,7 +2,7 @@
 
 namespace Tink\Module\Transfer;
 
-use Psr\Container\ContainerInterface as Container;
+use Psr\Container\ContainerInterface;
 use Tink\Model\Account;
 use Tink\Module\Transfer\Rule\BuildRulesArray as BuildRule;
 
@@ -12,11 +12,15 @@ use Tink\Module\Transfer\Rule\BuildRulesArray as BuildRule;
 class BuildTransfer
 {
     /**
-     * @var Container
+     * @var ContainerInterface
      */
     public $container;
 
-    public function __construct(Container $container)
+    /**
+     * BuildTransfer constructor.
+     * @param ContainerInterface $container
+     */
+    public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
     }
@@ -28,7 +32,7 @@ class BuildTransfer
      * @param array $data
      * @return \Tink\Module\Transfer\TransferOwnerInterface
      */
-    public function create(Account $from, Account $to, $data): TransferOwnerInterface
+    public function create(Account $from, Account $to, array $data): TransferOwnerInterface
     {
         $buildRule = new BuildRule($from, $data, $this->container);
 

@@ -2,7 +2,6 @@
 
 namespace Tink\Module\Widget;
 
-use Psr\Container\ContainerInterface as Container;
 use Tink\Module\Widget\EachWidget\MainMenuWidget;
 use Tink\Module\Widget\EachWidget\MyInfoWidget;
 
@@ -10,24 +9,17 @@ use Tink\Module\Widget\EachWidget\MyInfoWidget;
  * Class GlobalWidget - define and get the global widge
  * @package Tink\Module\Widget
  */
-class GlobalWidget
+class GlobalWidget extends AbstractWidget
 {
     /**
-     * @var Container
+     * all Goblal data define here
+     * @return array
      */
-    public $container;
-
-    public function __construct(Container $container)
-    {
-        $this->container = $container;
-    }
-
     public function getWidget() : array
     {
-        $mainMenu = new MainMenuWidget($this->container);
         $info = new MyInfoWidget();
         return [
-            'main_menu' => $mainMenu->getWeightData(),
+            'main_menu' => MainMenuWidget::getWeightData($this->container['pageModule']),
             'my_info' => $info->getWeightData()
         ];
     }

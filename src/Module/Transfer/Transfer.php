@@ -2,7 +2,7 @@
 
 namespace Tink\Module\Transfer;
 
-use Psr\Container\ContainerInterface as Container;
+use Psr\Container\ContainerInterface;
 use Tink\Model\Account;
 
 /**
@@ -10,7 +10,8 @@ use Tink\Model\Account;
  */
 class Transfer
 {
-    public $container;
+    /** @var ContainerInterface  */
+    protected $container;
 
     /**
      * @var Account
@@ -29,7 +30,7 @@ class Transfer
 
     protected $rules = [];
 
-    public function __construct(Container $container, Account $from, Account $to, $data, $rules = [])
+    public function __construct(ContainerInterface $container, Account $from, Account $to, $data, $rules = [])
     {
         $this->container = $container;
         $this->from = $from;

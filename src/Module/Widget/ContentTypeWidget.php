@@ -2,37 +2,24 @@
 
 namespace Tink\Module\Widget;
 
-use Psr\Container\ContainerInterface as Container;
 use Tink\Model\Page;
+use Tink\Module\Widget\EachWidget\ContactWidget;
 use Tink\Module\Widget\EachWidget\FrontPageWelcomeWidget;
 
 /**
  * Class ContentTypeWidget
  * @package Tink\Module\Widget
  */
-class ContentTypeWidget
+class ContentTypeWidget extends AbstractWidget
 {
     /**
-     * @var Container
+     * @return array
      */
-    public $container;
-
-    public $page;
-
-    protected $request;
-
-    public function __construct(Container $container, Page $page , $request)
-    {
-        $this->container = $container;
-        $this->page = $page;
-        $this->request = $request;
-    }
-
     public function getWidget() : array
     {
         switch ($this->page->content_type) {
             case Page::TYPE_PAGE:
-                return [];
+                return $this->getPageWidget();
             case Page::TYPE_FRONTPAGE:
                 return $this->getFrontPageWidget();
             default:
@@ -40,11 +27,26 @@ class ContentTypeWidget
         }
     }
 
+    /**
+     * All Front Page Widget
+     * @return array
+     */
     private function getFrontPageWidget() : array
     {
         $frontWelcome = new FrontPageWelcomeWidget();
         return [
             'front_welcome' => $frontWelcome->getWeightData(),
+        ];
+    }
+
+    /**
+     * All type = Page
+     * @return array
+     */
+    private function getPageWidget() : array
+    {
+        return [
+            'contact_me' => ContactWidget::getWeightData(),
         ];
     }
 }

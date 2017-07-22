@@ -2,7 +2,6 @@
 
 namespace Tink\Module\Widget\EachWidget;
 
-use Psr\Container\ContainerInterface as Container;
 use Tink\Module\PageModule;
 
 /**
@@ -11,22 +10,10 @@ use Tink\Module\PageModule;
  */
 class MainMenuWidget
 {
-    /**
-     * @var Container
-     */
-    public $container;
-
-    public function __construct(Container $container)
-    {
-        $this->container = $container;
-    }
-
-    public function getWeightData() : array
+    public static function getWeightData(PageModule $pageModule) : array
     {
         $ids = [1,2];
         $fields = ['id','title','uri'];
-        /** @var PageModule $pageModule */
-        $pageModule = $this->container['pageModule'];
         $pages = $pageModule->getPageByID($ids, $fields)->keyBy('id');
 
         $out = [];

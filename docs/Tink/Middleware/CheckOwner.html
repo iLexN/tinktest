@@ -95,7 +95,7 @@
             <table class="table table-condensed">
                     <tr>
                 <td class="type" id="property_container">
-                                                                                
+                                                                                <abbr title="Psr\Container\ContainerInterface">ContainerInterface</abbr>
                 </td>
                 <td>$container</td>
                 <td class="last"></td>
@@ -120,10 +120,10 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method___invoke">__invoke</a>(<abbr title="Psr\Http\Message\ServerRequestInterface">ServerRequestInterface</abbr> $request, <abbr title="Psr\Http\Message\ResponseInterface">ResponseInterface</abbr> $response, $next)
+                    <a href="#method___invoke">__invoke</a>(<abbr title="Psr\Http\Message\ServerRequestInterface">ServerRequestInterface</abbr> $request, <abbr title="Psr\Http\Message\ResponseInterface">ResponseInterface</abbr> $response, callable $next)
         
                                             <p class="no-description">No description</p>
                                     </div>
@@ -137,7 +137,7 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         line 17</div>
+        <div class="location">at         line 18</div>
         <code>                    
     <strong>__construct</strong>(<abbr title="Psr\Container\ContainerInterface">ContainerInterface</abbr> $container)
         </code>
@@ -166,9 +166,9 @@
             </div>
                     <div class="method-item">
                     <h3 id="method___invoke">
-        <div class="location">at         line 22</div>
-        <code>                    
-    <strong>__invoke</strong>(<abbr title="Psr\Http\Message\ServerRequestInterface">ServerRequestInterface</abbr> $request, <abbr title="Psr\Http\Message\ResponseInterface">ResponseInterface</abbr> $response, $next)
+        <div class="location">at         line 29</div>
+        <code>                    <abbr title="Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>
+    <strong>__invoke</strong>(<abbr title="Psr\Http\Message\ServerRequestInterface">ServerRequestInterface</abbr> $request, <abbr title="Psr\Http\Message\ResponseInterface">ResponseInterface</abbr> $response, callable $next)
         </code>
     </h3>
     <div class="details">
@@ -190,13 +190,22 @@
                 <td></td>
             </tr>
                     <tr>
-                <td></td>
+                <td>callable</td>
                 <td>$next</td>
                 <td></td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
             
             
                     </div>

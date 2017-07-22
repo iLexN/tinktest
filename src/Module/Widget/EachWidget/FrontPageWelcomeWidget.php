@@ -8,9 +8,6 @@ namespace Tink\Module\Widget\EachWidget;
  */
 class FrontPageWelcomeWidget
 {
-    public function __construct()
-    {
-    }
 
     /**
      * @return array

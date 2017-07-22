@@ -39,6 +39,6 @@ class Page extends Model
      */
     public function fields()
     {
-        return $this->hasMany(__NAMESPACE__.'\PageField')->get()->keyBy('field_name');
+        return $this->hasMany(__NAMESPACE__.'\PageField');
     }
 }

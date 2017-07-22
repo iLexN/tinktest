@@ -2,7 +2,7 @@
 
 namespace Tink\Module;
 
-use Psr\Container\ContainerInterface as Container;
+use Psr\Container\ContainerInterface;
 use Tink\Model\History;
 use Valitron\Validator;
 
@@ -13,9 +13,14 @@ use Valitron\Validator;
  */
 class HistoryModule
 {
+    /** @var ContainerInterface  */
     public $container;
 
-    public function __construct(Container $container)
+    /**
+     * HistoryModule constructor.
+     * @param ContainerInterface $container
+     */
+    public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
     }

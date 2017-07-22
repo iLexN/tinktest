@@ -6,7 +6,7 @@ $autoloader = require '../vendor/autoload.php';
 
 date_default_timezone_set('Asia/Hong_Kong');
 
-$settings = \json_decode(file_get_contents(__DIR__.'/../config/app-config.json'),true);
+$settings = \json_decode(file_get_contents(__DIR__.'/../config/app-config.json'), true);
 
 // app init
 $app = new \Slim\App($settings);

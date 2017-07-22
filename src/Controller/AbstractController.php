@@ -2,7 +2,7 @@
 
 namespace Tink\Controller;
 
-use Psr\Container\ContainerInterface as Container;
+use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Tink\Helper\ResponseResult\ResponseResultInterface;
@@ -13,15 +13,15 @@ use Tink\Helper\ResponseResult\ResponseResultInterface;
 abstract class AbstractController
 {
     /**
-     * @var \Slim\Container
+     * @var ContainerInterface
      */
     protected $container;
 
-    public function __construct(Container $container)
+    public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
     }
-    
+
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, array $args)
     {
         $result = $this->action($request, $args);

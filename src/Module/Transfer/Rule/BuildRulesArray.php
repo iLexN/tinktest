@@ -2,6 +2,7 @@
 
 namespace Tink\Module\Transfer\Rule;
 
+use Psr\Container\ContainerInterface;
 use Tink\Model\Account;
 
 /**
@@ -15,7 +16,13 @@ class BuildRulesArray
 
     private $container;
 
-    public function __construct(Account $from, $data, $container)
+    /**
+     * BuildRulesArray constructor.
+     * @param Account $from
+     * @param array $data
+     * @param ContainerInterface $container
+     */
+    public function __construct(Account $from, array $data, ContainerInterface $container)
     {
         $this->from = $from;
         $this->data = $data;
