@@ -20,4 +20,12 @@ class PageField extends Model
     protected $table = 'extra_field';
 
     protected $hidden = ['created_at', 'updated_at'];
+
+    /*
+    protected $appends = ['display_name'];
+    public function getDisplayNameAttribute()
+    {
+        return 'this is display name';
+    }
+    */
 }

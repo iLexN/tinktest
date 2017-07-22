@@ -8,6 +8,7 @@ use Tink\Helper\ResponseResult\JsonResponse;
 use Tink\Helper\ResponseResult\NotFountResponse;
 use Tink\Helper\ResponseResult\ResponseResultInterface;
 use Tink\Model\Page;
+use Tink\Module\Fields\FieldsManager;
 use Tink\Module\PageModule;
 
 class Info extends AbstractController
@@ -41,9 +42,14 @@ class Info extends AbstractController
 
     private function getPageInfo(PageModule $pageModule, Page $page, $request)
     {
+
+        /** @var FieldsManager $fieldsManager */
+        $fieldsManager = $this->container['fieldsManager'];
+
         $out = [
             'pageInfo'=>$page->makeHidden('fields'),
-            'pageField'=>$page->fields->groupby('field_name'),
+            'pageField'=>$fieldsManager->setFields($page->fields)->processFields()->getFields(),
+            //'pageField'=>$page->fields->groupby('field_name'),
         ];
         //all below will not change any page obj.
 

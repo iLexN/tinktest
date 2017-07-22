@@ -2,7 +2,8 @@
 
 use Phinx\Migration\AbstractMigration;
 
-class ExtraFieldTable extends AbstractMigration {
+class ExtraFieldTable extends AbstractMigration
+{
 
   /**
    * Change Method.
@@ -25,14 +26,21 @@ class ExtraFieldTable extends AbstractMigration {
    * Remember to call "create()" or "update()" and NOT "save()" when working
    * with the Table class.
    */
-  public function change() {
-    $extraFieldTable = $this->table('extra_field');
-    $extraFieldTable->addColumn('page_id', 'integer', ['signed' => TRUE])
-      ->addColumn('field_name', 'string', ['limit' => 255])
-      ->addColumn('field_value', 'text')
-      ->addColumn('field_type', 'string', ['limit' => 255])
-      ->addTimestamps()
-      ->addIndex('page_id')
-      ->create();
-  }
+    public function up()
+    {
+        $extraFieldTable = $this->table('extra_field');
+        $extraFieldTable->addColumn('page_id', 'integer', ['signed' => true])
+              ->addColumn('field_name', 'string', ['limit' => 255])
+              ->addColumn('field_value', 'text')
+              ->addColumn('field_type', 'string', ['limit' => 255])
+              ->addTimestamps()
+              ->addIndex('page_id')
+              ->create();
+    }
+
+    public function down()
+    {
+        $pages = $this->table('extra_field');
+        $pages->drop();
+    }
 }
