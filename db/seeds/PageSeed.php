@@ -3,7 +3,8 @@
 use Phinx\Seed\AbstractSeed;
 use Tink\Model\Page;
 
-class PageSeed extends AbstractSeed {
+class PageSeed extends AbstractSeed
+{
 
   /**
    * Run Method.
@@ -13,23 +14,28 @@ class PageSeed extends AbstractSeed {
    * More information on writing seeders is available here:
    * http://docs.phinx.org/en/latest/seeding.html
    */
-  public function run() {
-    $pagesData = [];
-    $pagesData[] = [
-      'title' => 'Front Page',
-      'body' => 'This is the Front Page',
-      'uri' => '/',
-      'content_type' => Page::TYPE_FRONTPAGE,
-    ];
-    $pagesData[] = [
-      'title' => 'About Us',
-      'body' => 'I am iLexN !',
-      'uri' => '/ilexn',
-      'content_type' => Page::TYPE_PAGE,
-    ];
-    $pagesTable = $this->table('page');
-    $pagesTable->insert($pagesData)
-      ->save();
-    //$pagesTable->truncate();
-  }
+    public function run()
+    {
+        $pagesData = [];
+        $pagesData[] = [
+            'title' => 'Front Page',
+            'body' => 'This is the Front Page',
+            'uri' => '/',
+            'content_type' => Page::TYPE_FRONTPAGE,
+        ];
+        $pagesData[] = [
+            'title' => 'About Us',
+            'body' => 'I am iLexN !',
+            'uri' => '/ilexn',
+            'content_type' => Page::TYPE_PAGE,
+        ];
+        $pagesData[] = [
+            'title' => 'no this type',
+            'body' => 'no this type',
+            'uri' => '/no-type',
+            'content_type' => 'no this type',
+        ];
+        $pagesTable = $this->table('page');
+        $pagesTable->insert($pagesData)->save();
+    }
 }

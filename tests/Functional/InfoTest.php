@@ -65,4 +65,17 @@ class InfoTest extends BaseTestCase
         $this->assertEquals($expected['pageInfo'], $result['pageInfo']);
         $this->assertEquals($expected['widget']['type'], $result['widget']['type']);
     }
+
+    public function testWrongType()
+    {
+        $response = $this->runApp('GET', '/no-type');
+        $result = \json_decode((string) $response->getBody(), 1);
+
+        $expected = [
+            'widget' => [
+                'type' => [],
+            ],
+        ];
+        $this->assertEquals($expected['widget']['type'], $result['widget']['type']);
+    }
 }
