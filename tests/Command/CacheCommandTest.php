@@ -28,40 +28,40 @@ class CacheCommandTest extends TestCase
 
     public function testClearAll()
     {
-        $this->tester->execute(array(
+        $this->tester->execute([
             'command' => 'Cache:Clear',
             'Type' => 'ClearAll'
-        ));
+        ]);
 
         $this->assertContains('All Cache Clear', $this->tester->getDisplay());
     }
 
     public function testClearResponse()
     {
-        $this->tester->execute(array(
+        $this->tester->execute([
             'command' => 'Cache:Clear',
             'Type' => 'Response'
-        ));
+        ]);
 
         $this->assertContains('Response Cache Clear', $this->tester->getDisplay());
     }
 
     public function testClearAccount()
     {
-        $this->tester->execute(array(
+        $this->tester->execute([
             'command' => 'Cache:Clear',
             'Type' => 'Account'
-        ));
+        ]);
 
         $this->assertContains('Account Cache Clear', $this->tester->getDisplay());
     }
 
     public function testCacheMaintenance()
     {
-        $this->tester->execute(array(
+        $this->tester->execute([
             'command' => 'Cache:Clear',
             'Type' => 'Maintenance'
-        ));
+        ]);
 
         $this->assertContains('Cache Maintenance is Done', $this->tester->getDisplay());
     }
