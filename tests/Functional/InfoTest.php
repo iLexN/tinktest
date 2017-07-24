@@ -31,11 +31,29 @@ class InfoTest extends BaseTestCase
                     'field_value' => 'This is The Description',
                     'field_type' => 'PlanText',
                 ]],
-            ]
+                'Description1' => [ 0 => [
+                    'id' => 3,
+                    'page_id' => 1,
+                    'field_name' => 'Description1',
+                    'field_value' => '<p>This is Desc 1</p>',
+                    'field_type' => 'HTML',
+                    'plan_text' => 'This is Desc 1'
+                ]],
+                'Link1' => [ 0 => [
+                    'id' => 5,
+                    'page_id' => 1,
+                    'field_name' => 'Link1',
+                    'field_value' => '1',
+                    'field_type' => 'InterLink',
+                    'link' => '/'
+                ]],
+            ],
         ];
 
         $this->assertEquals($expected['pageInfo'], $result['pageInfo']);
         $this->assertEquals($expected['pageField']['Description'], $result['pageField']['Description']);
+        $this->assertEquals($expected['pageField']['Description1'][0], $result['pageField']['Description1'][0]);
+        $this->assertEquals($expected['pageField']['Link1'][0], $result['pageField']['Link1'][0]);
     }
 
     public function testAbout()
