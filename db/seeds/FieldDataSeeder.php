@@ -35,6 +35,12 @@ class FieldDataSeeder extends AbstractSeed
               'field_type' => 'HTML',
             ];
         $fieldData[] = [
+            'page_id' => 1,
+            'field_name' => 'Description1',
+            'field_value' => '<p>This is Desc 1.1</p>',
+            'field_type' => 'no type',
+        ];
+        $fieldData[] = [
               'page_id' => 1,
               'field_name' => 'Link1',
               'field_value' => '1',

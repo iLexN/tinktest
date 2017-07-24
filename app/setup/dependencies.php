@@ -77,3 +77,7 @@ $container['pageModule'] = function (\Slim\Container $c) {
 $container['widgetManager'] = function (\Slim\Container $c) {
     return new \Tink\Module\WidgetManager($c);
 };
+
+$container['fieldsManager'] = function (\Slim\Container $c) {
+    return new \Tink\Module\Fields\FieldsManager($c);
+};
