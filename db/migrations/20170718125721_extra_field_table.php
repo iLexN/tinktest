@@ -29,7 +29,7 @@ class ExtraFieldTable extends AbstractMigration
     public function up()
     {
         $extraFieldTable = $this->table('extra_field');
-        $extraFieldTable->addColumn('page_id', 'integer', ['signed' => true])
+        $extraFieldTable->addColumn('page_id', 'integer', ['signed' => false])
               ->addColumn('field_name', 'string', ['limit' => 255])
               ->addColumn('field_value', 'text')
               ->addColumn('field_type', 'string', ['limit' => 255])
@@ -40,7 +40,7 @@ class ExtraFieldTable extends AbstractMigration
 
     public function down()
     {
-        $pages = $this->table('extra_field');
-        $pages->drop();
+        $extraFieldTable = $this->table('extra_field');
+        $extraFieldTable->drop();
     }
 }
