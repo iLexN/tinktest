@@ -86,5 +86,4 @@ class BaseTestCase extends \PHPUnit\Framework\TestCase
         $response = $this->runApp('GET', '/111');
         $this->assertEquals(404, $response->getStatusCode());
     }
-
 }

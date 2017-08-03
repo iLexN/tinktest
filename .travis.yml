@@ -1,7 +1,6 @@
 language: php
 
 php:
-  - 7.0
   - 7.1
 
 services:
@@ -9,19 +8,19 @@ services:
 
 before_script:
   - composer self-update
-  - composer install --prefer-source --no-interaction --dev
-  - if [[ "$TRAVIS_PHP_VERSION" == '7.0' ]]; then composer require satooshi/php-coveralls:dev-master squizlabs/php_codesniffer:2.* -n ; fi
+  - composer install --prefer-source --no-interaction
+  - if [[ "$TRAVIS_PHP_VERSION" == '7.1' ]]; then composer require satooshi/php-coveralls:dev-master squizlabs/php_codesniffer:2.* -n ; fi
   - mysql -e 'create database tink;'
   - mysql tink < db/tinktest.sql
   - mkdir cache && mkdir cache/data
   - vendor/bin/phinx migrate && vendor/bin/phinx seed:run
  
 script:
-  - if [[ "$TRAVIS_PHP_VERSION" == '7.0' ]]; then mkdir -p build/logs && vendor/bin/phpunit --coverage-clover build/logs/clover.xml ; fi
-  - if [[ "$TRAVIS_PHP_VERSION" != '7.0' ]]; then phpunit ; fi
+  - if [[ "$TRAVIS_PHP_VERSION" == '7.1' ]]; then mkdir -p build/logs && vendor/bin/phpunit --coverage-clover build/logs/clover.xml ; fi
+  - if [[ "$TRAVIS_PHP_VERSION" != '7.1' ]]; then phpunit ; fi
 
 
 after_script:
-  - if [[ "$TRAVIS_PHP_VERSION" == '7.0' ]]; then php vendor/bin/coveralls -v ; fi
-  - if [[ "$TRAVIS_PHP_VERSION" == '7.0' ]]; then wget https://scrutinizer-ci.com/ocular.phar ; fi
-  - if [[ "$TRAVIS_PHP_VERSION" == '7.0' ]]; then php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml ; fi
+  - if [[ "$TRAVIS_PHP_VERSION" == '7.1' ]]; then php vendor/bin/coveralls -v ; fi
+  - if [[ "$TRAVIS_PHP_VERSION" == '7.1' ]]; then wget https://scrutinizer-ci.com/ocular.phar ; fi
+  - if [[ "$TRAVIS_PHP_VERSION" == '7.1' ]]; then php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml ; fi
