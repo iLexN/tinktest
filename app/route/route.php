@@ -15,4 +15,6 @@ $app->post('/account/{id:\d+}/{action:withdraw|deposit}', 'Tink\Controller\Accou
 $app->post('/account/{id:\d+}/transfer/{toid:\d+}', 'Tink\Controller\Account\Transfer')
         ->add($checkAccount);
 
+$app->get('/user/{id:\d+}', 'Tink\Controller\User\User');
+
 $app->get('/[{params:.*}]', 'Tink\Controller\Info');
