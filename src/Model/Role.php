@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property int $id
  * @property mixed $permission
+ * @property string name
  */
 class Role extends Model
 {
