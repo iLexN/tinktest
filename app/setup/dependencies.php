@@ -81,3 +81,7 @@ $container['widgetManager'] = function (\Slim\Container $c) {
 $container['fieldsManager'] = function (\Slim\Container $c) {
     return new \Tink\Module\Fields\FieldsManager($c);
 };
+
+$container['userManager'] = function (\Slim\Container $c) {
+    return new \Tink\Module\UserManager($c);
+};

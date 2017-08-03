@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: IlexN
- * Date: 22/7/2017
- * Time: 15:46
- */
 
 namespace Tests\Functional;
 

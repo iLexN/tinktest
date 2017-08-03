@@ -11,24 +11,22 @@ class ConfigCommandTest extends TestCase
 {
     public function testPathNotExist()
     {
-
         $application = new Application();
         $application->add(new ConfigCommand());
 
         $command = $application->find('Config:Make');
 
         $commandTester = new CommandTester($command);
-        $commandTester->execute(array(
+        $commandTester->execute([
             'command' => $command->getName(),
             'Path' => 'Sitepoint'
-        ));
+        ]);
 
         $this->assertRegExp('/Your config path not exist/', $commandTester->getDisplay());
     }
 
     public function testPathExist()
     {
-
         $path = __DIR__.'/../../config/default';
 
         $application = new Application();
@@ -37,10 +35,10 @@ class ConfigCommandTest extends TestCase
         $command = $application->find('Config:Make');
 
         $commandTester = new CommandTester($command);
-        $commandTester->execute(array(
+        $commandTester->execute([
             'command' => $command->getName(),
             'Path' => $path,
-        ));
+        ]);
 
         $this->assertRegExp('/Your config is: /', $commandTester->getDisplay());
     }
