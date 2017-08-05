@@ -28,10 +28,6 @@ $container['pool'] = function (\Slim\Container $c) {
 // rount handloer
 $container['notFoundHandler'] = function (\Slim\Container $c) {
     return function (\Slim\Http\Request $request, \Slim\Http\Response  $response) use ($c) {
-//        $c['logger']->info('404', [
-//        'method' => $request->getMethod(),
-//            'uri'    => (string) $request->getUri(),
-//        ]);
         return $response->write('404')->withStatus(404);
     };
 };
@@ -50,7 +46,7 @@ $container['phpErrorHandler'] = function (\Slim\Container $c) {
 
         return $c['response']
             ->withStatus(500)
-            ->write(print_r($error,1));
+            ->write(print_r($error, 1));
     };
 };
 
@@ -84,4 +80,11 @@ $container['fieldsManager'] = function (\Slim\Container $c) {
 
 $container['userManager'] = function (\Slim\Container $c) {
     return new \Tink\Module\UserManager($c);
+};
+
+$container['eventEmitter'] = function (\Slim\Container $c) {
+    $emitter = new \League\Event\Emitter;
+    $emitter->useListenerProvider(new \Tink\Event\AccountListenerProvider($c));
+
+    return $emitter;
 };
