@@ -2,7 +2,6 @@
 
 namespace Tink\Module;
 
-use League\Event\Emitter;
 use Psr\Container\ContainerInterface;
 use Stash\Pool;
 use Tink\Model\Account;
@@ -23,20 +22,10 @@ class AccountModule
      */
     protected $pool;
 
-    /**
-     * @var Emitter
-     */
-    protected $emit;
-
-    /**
-     * AccountModule constructor.
-     * @param ContainerInterface $container
-     */
     public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
         $this->pool = $container['pool'];
-        $this->emit = $container['eventEmitter'];
     }
 
     /**
@@ -56,8 +45,6 @@ class AccountModule
         $ac->ower = $owner->id;
         $ac->save();
 
-        $this->emit->emit('account.open', $ac);
-
         return $ac;
     }
 
@@ -69,8 +56,17 @@ class AccountModule
     {
         $ac->status = Account::AC_STATUS_INACTIVE;
         $ac->save();
+        $this->clearAcInfoCache($ac->id);
+    }
 
-        $this->emit->emit('account.close', $ac);
+    /**
+     * clear account info cache, Key : Account/{id}
+     * @param int $id
+     */
+    public function clearAcInfoCache($id)
+    {
+        $this->pool->deleteItem('/Account/' . $id);
+        //$this->pool->deleteItem('Response/account/' . $id);
     }
 
     /**
@@ -90,7 +86,7 @@ class AccountModule
         $ac->calBalance($historyObj->amount, $status);
         $ac->save();
 
-        $this->emit->emit('account.amountChange', $ac);
+        $this->clearAcInfoCache($ac->id);
     }
 
     /**

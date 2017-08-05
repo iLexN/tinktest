@@ -41,12 +41,6 @@ class TransferModuleTest extends \PHPUnit\Framework\TestCase
             return new \Tink\Module\HistoryModule($c);
         };
 
-        $container['eventEmitter'] = function (\Slim\Container $c) {
-            $emitter = new \League\Event\Emitter;
-            $emitter->addListener('account.open', new \Tink\Event\Account\AccountOpen($c));
-            return $emitter;
-        };
-
         $container['pool'] = function (\Slim\Container $c) {
             $driver = new \Stash\Driver\FileSystem();
             return new \Stash\Pool($driver);
