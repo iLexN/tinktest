@@ -25,7 +25,6 @@ class RuleDailyLimit implements RuleInterface
         $this->data = $data;
     }
 
-
     /**
      * @return bool
      */
