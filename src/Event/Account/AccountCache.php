@@ -37,5 +37,6 @@ class AccountCache extends AbstractListener
         /** @var Pool $pool */
         $pool = $this->container['pool'];
         $pool->deleteItem('/Account/' . $param->id);
+        $pool->deleteItem('/Response/account/'.$param->id);
     }
 }
